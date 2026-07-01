@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EAU – Entwicklungsinstitut für angewandten Umweltschutz</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f9f8;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 8%;
+  box-shadow: 0 2px 20px rgba(0,0,0,.08);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-left img {
+  height: 50px;
+  width: auto;
+}
+
+.header-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #0b5fa5;
+  line-height: 1.2;
+  max-width: 420px;
+}
+
+/* NAV */
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #234;
+  font-weight: 600;
+}
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  padding: 120px 8% 60px;
+  background: linear-gradient(rgba(0,70,120,.45),rgba(0,120,100,.35)),
+              url('images/panoramaeau.png') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.primary { background: #0b5fa5; color: white; }
+.secondary { background: #2ca65a; color: white; }
+
+/* SECTIONS */
+section {
+  padding: 80px 8%;
+}
+
+section h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0,0,0,.08);
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* FOOTER */
+footer {
+  background: linear-gradient(90deg,#0b5fa5,#2ca65a);
+  color: white;
+  padding: 40px 8%;
+  text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav ul {
+    position: absolute;
+    top: 70px;
+    right: 8%;
+    background: white;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+    display: none;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .header-title {
+    font-size: 0.9rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <img src="images/eau.png" alt="EAU Logo">
+    <div class="header-title">
+      Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+    </div>
+  </div>
+
+  <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
+    ☰
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="#">Start</a></li>
+      <li><a href="#">Über uns</a></li>
+      <li><a href="#">Forschung & Transfer</a></li>
+      <li><a href="#">Leistungen</a></li>
+      <li><a href="#">Projekte</a></li>
+      <li><a href="#">Wissen</a></li>
+      <li><a href="#">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Wissen schaffen.<br>Umsetzung ermöglichen.<br>Zukunft gestalten.</h1>
+    <p>Gemeinnützige Forschung, Wissens- und Technologietransfer sowie praktische Umsetzung in der Wasser- und Kreislaufwirtschaft.</p>
+    <a class="btn primary" href="#">Unsere Projekte</a>
+    <a class="btn secondary" href="#">Kontakt aufnehmen</a>
+  </div>
+</section>
+
+<section>
+  <h2>Unsere Themenfelder</h2>
+  <div class="cards">
+    <div class="card"><h3>💧 Wasserwirtschaft</h3><p>Siedlungswasserwirtschaft, Regenwasser und Schwammstadt.</p></div>
+    <div class="card"><h3>♻ Kreislaufwirtschaft</h3><p>Ressourceneffizienz und Stoffstrommanagement.</p></div>
+    <div class="card"><h3>🧪 Verfahrenstechnik</h3><p>Innovative Technologien für Umwelt und Infrastruktur.</p></div>
+    <div class="card"><h3>🌍 Klimaschutz</h3><p>Anpassung an den Klimawandel und resiliente Städte.</p></div>
+  </div>
+</section>
+
+<footer>
+  <h3>EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG</h3>
+  <p>Forschung. Transfer. Anwendung.</p>
+</footer>
+
+</body>
+</html>
