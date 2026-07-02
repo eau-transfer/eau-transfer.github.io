@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt & Impressum | EAU – Entwicklungsinstitut für angewandten Umweltschutz</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f9f8;
+    color:#1f2937;
+    line-height:1.6;
+}
+
+/* HEADER */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:#e8f4ff;
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 8%;
+    box-shadow:0 2px 20px rgba(0,0,0,.08);
+}
+
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.header-left img{
+    height:50px;
+    width:auto;
+}
+
+.header-title{
+    font-weight:700;
+    font-size:1.1rem;
+    color:#0b5fa5;
+    line-height:1.2;
+    max-width:420px;
+}
+
+/* NAVIGATION */
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:#234;
+    font-weight:600;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#0b5fa5;
+}
+
+.menu-toggle{
+    display:none;
+    font-size:2rem;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    padding:180px 8% 80px;
+    background:linear-gradient(rgba(0,70,120,.55),rgba(0,120,100,.40)),
+    url('images/panoramaeau.png') center/cover no-repeat;
+    color:white;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:clamp(2.2rem,5vw,4rem);
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    max-width:800px;
+    margin:auto;
+}
+
+/* CONTENT */
+.content{
+    padding:80px 8%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:40px;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:24px;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.card h2{
+    color:#0b5fa5;
+    margin-bottom:25px;
+}
+
+.card p{
+    margin-bottom:12px;
+}
+
+.card strong{
+    color:#234;
+}
+
+/* FOOTER */
+footer{
+    background:linear-gradient(90deg,#0b5fa5,#2ca65a);
+    color:white;
+    padding:40px 8%;
+    text-align:center;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+    nav ul{
+        position:absolute;
+        top:70px;
+        right:8%;
+        background:white;
+        flex-direction:column;
+        gap:15px;
+        padding:20px;
+        border-radius:12px;
+        box-shadow:0 10px 25px rgba(0,0,0,.1);
+        display:none;
+    }
+
+    nav ul.show{
+        display:flex;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .header-title{
+        font-size:0.9rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-left">
+        <img src="images/eau.png" alt="EAU Logo">
+        <div class="header-title">
+            Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+        </div>
+    </div>
+
+    <div class="menu-toggle"
+         onclick="document.querySelector('nav ul').classList.toggle('show')">
+         ☰
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Start</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="forschung.html">Forschung & Transfer</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="projekte.html">Projekte</a></li>
+            <li><a href="wissen.html">Wissen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Kontakt & Impressum</h1>
+    <p>
+        Wir freuen uns über Ihre Anfrage zu Forschung, Kooperationen,
+        Projekten oder Technologietransfer im Bereich Umwelt- und Wasserwirtschaft.
+    </p>
+</section>
+
+<section class="content">
+
+    <div class="card">
+        <h2>📬 Kontakt</h2>
+
+        <p><strong>EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG</strong></p>
+
+        <p>Musterstraße 1<br>
+        12345 Musterstadt<br>
+        Deutschland</p>
+
+        <p><strong>Telefon:</strong> +49 (0)1234 567890</p>
+        <p><strong>E-Mail:</strong> info@eau-institut.de</p>
+        <p><strong>Internet:</strong> www.eau-institut.de</p>
+
+        <br>
+
+        <p>
+            Für Projektanfragen, Forschungskooperationen und allgemeine Informationen
+            stehen wir Ihnen gerne zur Verfügung.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>⚖ Impressum</h2>
+
+        <p><strong>Angaben gemäß § 5 TMG</strong></p>
+
+        <p>
+            EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG<br>
+            Musterstraße 1<br>
+            12345 Musterstadt
+        </p>
+
+        <p>
+            Vertreten durch die Geschäftsführung:<br>
+            Max Mustermann
+        </p>
+
+        <p>
+            Registergericht: Amtsgericht Musterstadt<br>
+            Registernummer: HRB XXXXX
+        </p>
+
+        <p>
+            Umsatzsteuer-ID gemäß §27a UStG:<br>
+            DE123456789
+        </p>
+
+        <p>
+            Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:<br>
+            Max Mustermann<br>
+            Musterstraße 1<br>
+            12345 Musterstadt
+        </p>
+    </div>
+
+</section>
+
+<footer>
+    <h3>EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG</h3>
+    <p>Forschung. Transfer. Anwendung.</p>
+</footer>
+
+</body>
+</html>
