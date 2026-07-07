@@ -153,18 +153,24 @@ nav a:hover{
 .founder-card:hover{
     transform:translateY(-8px);
 }
-
 .profile-placeholder{
     width:160px;
     height:160px;
     margin:0 auto 25px;
     border-radius:50%;
-    border:3px dashed #9fc5e8;
+    overflow:hidden; /* wichtig: Bild bleibt im Kreis */
+    border:3px solid #9fc5e8;
     background:#f7fbff;
     display:flex;
     align-items:center;
     justify-content:center;
-    color:#0b5fa5;
+}
+
+.profile-placeholder img{
+    width:100%;
+    height:100%;
+    object-fit:cover; /* füllt den Kreis optimal aus */
+    display:block;
 }
 
 .founder-card h3{
@@ -334,7 +340,7 @@ footer{
 
     <div class="mission">
 
-        <h2>Warum wir die gUG gegründet haben</h2>
+        <h2>Warum wir die EAU gUG gegründet haben</h2>
 
         <p>
             Die Herausforderungen des Klima- und Ressourcenschutzes erfordern
