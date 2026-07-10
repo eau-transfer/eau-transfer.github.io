@@ -1,33 +1,486 @@
 <!DOCTYPE html>
-<html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forschung & Transfer | EAU</title>
-<link rel="icon" type="image/png" href="/favicon.png">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#eef6ff;color:#1f2937;line-height:1.6}
-header{position:fixed;top:0;width:100%;z-index:1000;background:#e8f4ff;backdrop-filter:blur(10px);display:flex;justify-content:space-between;align-items:center;padding:14px 8%;box-shadow:0 2px 20px rgba(0,0,0,.08)}
-.header-left{display:flex;align-items:center;gap:12px}.header-left img{height:50px}.header-title{font-weight:700;font-size:1.1rem;color:#0b5fa5;max-width:420px}
-nav ul{display:flex;gap:25px;list-style:none}nav a{text-decoration:none;color:#234;font-weight:600}nav a:hover{color:#0b5fa5}.menu-toggle{display:none;font-size:2rem;cursor:pointer}
-.hero{padding:180px 8% 100px;background:linear-gradient(rgba(0,70,120,.55),rgba(0,120,100,.40)),url('images/panoramaeau.png') center/cover no-repeat;color:#fff;text-align:center}
-.hero h1{font-size:clamp(2.5rem,5vw,4rem);margin-bottom:20px}.hero p{font-size:1.2rem;max-width:850px;margin:auto}
-.section{padding:80px 8%}.section h2{text-align:center;font-size:2rem;color:#0b5fa5;margin-bottom:40px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
-.card,.box{background:#fff;border-radius:24px;padding:35px;box-shadow:0 10px 35px rgba(0,0,0,.08)}
-.card:hover{transform:translateY(-8px);transition:.3s}.card h3{color:#0b5fa5;margin-bottom:15px}
-.placeholder{height:260px;border:3px dashed #9fc5e8;border-radius:20px;display:flex;align-items:center;justify-content:center;background:#f7fbff;color:#0b5fa5}
-footer{background:linear-gradient(90deg,#0b5fa5,#2ca65a);color:#fff;padding:40px 8%;text-align:center}
-@media(max-width:900px){nav ul{position:absolute;top:70px;right:8%;background:#fff;flex-direction:column;gap:15px;padding:20px;border-radius:12px;display:none;box-shadow:0 10px 25px rgba(0,0,0,.1)}nav ul.show{display:flex}.menu-toggle{display:block}.header-title{font-size:.9rem}}
-</style></head><body>
-<header><div class="header-left"><img src="images/eau.png"><div class="header-title">Entwicklungsinstitut für angewandten Umweltschutz gUG iG</div></div>
-<div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">☰</div>
-<nav><ul><li><a href="index.html">Start</a></li><li><a href="ueberuns.html">Über uns</a></li><li><a href="forschung.html">Forschung & Transfer</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="projekte.html">Projekte</a></li><li><a href="wissen.html">Wissen</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></nav></header>
-<section class="hero"><h1>Forschung & Transfer</h1><p>Wir verbinden wissenschaftliche Forschung mit praxisnahen Lösungen und fördern den Transfer innovativer Umwelttechnologien in Wirtschaft, Kommunen und Gesellschaft.</p></section>
-<section class="section"><h2>Unsere Forschungsschwerpunkte</h2><div class="cards">
-<div class="card"><h3>💧 Wasserwirtschaft</h3><p>Nachhaltige Konzepte für Siedlungswasserwirtschaft, Regenwassermanagement und Schwammstadt.</p></div>
-<div class="card"><h3>♻ Kreislaufwirtschaft</h3><p>Ressourceneffizienz, Stoffstrommanagement und nachhaltige Verwertungskonzepte.</p></div>
-<div class="card"><h3>🌍 Klimaanpassung</h3><p>Resiliente Infrastrukturen und naturbasierte Lösungen für Städte und Regionen.</p></div>
-<div class="card"><h3>🧪 Verfahrenstechnik</h3><p>Innovative Technologien zur Wasseraufbereitung und Ressourcengewinnung.</p></div>
-</div></section>
-<section class="section"><div class="box"><h2>Wissens- und Technologietransfer</h2><p>Die EAU unterstützt den Transfer wissenschaftlicher Erkenntnisse in die Praxis. Gemeinsam mit Hochschulen, Unternehmen, Kommunen und öffentlichen Einrichtungen entwickeln wir innovative Lösungen und begleiten deren Umsetzung.</p><p>Unsere Aktivitäten umfassen Forschungsprojekte, Pilotanlagen, Demonstrationsvorhaben, Beratung sowie Fort- und Weiterbildungsangebote.</p></div></section>
-<section class="section"><div class="box"><h2>Kooperationspartner</h2><div class="placeholder">Logos oder Bild der Projektpartner einfügen (z.&nbsp;B. images/partner.jpg)</div></div></section>
-<footer><h3>EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG</h3><p>Forschung. Transfer. Anwendung.</p></footer></body></html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Forschung & Transfer | EAU</title>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef6ff;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: #e8f4ff;
+            backdrop-filter: blur(10px);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 14px 8%;
+
+            box-shadow: 0 2px 20px rgba(0, 0, 0, .08);
+        }
+
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+
+        .header-left img {
+            height: 50px;
+        }
+
+
+        .header-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #0b5fa5;
+            max-width: 420px;
+        }
+
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+
+        nav a {
+            text-decoration: none;
+            color: #234;
+            font-weight: 600;
+        }
+
+
+        nav a:hover {
+            color: #0b5fa5;
+        }
+
+
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+
+        .hero {
+
+            padding: 180px 8% 100px;
+
+            background:
+                linear-gradient(
+                    rgba(0,70,120,.55),
+                    rgba(0,120,100,.40)
+                ),
+                url('images/panoramaeau.png') center/cover no-repeat;
+
+            color: #fff;
+            text-align: center;
+        }
+
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+        }
+
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 850px;
+            margin: auto;
+        }
+
+
+        .section {
+            padding: 80px 8%;
+        }
+
+
+        .section h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #0b5fa5;
+            margin-bottom: 40px;
+        }
+
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(260px, 1fr));
+
+            gap: 30px;
+        }
+
+
+        .card,
+        .box {
+
+            background: #fff;
+
+            border-radius: 24px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,.08);
+        }
+
+
+        .card:hover {
+
+            transform: translateY(-8px);
+
+            transition: .3s;
+        }
+
+
+        .card h3 {
+
+            color: #0b5fa5;
+
+            margin-bottom: 15px;
+        }
+
+
+        .placeholder {
+
+            height: 260px;
+
+            border: 3px dashed #9fc5e8;
+
+            border-radius: 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #f7fbff;
+
+            color: #0b5fa5;
+
+            text-align: center;
+        }
+
+
+        footer {
+
+            background:
+                linear-gradient(90deg,#0b5fa5,#2ca65a);
+
+            color: #fff;
+
+            padding: 40px 8%;
+
+            text-align: center;
+        }
+
+
+        @media(max-width:900px) {
+
+
+            nav ul {
+
+                position: absolute;
+
+                top: 70px;
+
+                right: 8%;
+
+                background: #fff;
+
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 20px;
+
+                border-radius: 12px;
+
+                display: none;
+
+                box-shadow:
+                    0 10px 25px rgba(0,0,0,.1);
+            }
+
+
+            nav ul.show {
+
+                display: flex;
+            }
+
+
+            .menu-toggle {
+
+                display: block;
+            }
+
+
+            .header-title {
+
+                font-size: .9rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="header-left">
+
+        <img src="images/eau.png" alt="EAU Logo">
+
+        <div class="header-title">
+
+            Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+
+        </div>
+
+    </div>
+
+
+    <div class="menu-toggle"
+         onclick="document.querySelector('nav ul').classList.toggle('show')">
+
+        ☰
+
+    </div>
+
+
+    <nav>
+
+        <ul>
+
+            <li><a href="index.html">Start</a></li>
+
+            <li><a href="ueberuns.html">Über uns</a></li>
+
+            <li><a href="forschung.html">Forschung & Transfer</a></li>
+
+            <li><a href="leistungen.html">Leistungen</a></li>
+
+            <li><a href="projekte.html">Projekte</a></li>
+
+            <li><a href="wissen.html">Wissen</a></li>
+
+            <li><a href="kontakt.html">Kontakt</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+
+<section class="hero">
+
+    <h1>
+        Forschung & Transfer
+    </h1>
+
+
+    <p>
+        Wir verbinden wissenschaftliche Forschung mit praxisnahen Lösungen
+        und fördern den Transfer innovativer Umwelttechnologien in Wirtschaft,
+        Kommunen und Gesellschaft.
+    </p>
+
+</section>
+
+
+
+
+<section class="section">
+
+
+    <h2>
+        Unsere Forschungsschwerpunkte
+    </h2>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>💧 Wasserwirtschaft</h3>
+
+            <p>
+                Nachhaltige Konzepte für Siedlungswasserwirtschaft,
+                Regenwassermanagement und Schwammstadt.
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>♻ Kreislaufwirtschaft</h3>
+
+            <p>
+                Ressourceneffizienz, Stoffstrommanagement und nachhaltige
+                Verwertungskonzepte.
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>🌍 Klimaanpassung</h3>
+
+            <p>
+                Resiliente Infrastrukturen und naturbasierte Lösungen
+                für Städte und Regionen.
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>🧪 Verfahrenstechnik</h3>
+
+            <p>
+                Innovative Technologien zur Wasseraufbereitung und
+                Ressourcengewinnung.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+<section class="section">
+
+
+    <div class="box">
+
+
+        <h2>
+            Wissens- und Technologietransfer
+        </h2>
+
+
+        <p>
+            Die EAU unterstützt den Transfer wissenschaftlicher Erkenntnisse
+            in die Praxis. Gemeinsam mit Hochschulen, Unternehmen, Kommunen
+            und öffentlichen Einrichtungen entwickeln wir innovative Lösungen
+            und begleiten deren Umsetzung.
+        </p>
+
+
+        <p>
+            Unsere Aktivitäten umfassen Forschungsprojekte, Pilotanlagen,
+            Demonstrationsvorhaben, Beratung sowie Fort- und
+            Weiterbildungsangebote.
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+<section class="section">
+
+
+    <div class="box">
+
+
+        <h2>
+            Kooperationspartner
+        </h2>
+
+
+        <div class="placeholder">
+
+            Logos oder Bild der Projektpartner einfügen
+            (z.&nbsp;B. images/partner.jpg)
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+<footer>
+
+
+    <h3>
+        EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+    </h3>
+
+
+    <p>
+        Forschung. Transfer. Anwendung.
+    </p>
+
+
+</footer>
+
+
+
+</body>
+
+</html>
