@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
 
@@ -6,12 +7,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Forschung & Transfer | EAU</title>
+    <title>Forschung & Transfer | EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG</title>
 
     <link rel="icon" type="image/png" href="/favicon.png">
 
 
     <style>
+
+        /* =====================================================
+           GRUNDLAGEN
+        ===================================================== */
 
         * {
             margin: 0;
@@ -19,243 +24,863 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --blue-dark: #003B63;
+            --blue: #005B9A;
+            --blue-bright: #0077B6;
+            --blue-light: #35B9E8;
+            --cyan: #65D8E8;
+
+            --green: #22A06B;
+            --green-light: #5BC99A;
+
+            --dark: #173447;
+            --text: #334B5C;
+
+            --background: #F2F9FD;
+            --white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #eef6ff;
-            color: #1f2937;
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #EDF8FF 0%,
+                    #F7FBFD 100%
+                );
+
+            color: var(--text);
+
             line-height: 1.6;
         }
 
 
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
         header {
             position: fixed;
             top: 0;
-            width: 100%;
-            z-index: 1000;
 
-            background: #e8f4ff;
-            backdrop-filter: blur(10px);
+            width: 100%;
+
+            z-index: 1000;
 
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            padding: 14px 8%;
+            padding: 13px 7%;
 
-            box-shadow: 0 2px 20px rgba(0, 0, 0, .08);
+            background: rgba(239, 249, 255, .94);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom:
+                1px solid rgba(0, 91, 154, .12);
+
+            box-shadow:
+                0 3px 25px rgba(0, 45, 75, .10);
         }
-
 
         .header-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 13px;
         }
-
 
         .header-left img {
             height: 50px;
+            width: auto;
         }
-
 
         .header-title {
             font-weight: 700;
-            font-size: 1.1rem;
-            color: #0b5fa5;
+            font-size: 1.05rem;
+
+            color: var(--blue-dark);
+
+            line-height: 1.2;
+
             max-width: 420px;
         }
 
 
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
         nav ul {
             display: flex;
-            gap: 25px;
+
+            gap: 24px;
+
             list-style: none;
         }
 
-
         nav a {
+            position: relative;
+
             text-decoration: none;
-            color: #234;
-            font-weight: 600;
+
+            color: var(--dark);
+
+            font-weight: 700;
+
+            transition: .25s;
         }
 
+        nav a::after {
+            content: "";
 
-        nav a:hover {
-            color: #0b5fa5;
-        }
+            position: absolute;
 
+            left: 0;
+            bottom: -7px;
 
-        .menu-toggle {
-            display: none;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
-
-        .hero {
-
-            padding: 180px 8% 100px;
+            width: 0;
+            height: 2px;
 
             background:
                 linear-gradient(
-                    rgba(0,70,120,.55),
-                    rgba(0,120,100,.40)
-                ),
-                url('images/panoramaeau.png') center/cover no-repeat;
+                    90deg,
+                    var(--blue-bright),
+                    var(--cyan)
+                );
 
-            color: #fff;
+            transition: .25s;
+        }
+
+        nav a:hover {
+            color: var(--blue-bright);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: var(--blue-bright);
+        }
+
+        nav a.active::after {
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           HAMBURGER
+        ===================================================== */
+
+        .menu-toggle {
+            display: none;
+
+            font-size: 2rem;
+
+            cursor: pointer;
+
+            color: var(--blue-dark);
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            position: relative;
+
+            min-height: 560px;
+
+            padding:
+                165px 8% 125px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            color: white;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    rgba(0, 47, 82, .93) 0%,
+                    rgba(0, 91, 154, .76) 48%,
+                    rgba(0, 119, 182, .42) 100%
+                ),
+                url('images/panoramaeau.png')
+                center/cover no-repeat;
+        }
+
+
+        /* Leuchtende Wasserstruktur */
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 700px;
+            height: 700px;
+
+            right: -280px;
+            bottom: -400px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(101, 216, 232, .35),
+                    rgba(101, 216, 232, 0)
+                );
+        }
+
+
+        /* Wasserlinie */
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            left: -5%;
+            bottom: -78px;
+
+            width: 110%;
+            height: 145px;
+
+            background: var(--background);
+
+            border-radius:
+                50% 50% 0 0 /
+                100% 100% 0 0;
+        }
+
+        .hero-content {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 950px;
+        }
+
+
+        .hero-label {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 22px;
+
+            font-size: .82rem;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: var(--cyan);
+        }
+
+        .hero-label::before {
+            content: "";
+
+            width: 32px;
+            height: 3px;
+
+            border-radius: 5px;
+
+            background: var(--cyan);
+        }
+
+        .hero h1 {
+            font-size:
+                clamp(2.7rem, 5.5vw, 4.8rem);
+
+            line-height: 1.05;
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 24px;
+
+            text-shadow:
+                0 3px 20px rgba(0,0,0,.18);
+        }
+
+        .hero p {
+            font-size: 1.18rem;
+
+            line-height: 1.7;
+
+            max-width: 880px;
+
+            margin: auto;
+
+            color:
+                rgba(255,255,255,.94);
+        }
+
+
+        /* =====================================================
+           INTRO
+        ===================================================== */
+
+        .intro {
+            padding:
+                85px 8% 45px;
+
+            background: var(--background);
+
             text-align: center;
         }
 
+        .intro-content {
+            max-width: 900px;
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 20px;
-        }
-
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 850px;
             margin: auto;
         }
 
+        .eyebrow {
+            color: var(--blue-bright);
+
+            font-size: .8rem;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+        .intro h2 {
+            font-size:
+                clamp(2rem, 4vw, 3rem);
+
+            line-height: 1.15;
+
+            color: var(--blue-dark);
+
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 1.08rem;
+        }
+
+
+        /* =====================================================
+           SEKTIONEN
+        ===================================================== */
 
         .section {
-            padding: 80px 8%;
+            padding:
+                75px 8%;
         }
 
+        .section-header {
+            max-width: 900px;
 
-        .section h2 {
+            margin:
+                0 auto 50px;
+
             text-align: center;
-            font-size: 2rem;
-            color: #0b5fa5;
-            margin-bottom: 40px;
         }
 
+        .section-header h2 {
+            font-size:
+                clamp(2rem, 4vw, 2.8rem);
+
+            color: var(--blue-dark);
+
+            margin-bottom: 12px;
+        }
+
+
+        /* =====================================================
+           FORSCHUNGSSCHWERPUNKTE
+        ===================================================== */
 
         .cards {
+            max-width: 1200px;
+
+            margin: auto;
 
             display: grid;
 
             grid-template-columns:
-                repeat(auto-fit, minmax(260px, 1fr));
+                repeat(auto-fit, minmax(280px, 1fr));
 
-            gap: 30px;
+            gap: 25px;
         }
 
+        .card {
+            position: relative;
 
-        .card,
-        .box {
+            min-height: 260px;
 
-            background: #fff;
+            padding: 35px 30px;
+
+            background: white;
 
             border-radius: 24px;
 
-            padding: 35px;
+            border:
+                1px solid rgba(0,91,154,.08);
 
             box-shadow:
-                0 10px 35px rgba(0,0,0,.08);
+                0 12px 38px rgba(0,50,80,.08);
+
+            overflow: hidden;
+
+            transition: .35s;
         }
 
+
+        /* Wasser-/Technologie-Akzent */
+
+        .card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 4px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--blue),
+                    var(--blue-light),
+                    var(--green)
+                );
+        }
+
+
+        /* Kreis als dezenter Wasser-Hintergrund */
+
+        .card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 170px;
+            height: 170px;
+
+            right: -85px;
+            bottom: -85px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(0,119,182,.10);
+
+            box-shadow:
+                0 0 0 28px rgba(0,119,182,.025),
+                0 0 0 56px rgba(0,119,182,.018);
+        }
 
         .card:hover {
-
             transform: translateY(-8px);
 
-            transition: .3s;
+            box-shadow:
+                0 22px 48px rgba(0,70,110,.14);
         }
 
+
+        /* Icons */
+
+        .card-icon {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 22px;
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #DDF3FC,
+                    #E1F8F2
+                );
+
+            color: var(--blue-bright);
+
+            font-size: 1.6rem;
+
+            position: relative;
+
+            z-index: 2;
+        }
 
         .card h3 {
+            position: relative;
 
-            color: #0b5fa5;
+            z-index: 2;
 
-            margin-bottom: 15px;
+            color: var(--blue-dark);
+
+            font-size: 1.25rem;
+
+            margin-bottom: 12px;
+
+            line-height: 1.25;
+        }
+
+        .card p {
+            position: relative;
+
+            z-index: 2;
+
+            font-size: .98rem;
         }
 
 
+        /* =====================================================
+           TRANSFER-BEREICH
+        ===================================================== */
+
+        .transfer-section {
+            position: relative;
+
+            padding:
+                95px 8%;
+
+            color: white;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #003B63 0%,
+                    #005B9A 55%,
+                    #007EAE 100%
+                );
+        }
+
+
+        .transfer-section::before {
+            content: "";
+
+            position: absolute;
+
+            width: 650px;
+            height: 650px;
+
+            right: -280px;
+            top: -350px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(101,216,232,.25);
+
+            box-shadow:
+                0 0 0 80px rgba(101,216,232,.04),
+                0 0 0 160px rgba(101,216,232,.025);
+        }
+
+        .transfer-section::after {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            left: -220px;
+            bottom: -220px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(101,216,232,.16);
+        }
+
+        .transfer-content {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 1050px;
+
+            margin: auto;
+        }
+
+        .transfer-content .eyebrow {
+            color: var(--cyan);
+        }
+
+        .transfer-box {
+            padding: 50px;
+
+            background:
+                rgba(255,255,255,.08);
+
+            border:
+                1px solid rgba(255,255,255,.14);
+
+            border-radius: 26px;
+
+            backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 20px 55px rgba(0,30,55,.18);
+        }
+
+        .transfer-box h2 {
+            font-size:
+                clamp(2rem, 4vw, 3rem);
+
+            line-height: 1.15;
+
+            color: white;
+
+            margin-bottom: 28px;
+        }
+
+        .transfer-box p {
+            font-size: 1.05rem;
+
+            color:
+                rgba(255,255,255,.88);
+
+            margin-bottom: 20px;
+        }
+
+        .transfer-box p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =====================================================
+           KOOPERATIONSPARTNER
+        ===================================================== */
+
+        .partner-box {
+            max-width: 1150px;
+
+            margin: auto;
+
+            background: white;
+
+            border-radius: 26px;
+
+            padding: 40px;
+
+            border:
+                1px solid rgba(0,91,154,.08);
+
+            box-shadow:
+                0 15px 45px rgba(0,50,80,.09);
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .partner-box::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 5px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--blue),
+                    var(--blue-light),
+                    var(--green)
+                );
+        }
+
+        .partner-box h2 {
+            text-align: center;
+
+            color: var(--blue-dark);
+
+            font-size: 2rem;
+
+            margin-bottom: 28px;
+        }
+
         .placeholder {
+            min-height: 260px;
 
-            height: 260px;
-
-            border: 3px dashed #9fc5e8;
+            border:
+                2px dashed #9CCFE5;
 
             border-radius: 20px;
 
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
-            background: #f7fbff;
-
-            color: #0b5fa5;
-
-            text-align: center;
-        }
-
-
-        footer {
+            padding: 30px;
 
             background:
-                linear-gradient(90deg,#0b5fa5,#2ca65a);
+                linear-gradient(
+                    135deg,
+                    #F2FAFE,
+                    #F6FCFA
+                );
 
-            color: #fff;
-
-            padding: 40px 8%;
+            color: var(--blue);
 
             text-align: center;
+
+            font-weight: 600;
         }
 
 
-        @media(max-width:900px) {
+        /* =====================================================
+           FOOTER
+        ===================================================== */
 
+        footer {
+            padding: 45px 8%;
+
+            text-align: center;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #003B63,
+                    #005B9A,
+                    #168A68
+                );
+        }
+
+        footer h3 {
+            margin-bottom: 7px;
+        }
+
+        footer p {
+            opacity: .85;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
 
             nav ul {
-
                 position: absolute;
 
-                top: 70px;
+                top: 72px;
+                right: 6%;
 
-                right: 8%;
+                width: 250px;
 
-                background: #fff;
+                display: none;
 
                 flex-direction: column;
 
                 gap: 15px;
 
-                padding: 20px;
+                padding: 22px;
 
-                border-radius: 12px;
+                background: white;
 
-                display: none;
+                border-radius: 16px;
 
                 box-shadow:
-                    0 10px 25px rgba(0,0,0,.1);
+                    0 12px 35px rgba(0,0,0,.15);
             }
 
-
             nav ul.show {
-
                 display: flex;
             }
 
-
             .menu-toggle {
-
                 display: block;
             }
 
-
             .header-title {
-
                 font-size: .9rem;
             }
+        }
 
+
+        @media (max-width: 650px) {
+
+            header {
+                padding: 10px 5%;
+            }
+
+            .header-left img {
+                height: 42px;
+            }
+
+            .header-title {
+                display: none;
+            }
+
+            .hero {
+                min-height: 500px;
+
+                padding:
+                    130px 7% 100px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .section {
+                padding:
+                    65px 7%;
+            }
+
+            .card {
+                min-height: auto;
+            }
+
+            .transfer-box,
+            .partner-box {
+                padding: 30px 24px;
+            }
+
+            .placeholder {
+                min-height: 220px;
+            }
         }
 
     </style>
@@ -266,26 +891,31 @@
 <body>
 
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
 
     <div class="header-left">
 
-        <img src="images/eau.png" alt="EAU Logo">
+        <img
+            src="images/eau.png"
+            alt="EAU Logo"
+        >
 
         <div class="header-title">
-
             Entwicklungsinstitut für angewandten Umweltschutz gUG iG
-
         </div>
 
     </div>
 
 
-    <div class="menu-toggle"
-         onclick="document.querySelector('nav ul').classList.toggle('show')">
-
+    <div
+        class="menu-toggle"
+        onclick="document.querySelector('nav ul').classList.toggle('show')"
+    >
         ☰
-
     </div>
 
 
@@ -293,19 +923,50 @@
 
         <ul>
 
-            <li><a href="index.html">Start</a></li>
+            <li>
+                <a href="index.html">
+                    Start
+                </a>
+            </li>
 
-            <li><a href="ueberuns.html">Über uns</a></li>
+            <li>
+                <a href="ueberuns.html">
+                    Über uns
+                </a>
+            </li>
 
-            <li><a href="forschung.html">Forschung & Transfer</a></li>
+            <li>
+                <a
+                    href="forschung.html"
+                    class="active"
+                >
+                    Forschung & Transfer
+                </a>
+            </li>
 
-            <li><a href="leistungen.html">Leistungen</a></li>
+            <li>
+                <a href="leistungen.html">
+                    Leistungen
+                </a>
+            </li>
 
-            <li><a href="projekte.html">Projekte</a></li>
+            <li>
+                <a href="projekte.html">
+                    Projekte
+                </a>
+            </li>
 
-            <li><a href="wissen.html">Wissen</a></li>
+            <li>
+                <a href="wissen.html">
+                    Wissen
+                </a>
+            </li>
 
-            <li><a href="kontakt.html">Kontakt</a></li>
+            <li>
+                <a href="kontakt.html">
+                    Kontakt
+                </a>
+            </li>
 
         </ul>
 
@@ -315,38 +976,96 @@
 
 
 
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <section class="hero">
 
-    <h1>
-        Forschung & Transfer
-    </h1>
+    <div class="hero-content">
 
+        <div class="hero-label">
+            Forschung · Technologie · Transfer
+        </div>
 
-    <p>
-        Wir verbinden wissenschaftliche Forschung mit praxisnahen Lösungen
-        und fördern den Transfer innovativer Umwelttechnologien in Wirtschaft,
-        Kommunen und Gesellschaft.
-    </p>
+        <h1>
+            Forschung & Transfer
+        </h1>
+
+        <p>
+            Wir verbinden wissenschaftliche Forschung mit praxisnahen Lösungen
+            und fördern den Transfer innovativer Umwelttechnologien in Wirtschaft,
+            Kommunen und Gesellschaft.
+        </p>
+
+    </div>
 
 </section>
 
 
 
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
+    <div class="intro-content">
+
+        <div class="eyebrow">
+            Forschung mit Wirkung
+        </div>
+
+        <h2>
+            Von der wissenschaftlichen Erkenntnis
+            zur praktischen Innovation
+        </h2>
+
+        <p>
+            Forschung ist für uns kein Selbstzweck.
+            Wir wollen Wissen nutzbar machen und innovative
+            Technologien in die Anwendung bringen.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FORSCHUNGSSCHWERPUNKTE
+===================================================== -->
 
 <section class="section">
 
+    <div class="section-header">
 
-    <h2>
-        Unsere Forschungsschwerpunkte
-    </h2>
+        <div class="eyebrow">
+            Wissenschaftliche Kompetenz
+        </div>
+
+        <h2>
+            Unsere Forschungsschwerpunkte
+        </h2>
+
+    </div>
 
 
     <div class="cards">
 
 
+        <!-- Wasser -->
+
         <div class="card">
 
-            <h3>💧 Wasserwirtschaft</h3>
+            <div class="card-icon">
+                💧
+            </div>
+
+            <h3>
+                Wasserwirtschaft
+            </h3>
 
             <p>
                 Nachhaltige Konzepte für Siedlungswasserwirtschaft,
@@ -357,9 +1076,17 @@
 
 
 
+        <!-- Kreislauf -->
+
         <div class="card">
 
-            <h3>♻ Kreislaufwirtschaft</h3>
+            <div class="card-icon">
+                ♻
+            </div>
+
+            <h3>
+                Kreislaufwirtschaft
+            </h3>
 
             <p>
                 Ressourceneffizienz, Stoffstrommanagement und nachhaltige
@@ -370,9 +1097,17 @@
 
 
 
+        <!-- Klima -->
+
         <div class="card">
 
-            <h3>🌍 Klimaanpassung</h3>
+            <div class="card-icon">
+                🌍
+            </div>
+
+            <h3>
+                Klimaanpassung
+            </h3>
 
             <p>
                 Resiliente Infrastrukturen und naturbasierte Lösungen
@@ -383,9 +1118,17 @@
 
 
 
+        <!-- Verfahren -->
+
         <div class="card">
 
-            <h3>🧪 Verfahrenstechnik</h3>
+            <div class="card-icon">
+                🧪
+            </div>
+
+            <h3>
+                Verfahrenstechnik
+            </h3>
 
             <p>
                 Innovative Technologien zur Wasseraufbereitung und
@@ -397,56 +1140,65 @@
 
     </div>
 
-
 </section>
 
 
 
+<!-- =====================================================
+     TRANSFER
+===================================================== -->
 
-<section class="section">
+<section class="transfer-section">
 
+    <div class="transfer-content">
 
-    <div class="box">
+        <div class="transfer-box">
 
+            <div class="eyebrow">
+                Von der Idee zur Anwendung
+            </div>
 
-        <h2>
-            Wissens- und Technologietransfer
-        </h2>
+            <h2>
+                Wissens- und Technologietransfer
+            </h2>
 
+            <p>
+                Die EAU unterstützt den Transfer wissenschaftlicher Erkenntnisse
+                in die Praxis. Gemeinsam mit Hochschulen, Unternehmen, Kommunen
+                und öffentlichen Einrichtungen entwickeln wir innovative Lösungen
+                und begleiten deren Umsetzung.
+            </p>
 
-        <p>
-            Die EAU unterstützt den Transfer wissenschaftlicher Erkenntnisse
-            in die Praxis. Gemeinsam mit Hochschulen, Unternehmen, Kommunen
-            und öffentlichen Einrichtungen entwickeln wir innovative Lösungen
-            und begleiten deren Umsetzung.
-        </p>
+            <p>
+                Unsere Aktivitäten umfassen Forschungsprojekte, Pilotanlagen,
+                Demonstrationsvorhaben, Beratung sowie Fort- und
+                Weiterbildungsangebote.
+            </p>
 
-
-        <p>
-            Unsere Aktivitäten umfassen Forschungsprojekte, Pilotanlagen,
-            Demonstrationsvorhaben, Beratung sowie Fort- und
-            Weiterbildungsangebote.
-        </p>
-
+        </div>
 
     </div>
 
-
 </section>
 
 
 
+<!-- =====================================================
+     KOOPERATIONSPARTNER
+===================================================== -->
 
 <section class="section">
 
+    <div class="partner-box">
 
-    <div class="box">
-
+        <div class="eyebrow"
+             style="text-align:center;">
+            Netzwerk & Kooperation
+        </div>
 
         <h2>
             Kooperationspartner
         </h2>
-
 
         <div class="placeholder">
 
@@ -455,32 +1207,30 @@
 
         </div>
 
-
     </div>
-
 
 </section>
 
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
-
 
     <h3>
         EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG
     </h3>
 
-
     <p>
         Forschung. Transfer. Anwendung.
     </p>
 
-
 </footer>
-
 
 
 </body>
 
 </html>
+```
