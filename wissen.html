@@ -13,338 +13,386 @@
 
 <style>
 
+/* =====================================================
+   GRUNDLAGEN
+===================================================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-:root{
-    --blue-dark:#003B63;
-    --blue:#005B9A;
-    --blue-bright:#0077B6;
-    --cyan:#35B9E8;
-    --green:#22A06B;
-    --text:#334B5C;
-    --background:#F2F9FD;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:linear-gradient(180deg,#EDF8FF,#F7FBFD);
-    color:var(--text);
+    font-family:Arial,sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #eef6ff 0%,
+            #f7fbff 100%
+        );
+
+    color:#1f2937;
+
     line-height:1.6;
 }
 
 
-/* HEADER */
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
     position:fixed;
+
     top:0;
+
     width:100%;
+
     z-index:1000;
+
+    background:#e8f4ff;
+
+    backdrop-filter:blur(10px);
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
-    padding:13px 7%;
-    background:rgba(239,249,255,.94);
-    backdrop-filter:blur(14px);
-    border-bottom:1px solid rgba(0,91,154,.12);
-    box-shadow:0 3px 25px rgba(0,45,75,.10);
+
+    padding:14px 8%;
+
+    box-shadow:
+        0 2px 20px rgba(0,0,0,.08);
 }
+
 
 .header-left{
     display:flex;
+
     align-items:center;
-    gap:13px;
+
+    gap:12px;
 }
+
 
 .header-left img{
     height:50px;
+
+    width:auto;
 }
+
 
 .header-title{
     font-weight:700;
-    font-size:1.05rem;
-    color:var(--blue-dark);
+
+    font-size:1.1rem;
+
+    color:#005B9A;
+
     line-height:1.2;
+
     max-width:420px;
 }
 
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
 nav ul{
     display:flex;
-    gap:24px;
+
+    gap:25px;
+
     list-style:none;
 }
 
+
 nav a{
     text-decoration:none;
-    color:var(--blue-dark);
-    font-weight:700;
-    transition:.25s;
+
+    color:#234;
+
+    font-weight:600;
+
+    transition:.3s;
 }
 
-nav a:hover,
-nav a.active{
-    color:var(--blue-bright);
+
+nav a:hover{
+    color:#0077B6;
 }
+
+
+nav a.active{
+    color:#0077B6;
+}
+
+
+/* =====================================================
+   HAMBURGER
+===================================================== */
 
 .menu-toggle{
     display:none;
+
     font-size:2rem;
+
     cursor:pointer;
-    color:var(--blue-dark);
+
+    color:#003B63;
 }
 
 
-/* HERO */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
-    position:relative;
-    min-height:460px;
-    padding:155px 8% 100px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:white;
-    overflow:hidden;
+
+    padding:
+        180px 8%
+        100px;
 
     background:
+
         linear-gradient(
-            110deg,
-            rgba(0,47,82,.93),
-            rgba(0,91,154,.72),
-            rgba(0,119,182,.40)
+            rgba(0,55,100,.65),
+            rgba(0,125,180,.40)
         ),
-        url('images/panoramaeau.png') center/cover no-repeat;
+
+        url('images/panoramaeau.png')
+        center/cover no-repeat;
+
+    color:white;
+
+    text-align:center;
 }
 
-.hero-content{
-    position:relative;
-    z-index:2;
-    max-width:850px;
-}
-
-.hero-label{
-    color:#65D8E8;
-    font-weight:800;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    font-size:.85rem;
-    margin-bottom:18px;
-}
 
 .hero h1{
-    font-size:clamp(2.6rem,5vw,4.5rem);
-    line-height:1.05;
+
+    font-size:
+        clamp(2.5rem,5vw,4rem);
+
     margin-bottom:20px;
 }
 
+
 .hero p{
-    font-size:1.15rem;
-    max-width:760px;
+
+    font-size:1.2rem;
+
+    max-width:850px;
+
     margin:auto;
 }
 
 
-/* CONTENT */
+/* =====================================================
+   SECTIONS
+===================================================== */
 
 .section{
-    max-width:1250px;
-    margin:auto;
-    padding:75px 8%;
+
+    padding:
+        80px 8%;
 }
 
+
 .section h2{
+
     text-align:center;
-    color:var(--blue-dark);
+
     font-size:2rem;
+
+    color:#005B9A;
+
     margin-bottom:40px;
 }
 
 
-/* WISSENSKARTEN */
+/* =====================================================
+   CARDS
+===================================================== */
 
 .cards{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:28px;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(260px,1fr)
+        );
+
+    gap:30px;
 }
+
 
 .card{
-    position:relative;
-    background:white;
-    padding:32px;
+
+    background:#fff;
+
     border-radius:24px;
-    border:1px solid rgba(0,91,154,.08);
-    box-shadow:0 12px 35px rgba(0,50,80,.08);
+
+    padding:35px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.08);
+
     transition:.3s;
-    overflow:hidden;
 }
 
-.card::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:0;
-    width:100%;
-    height:5px;
-    background:linear-gradient(
-        90deg,
-        var(--blue-bright),
-        var(--cyan),
-        var(--green)
-    );
-}
 
 .card:hover{
-    transform:translateY(-7px);
-    box-shadow:0 20px 45px rgba(0,70,110,.14);
+
+    transform:
+        translateY(-8px);
 }
 
-.icon{
-    font-size:2.2rem;
-    margin-bottom:12px;
-}
 
 .card h3{
-    color:var(--blue-dark);
+
+    color:#005B9A;
+
+    margin-bottom:15px;
+
     font-size:1.35rem;
-    margin-bottom:12px;
 }
+
 
 .card p{
-    margin-bottom:18px;
-}
 
-.card a{
-    color:var(--blue-bright);
-    font-weight:700;
-    text-decoration:none;
-}
-
-.card a:hover{
-    text-decoration:underline;
+    margin-bottom:10px;
 }
 
 
-/* INFOBOX */
+/* =====================================================
+   INFO BOX
+===================================================== */
 
-.infobox{
-    margin-top:50px;
-    padding:35px;
+.box{
+
+    background:#fff;
+
     border-radius:24px;
-    color:white;
-    background:
-        linear-gradient(
-            120deg,
-            #003B63,
-            #005B9A
-        );
-    box-shadow:0 15px 40px rgba(0,55,90,.15);
+
+    padding:35px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.08);
+}
+
+
+.box h2{
+
+    margin-bottom:25px;
+}
+
+
+.box p{
+
+    max-width:1000px;
+
+    margin:auto;
+
     text-align:center;
 }
 
-.infobox h2{
-    color:white;
-    margin-bottom:15px;
-}
 
-.infobox p{
-    max-width:800px;
-    margin:auto;
-}
-
-
-/* FOOTER */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
+
     background:
         linear-gradient(
             90deg,
-            #003B63,
             #005B9A,
             #168A68
         );
-    color:white;
-    padding:42px 8%;
+
+    color:#fff;
+
+    padding:
+        40px 8%;
+
     text-align:center;
 }
 
+
 footer h3{
-    margin-bottom:7px;
-}
 
-footer p{
-    opacity:.85;
+    margin-bottom:6px;
 }
 
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
 
-@media(max-width:950px){
+@media(max-width:900px){
 
     nav ul{
+
         position:absolute;
-        top:72px;
-        right:6%;
-        width:250px;
-        display:none;
+
+        top:70px;
+
+        right:8%;
+
+        background:#fff;
+
         flex-direction:column;
+
         gap:15px;
-        padding:22px;
-        background:white;
-        border-radius:16px;
-        box-shadow:0 12px 35px rgba(0,0,0,.15);
+
+        padding:20px;
+
+        border-radius:12px;
+
+        box-shadow:
+            0 10px 25px rgba(0,0,0,.1);
+
+        display:none;
     }
 
+
     nav ul.show{
+
         display:flex;
     }
 
+
     .menu-toggle{
+
         display:block;
     }
 
-    .cards{
-        grid-template-columns:1fr;
-    }
 
     .header-title{
+
         font-size:.9rem;
     }
-}
 
-@media(max-width:600px){
-
-    header{
-        padding:10px 5%;
-    }
-
-    .header-left img{
-        height:42px;
-    }
-
-    .header-title{
-        display:none;
-    }
 
     .hero{
-        padding:130px 7% 90px;
+
+        padding:
+            150px 7%
+            90px;
     }
+
 
     .section{
-        padding:60px 7%;
-    }
 
-    .card{
-        padding:28px 24px;
+        padding:
+            65px 7%;
     }
 
 }
@@ -357,16 +405,24 @@ footer p{
 <body>
 
 
-<!-- HEADER -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
     <div class="header-left">
 
-        <img src="images/eau.png" alt="EAU Logo">
+        <img
+            src="images/eau.png"
+            alt="EAU Logo"
+        >
+
 
         <div class="header-title">
+
             Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+
         </div>
 
     </div>
@@ -376,7 +432,9 @@ footer p{
         class="menu-toggle"
         onclick="document.querySelector('nav ul').classList.toggle('show')"
     >
+
         ☰
+
     </div>
 
 
@@ -384,19 +442,50 @@ footer p{
 
         <ul>
 
-            <li><a href="index.html">Start</a></li>
+            <li>
+                <a href="index.html">
+                    Start
+                </a>
+            </li>
 
-            <li><a href="ueberuns.html">Über uns</a></li>
+            <li>
+                <a href="ueberuns.html">
+                    Über uns
+                </a>
+            </li>
 
-            <li><a href="forschung.html">Forschung & Transfer</a></li>
+            <li>
+                <a href="forschung.html">
+                    Forschung & Transfer
+                </a>
+            </li>
 
-            <li><a href="leistungen.html">Leistungen</a></li>
+            <li>
+                <a href="leistungen.html">
+                    Leistungen
+                </a>
+            </li>
 
-            <li><a href="projekte.html">Projekte</a></li>
+            <li>
+                <a href="projekte.html">
+                    Projekte
+                </a>
+            </li>
 
-            <li><a href="wissen.html" class="active">Wissen</a></li>
+            <li>
+                <a
+                    href="wissen.html"
+                    class="active"
+                >
+                    Wissen
+                </a>
+            </li>
 
-            <li><a href="kontakt.html">Kontakt</a></li>
+            <li>
+                <a href="kontakt.html">
+                    Kontakt
+                </a>
+            </li>
 
         </ul>
 
@@ -406,33 +495,32 @@ footer p{
 
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
-    <div class="hero-content">
+    <h1>
+        Wissen
+    </h1>
 
-        <div class="hero-label">
-            EAU · Wissen
-        </div>
 
-        <h1>
-            Wissen für nachhaltige Lösungen
-        </h1>
+    <p>
 
-        <p>
-            Fachwissen, Forschungsergebnisse und praxisnahe Erkenntnisse
-            rund um Wasserwirtschaft, Kreislaufwirtschaft, Verfahrenstechnik
-            und Klimaanpassung.
-        </p>
+        Fachwissen, Forschungsergebnisse und praxisnahe Erkenntnisse
+        für nachhaltige Lösungen in Wasserwirtschaft,
+        Kreislaufwirtschaft und Klimaschutz.
 
-    </div>
+    </p>
 
 </section>
 
 
 
-<!-- THEMEN -->
+<!-- =====================================================
+     WISSENSTHEMEN
+===================================================== -->
 
 <section class="section">
 
@@ -446,99 +534,102 @@ footer p{
 
         <div class="card">
 
-            <div class="icon">💧</div>
-
             <h3>
-                Wasserwirtschaft
+                💧 Wasserwirtschaft
             </h3>
 
             <p>
-                Wissen zu Siedlungswasserwirtschaft, Regenwassermanagement,
-                Schwammstadt, Wasserqualität und zukunftsfähiger
-                Wasserinfrastruktur.
-            </p>
 
-            <a href="#">
-                Mehr erfahren →
-            </a>
+                Wissen zu Siedlungswasserwirtschaft,
+                Regenwassermanagement, Schwammstadt und
+                zukunftsfähiger Wasserinfrastruktur.
+
+            </p>
 
         </div>
 
 
+
         <div class="card">
 
-            <div class="icon">♻️</div>
-
             <h3>
-                Kreislaufwirtschaft
+                ♻ Kreislaufwirtschaft
             </h3>
 
             <p>
-                Erkenntnisse zu Ressourceneffizienz, Stoffstrommanagement,
-                Wiederverwendung und innovativen Kreisläufen.
-            </p>
 
-            <a href="#">
-                Mehr erfahren →
-            </a>
+                Erkenntnisse zu Ressourceneffizienz,
+                Stoffstrommanagement, Wiederverwendung
+                und nachhaltigen Kreisläufen.
+
+            </p>
 
         </div>
 
 
+
         <div class="card">
 
-            <div class="icon">🧪</div>
-
             <h3>
-                Verfahrenstechnik
+                🧪 Verfahrenstechnik
             </h3>
 
             <p>
-                Innovative technische Verfahren für Wasseraufbereitung,
-                Ressourcengewinnung und nachhaltige Umwelttechnologien.
-            </p>
 
-            <a href="#">
-                Mehr erfahren →
-            </a>
+                Fachwissen zu innovativen Verfahren der
+                Wasseraufbereitung, Ressourcengewinnung
+                und Umwelttechnik.
+
+            </p>
 
         </div>
 
 
+
         <div class="card">
 
-            <div class="icon">🌍</div>
-
             <h3>
-                Klimaanpassung
+                🌍 Klimaanpassung
             </h3>
 
             <p>
-                Wissen über resiliente Infrastrukturen, naturbasierte Lösungen
-                und die Anpassung von Städten und Regionen an den Klimawandel.
-            </p>
 
-            <a href="#">
-                Mehr erfahren →
-            </a>
+                Erkenntnisse zu resilienten Infrastrukturen,
+                naturbasierten Lösungen und der Anpassung
+                von Städten und Regionen.
+
+            </p>
 
         </div>
 
 
     </div>
 
+</section>
 
-    <div class="infobox">
+
+
+<!-- =====================================================
+     WISSENSTRANSFER
+===================================================== -->
+
+<section class="section">
+
+    <div class="box">
 
         <h2>
-            Wissen wird wirksam durch Transfer
+            Wissen für die Praxis
         </h2>
 
+
         <p>
-            Die EAU verbindet wissenschaftliche Erkenntnisse mit praktischer
-            Anwendung. Unser Ziel ist es, Wissen zugänglich zu machen,
-            Innovationen zu fördern und gemeinsam mit Partnern nachhaltige
-            Lösungen für Wasser, Ressourcen und Umwelt zu entwickeln.
+
+            Die EAU verbindet wissenschaftliche Erkenntnisse
+            mit praktischer Anwendung. Wir möchten Wissen
+            zugänglich machen, Forschungsergebnisse teilen
+            und gemeinsam mit Partnern innovative Lösungen
+            für Wasser, Ressourcen und Umwelt entwickeln.
+
         </p>
 
     </div>
@@ -547,7 +638,9 @@ footer p{
 
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -566,4 +659,3 @@ footer p{
 
 </html>
 ```
-
