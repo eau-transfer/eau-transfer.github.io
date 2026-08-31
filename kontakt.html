@@ -1,271 +1,1143 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Kontakt & Impressum | EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG</title>
+
 <link rel="icon" type="image/png" href="/favicon.png">
 
+
 <style>
+
+/* =====================================================
+   GRUNDLAGEN
+===================================================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+:root{
+
+    --blue-dark:#003B63;
+    --blue:#005B9A;
+    --blue-bright:#0077B6;
+    --blue-light:#35B9E8;
+    --cyan:#65D8E8;
+
+    --green:#22A06B;
+    --green-light:#5BC99A;
+
+    --dark:#173447;
+    --text:#334B5C;
+
+    --background:#F2F9FD;
+    --white:#FFFFFF;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    font-family:Arial,sans-serif;
-    background:linear-gradient(180deg, #eef6ff 0%, #f7fbff 100%);
-    color:#1f2937;
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #EDF8FF 0%,
+            #F7FBFD 100%
+        );
+
+    color:var(--text);
+
     line-height:1.6;
 }
 
-/* HEADER */
+
+/* =====================================================
+   HEADER
+===================================================== */
+
 header{
+
     position:fixed;
+
     top:0;
+
     width:100%;
+
     z-index:1000;
-    background:#e8f4ff;
-    backdrop-filter:blur(10px);
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
-    padding:14px 8%;
-    box-shadow:0 2px 20px rgba(0,0,0,.08);
+
+    padding:13px 7%;
+
+    background:rgba(239,249,255,.94);
+
+    backdrop-filter:blur(14px);
+
+    border-bottom:
+        1px solid rgba(0,91,154,.12);
+
+    box-shadow:
+        0 3px 25px rgba(0,45,75,.10);
 }
+
 
 .header-left{
+
     display:flex;
+
     align-items:center;
-    gap:12px;
+
+    gap:13px;
 }
 
+
 .header-left img{
+
     height:50px;
+
     width:auto;
 }
 
+
 .header-title{
+
     font-weight:700;
-    font-size:1.1rem;
-    color:#0b5fa5;
+
+    font-size:1.05rem;
+
+    color:var(--blue-dark);
+
     line-height:1.2;
+
     max-width:420px;
 }
 
-/* NAVIGATION */
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
 nav ul{
+
     display:flex;
-    gap:25px;
+
+    gap:24px;
+
     list-style:none;
 }
 
+
 nav a{
+
+    position:relative;
+
     text-decoration:none;
-    color:#234;
-    font-weight:600;
-    transition:0.3s;
+
+    color:var(--dark);
+
+    font-weight:700;
+
+    transition:.25s;
 }
+
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-7px;
+
+    width:0;
+
+    height:2px;
+
+    border-radius:5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue-bright),
+            var(--cyan)
+        );
+
+    transition:.25s;
+}
+
 
 nav a:hover{
-    color:#0b5fa5;
+
+    color:var(--blue-bright);
 }
+
+
+nav a:hover::after{
+
+    width:100%;
+}
+
+
+nav a.active{
+
+    color:var(--blue-bright);
+}
+
+
+nav a.active::after{
+
+    width:100%;
+}
+
+
+/* =====================================================
+   HAMBURGER
+===================================================== */
 
 .menu-toggle{
+
     display:none;
+
     font-size:2rem;
+
     cursor:pointer;
+
+    color:var(--blue-dark);
 }
 
-/* HERO */
+
+/* =====================================================
+   HERO
+===================================================== */
+
 .hero{
-    padding:180px 8% 80px;
-    background:linear-gradient(rgba(0,70,120,.55),rgba(0,120,100,.40)),
-    url('images/panoramaeau.png') center/cover no-repeat;
+
+    position:relative;
+
+    min-height:520px;
+
+    padding:
+        165px 8%
+        115px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
     color:white;
+
     text-align:center;
+
+    background:
+
+        linear-gradient(
+            110deg,
+            rgba(0,47,82,.93) 0%,
+            rgba(0,91,154,.76) 48%,
+            rgba(0,119,182,.42) 100%
+        ),
+
+        url('images/panoramaeau.png')
+        center/cover no-repeat;
 }
+
+
+/* Wasserartige Lichtfläche */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+
+    height:700px;
+
+    right:-280px;
+
+    bottom:-400px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(101,216,232,.35),
+            rgba(101,216,232,0)
+        );
+}
+
+
+/* weicher Übergang */
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:-5%;
+
+    bottom:-78px;
+
+    width:110%;
+
+    height:145px;
+
+    background:var(--background);
+
+    border-radius:
+        50% 50% 0 0 /
+        100% 100% 0 0;
+}
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:900px;
+}
+
+
+.hero-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:22px;
+
+    font-size:.82rem;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:var(--cyan);
+}
+
+
+.hero-label::before{
+
+    content:"";
+
+    width:32px;
+
+    height:3px;
+
+    border-radius:5px;
+
+    background:var(--cyan);
+}
+
 
 .hero h1{
-    font-size:clamp(2.2rem,5vw,4rem);
-    margin-bottom:20px;
+
+    font-size:
+        clamp(2.6rem,5.5vw,4.7rem);
+
+    line-height:1.05;
+
+    letter-spacing:-1.5px;
+
+    margin-bottom:24px;
+
+    text-shadow:
+        0 3px 20px rgba(0,0,0,.18);
 }
 
+
 .hero p{
-    font-size:1.2rem;
-    max-width:800px;
+
+    font-size:1.18rem;
+
+    line-height:1.7;
+
+    max-width:850px;
+
+    margin:auto;
+
+    color:
+        rgba(255,255,255,.94);
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content{
+
+    padding:
+        80px 8% 90px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:32px;
+
+    max-width:1350px;
+
     margin:auto;
 }
 
-/* CONTENT */
-.content{
-    padding:80px 8%;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:40px;
-}
+
+/* =====================================================
+   CARDS
+===================================================== */
 
 .card{
+
+    position:relative;
+
     background:white;
-    padding:40px;
-    border-radius:24px;
-    box-shadow:0 10px 35px rgba(0,0,0,.08);
+
+    padding:42px;
+
+    border-radius:26px;
+
+    border:
+        1px solid rgba(0,91,154,.08);
+
+    box-shadow:
+        0 12px 38px rgba(0,50,80,.08);
+
+    overflow:hidden;
+
+    transition:.35s;
 }
+
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue-bright),
+            var(--cyan),
+            var(--green)
+        );
+}
+
+
+.card:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:
+        0 22px 48px rgba(0,70,110,.14);
+}
+
 
 .card h2{
-    color:#0b5fa5;
+
+    color:var(--blue-dark);
+
+    font-size:2rem;
+
     margin-bottom:25px;
+
+    position:relative;
 }
+
+
+.card h2::after{
+
+    content:"";
+
+    display:block;
+
+    width:45px;
+
+    height:3px;
+
+    margin-top:10px;
+
+    border-radius:5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue-bright),
+            var(--cyan)
+        );
+}
+
 
 .card p{
-    margin-bottom:12px;
+
+    margin-bottom:14px;
 }
+
 
 .card strong{
-    color:#234;
+
+    color:var(--dark);
 }
 
-/* FOOTER */
-footer{
-    background:linear-gradient(90deg,#0b5fa5,#2ca65a);
+
+/* Kontaktinformationen */
+
+.contact-highlight{
+
+    padding:18px 20px;
+
+    margin:22px 0;
+
+    border-left:
+        4px solid var(--blue-bright);
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #E8F7FD,
+            #F5FBFE
+        );
+}
+
+
+.contact-highlight strong{
+
+    color:var(--blue-dark);
+}
+
+
+/* E-Mail */
+
+.email{
+
+    color:var(--blue-bright);
+
+    font-weight:700;
+}
+
+
+/* Impressum Hinweis */
+
+.legal-note{
+
+    margin-top:25px;
+
+    padding:16px 18px;
+
+    border-radius:12px;
+
+    background:#F2F8FB;
+
+    font-size:.9rem;
+
+    color:#607585;
+}
+
+
+/* =====================================================
+   BOTTOM CTA
+===================================================== */
+
+.contact-cta{
+
+    position:relative;
+
+    padding:
+        80px 8%;
+
+    overflow:hidden;
+
     color:white;
-    padding:40px 8%;
+
     text-align:center;
+
+    background:
+        linear-gradient(
+            120deg,
+            #003B63 0%,
+            #005B9A 55%,
+            #007EAE 100%
+        );
 }
 
-/* MOBILE */
-@media(max-width:900px){
+
+.contact-cta::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+
+    height:600px;
+
+    right:-250px;
+
+    top:-350px;
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(101,216,232,.28);
+
+    box-shadow:
+        0 0 0 70px rgba(101,216,232,.04),
+        0 0 0 140px rgba(101,216,232,.025);
+}
+
+
+.contact-cta-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:850px;
+
+    margin:auto;
+}
+
+
+.contact-cta h2{
+
+    font-size:
+        clamp(2rem,4vw,2.8rem);
+
+    margin-bottom:15px;
+}
+
+
+.contact-cta p{
+
+    color:
+        rgba(255,255,255,.88);
+
+    font-size:1.05rem;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    padding:45px 8%;
+
+    text-align:center;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            90deg,
+            #003B63,
+            #005B9A,
+            #168A68
+        );
+}
+
+
+footer h3{
+
+    margin-bottom:7px;
+}
+
+
+footer p{
+
+    opacity:.85;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1000px){
 
     nav ul{
+
         position:absolute;
-        top:70px;
-        right:8%;
-        background:white;
-        flex-direction:column;
-        gap:15px;
-        padding:20px;
-        border-radius:12px;
-        box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+        top:72px;
+
+        right:6%;
+
+        width:250px;
+
         display:none;
+
+        flex-direction:column;
+
+        gap:15px;
+
+        padding:22px;
+
+        background:white;
+
+        border-radius:16px;
+
+        box-shadow:
+            0 12px 35px rgba(0,0,0,.15);
     }
 
+
     nav ul.show{
+
         display:flex;
     }
 
+
     .menu-toggle{
+
         display:block;
     }
 
+
     .header-title{
-        font-size:0.9rem;
+
+        font-size:.9rem;
+    }
+
+
+    .content{
+
+        grid-template-columns:1fr;
     }
 }
+
+
+@media(max-width:650px){
+
+    header{
+
+        padding:10px 5%;
+    }
+
+
+    .header-left img{
+
+        height:42px;
+    }
+
+
+    .header-title{
+
+        display:none;
+    }
+
+
+    .hero{
+
+        min-height:500px;
+
+        padding:
+            130px 7%
+            100px;
+    }
+
+
+    .hero h1{
+
+        letter-spacing:-1px;
+    }
+
+
+    .content{
+
+        padding:
+            60px 7%
+            70px;
+    }
+
+
+    .card{
+
+        padding:32px 25px;
+
+        border-radius:22px;
+    }
+
+
+    .card h2{
+
+        font-size:1.7rem;
+    }
+
+
+    .contact-cta{
+
+        padding:
+            65px 7%;
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
+
     <div class="header-left">
-        <img src="images/eau.png" alt="EAU Logo">
+
+        <img
+            src="images/eau.png"
+            alt="EAU Logo"
+        >
+
         <div class="header-title">
+
             Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+
         </div>
+
     </div>
 
-    <div class="menu-toggle"
-         onclick="document.querySelector('nav ul').classList.toggle('show')">
-         ☰
+
+    <div
+        class="menu-toggle"
+        onclick="document.querySelector('nav ul').classList.toggle('show')"
+    >
+
+        ☰
+
     </div>
+
 
     <nav>
+
         <ul>
-            <li><a href="index.html">Start</a></li>
-            <li><a href="ueberuns.html">Über uns</a></li>
-            <li><a href="forschung.html">Forschung & Transfer</a></li>
-            <li><a href="leistungen.html">Leistungen</a></li>
-            <li><a href="projekte.html">Projekte</a></li>
-            <li><a href="wissen.html">Wissen</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
+
+            <li>
+                <a href="index.html">
+                    Start
+                </a>
+            </li>
+
+            <li>
+                <a href="ueberuns.html">
+                    Über uns
+                </a>
+            </li>
+
+            <li>
+                <a href="forschung.html">
+                    Forschung & Transfer
+                </a>
+            </li>
+
+            <li>
+                <a href="leistungen.html">
+                    Leistungen
+                </a>
+            </li>
+
+            <li>
+                <a href="projekte.html">
+                    Projekte
+                </a>
+            </li>
+
+            <li>
+                <a href="wissen.html">
+                    Wissen
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="kontakt.html"
+                    class="active"
+                >
+                    Kontakt
+                </a>
+            </li>
+
         </ul>
+
     </nav>
+
 </header>
 
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <section class="hero">
-    <h1>Kontakt & Impressum</h1>
-    <p>
-        Wir freuen uns über Ihre Anfrage zu Forschung, Kooperationen,
-        Projekten oder Technologietransfer im Bereich Wasser- und Kreislaufwirtschaft.
-    </p>
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            EAU · Kontakt
+        </div>
+
+        <h1>
+            Kontakt & Impressum
+        </h1>
+
+        <p>
+            Wir freuen uns über Ihre Anfrage zu Forschung, Kooperationen,
+            Projekten oder Technologietransfer im Bereich Wasser- und
+            Kreislaufwirtschaft.
+        </p>
+
+    </div>
+
 </section>
+
+
+
+<!-- =====================================================
+     KONTAKT & IMPRESSUM
+===================================================== -->
 
 <section class="content">
 
+
+    <!-- KONTAKT -->
+
     <div class="card">
-        <h2>Kontakt</h2>
 
-        <p><strong>EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG</strong></p>
+        <h2>
+            Kontakt
+        </h2>
 
-        <p>c/o Institut für Siedlungswasserwirtschaft und Abfalltechnik der Leibniz Universität Hannover<br>
-        Welfengarten 1<br>
-        30167 Hannover<br>
-        Deutschland</p>
 
-        <p><strong>Telefon:</strong> +49 (0)511 762 2899</p>
-        <p><strong>E-Mail:</strong> breitenkamp@isah.uni-hannover.de</p>
-        <p><strong>Internet:</strong> www.eau-transfer.github.io</p>
+        <p>
+            <strong>
+                EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+            </strong>
+        </p>
+
+
+        <div class="contact-highlight">
+
+            c/o Institut für Siedlungswasserwirtschaft und Abfalltechnik
+            der Leibniz Universität Hannover<br>
+
+            Welfengarten 1<br>
+
+            30167 Hannover<br>
+
+            Deutschland
+
+        </div>
+
+
+        <p>
+            <strong>Telefon:</strong>
+            +49 (0)511 762 2899
+        </p>
+
+
+        <p>
+            <strong>E-Mail:</strong>
+            <span class="email">
+                breitenkamp@isah.uni-hannover.de
+            </span>
+        </p>
+
+
+        <p>
+            <strong>Internet:</strong>
+            www.eau-transfer.github.io
+        </p>
+
 
         <br>
 
+
         <p>
-            Für Projektanfragen, Forschungskooperationen und allgemeine Informationen
-            stehen wir Ihnen gerne zur Verfügung.
+            Für Projektanfragen, Forschungskooperationen und allgemeine
+            Informationen stehen wir Ihnen gerne zur Verfügung.
         </p>
+
     </div>
 
+
+
+    <!-- IMPRESSUM -->
+
     <div class="card">
-        <h2>Impressum</h2>
 
-        <p><strong>Angaben gemäß § 5 TMG</strong></p>
+        <h2>
+            Impressum
+        </h2>
+
 
         <p>
+            <strong>
+                Angaben gemäß § 5 TMG
+            </strong>
+        </p>
+
+
+        <div class="contact-highlight">
+
             EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG<br>
-            c/o Institut für Siedlungswasserwirtschaft und Abfalltechnik der Leibniz Universität Hannover <br>
-            Welfengarten 1 <br>
+
+            c/o Institut für Siedlungswasserwirtschaft und Abfalltechnik
+            der Leibniz Universität Hannover<br>
+
+            Welfengarten 1<br>
+
             12345 Musterstadt
-        </p>
+
+        </div>
+
 
         <p>
+
             Vertreten durch die Geschäftsführung:<br>
-            Dr.-Ing. Sabrina Breitenkamp
+
+            <strong>
+                Dr.-Ing. Sabrina Breitenkamp
+            </strong>
+
         </p>
 
-        <p>
-            Registergericht: Amtsgericht Musterstadt<br>
-            Registernummer: HRB XXXXX
-        </p>
 
         <p>
+
+            Registergericht:
+            Amtsgericht Musterstadt<br>
+
+            Registernummer:
+            HRB XXXXX
+
+        </p>
+
+
+        <p>
+
             Umsatzsteuer-ID gemäß §27a UStG:<br>
+
             DE123456789
+
         </p>
 
+
         <p>
+
             Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:<br>
+
             Dr.-Ing. Sabrina Breitenkamp<br>
-            Bünde<br>
-            
+
+            Bünde
+
         </p>
+
+
+        <div class="legal-note">
+
+            Hinweis: Die derzeit noch vorhandenen Platzhalterangaben
+            im Impressum sollten vor Veröffentlichung durch die
+            tatsächlichen Register-, Steuer- und Unternehmensdaten
+            ersetzt werden.
+
+        </div>
+
     </div>
 
 </section>
 
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="contact-cta">
+
+    <div class="contact-cta-content">
+
+        <h2>
+            Gemeinsam Lösungen entwickeln
+        </h2>
+
+        <p>
+            Forschung, Innovation und praktische Umsetzung für
+            eine nachhaltige Wasser- und Kreislaufwirtschaft.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
-    <h3>EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG</h3>
-    <p>Forschung. Transfer. Anwendung.</p>
+
+    <h3>
+        EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+    </h3>
+
+    <p>
+        Forschung. Transfer. Anwendung.
+    </p>
+
 </footer>
 
+
 </body>
+
 </html>
+```
