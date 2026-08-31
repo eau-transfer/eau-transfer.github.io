@@ -1,1 +1,1133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>EAU – Entwicklungsinstitut für angewandten Umweltschutz</title>
+
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<style>
+
+/* =========================================================
+   GRUNDLAGEN
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue-deep: #063b63;
+  --blue: #0878b9;
+  --blue-light: #42b9e8;
+  --cyan: #6fe3e8;
+  --green: #25a879;
+  --dark: #102a3a;
+  --text: #334b5c;
+  --light: #f3f9fc;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--light);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 6%;
+
+  background: rgba(255,255,255,.90);
+  backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid rgba(8,120,185,.10);
+
+  box-shadow: 0 5px 30px rgba(0,50,80,.08);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-left img {
+  height: 48px;
+  width: auto;
+}
+
+.header-title {
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--blue-deep);
+  line-height: 1.2;
+  max-width: 330px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav ul {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+}
+
+nav a {
+  position: relative;
+
+  text-decoration: none;
+  color: var(--dark);
+
+  font-size: .92rem;
+  font-weight: 700;
+
+  transition: .25s;
+}
+
+nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--blue-light);
+
+  transition: .25s;
+}
+
+nav a:hover {
+  color: var(--blue);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   HAMBURGER
+========================================================= */
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--blue-deep);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 150px 8% 100px;
+
+  overflow: hidden;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(2,38,65,.94) 0%,
+      rgba(3,77,112,.72) 45%,
+      rgba(0,105,120,.30) 100%
+    ),
+    url('images/panoramaeau.png') center/cover no-repeat;
+}
+
+
+/* Wasser-Licht */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  right: -250px;
+  bottom: -350px;
+
+  border-radius: 50%;
+
+  background: rgba(74,211,226,.20);
+
+  filter: blur(10px);
+}
+
+
+/* abstrakte Wasserströmung */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100%;
+  height: 180px;
+
+  left: 0;
+  bottom: -90px;
+
+  background: var(--light);
+
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 780px;
+}
+
+
+/* kleiner Eyebrow */
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 25px;
+
+  font-size: .85rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: var(--cyan);
+}
+
+.hero-label::before {
+  content: "";
+
+  width: 34px;
+  height: 2px;
+
+  background: var(--cyan);
+}
+
+
+.hero h1 {
+  font-size: clamp(2.7rem, 6vw, 5.3rem);
+
+  line-height: 1.02;
+
+  letter-spacing: -2px;
+
+  margin-bottom: 28px;
+}
+
+.hero h1 span {
+  color: var(--cyan);
+}
+
+
+.hero p {
+  max-width: 680px;
+
+  font-size: 1.18rem;
+
+  line-height: 1.7;
+
+  color: rgba(255,255,255,.90);
+
+  margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px 28px;
+
+  border-radius: 50px;
+
+  text-decoration: none;
+
+  font-weight: 800;
+
+  margin-right: 10px;
+
+  transition: .3s;
+}
+
+.primary {
+  background: white;
+  color: var(--blue-deep);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0,0,0,.25);
+}
+
+.secondary {
+  border: 1px solid rgba(255,255,255,.55);
+
+  color: white;
+
+  background: rgba(255,255,255,.08);
+
+  backdrop-filter: blur(10px);
+}
+
+.secondary:hover {
+  background: rgba(255,255,255,.18);
+}
+
+
+/* =========================================================
+   WASSER-STATEMENT
+========================================================= */
+
+.water-statement {
+  position: relative;
+
+  padding: 90px 8% 100px;
+
+  background: var(--light);
+
+  overflow: hidden;
+}
+
+.water-statement::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -5%;
+
+  width: 110%;
+  height: 90px;
+
+  background: white;
+
+  border-radius: 0 0 50% 50%;
+}
+
+.statement-content {
+  max-width: 900px;
+
+  margin: auto;
+
+  text-align: center;
+}
+
+.statement-content .eyebrow {
+  color: var(--blue);
+
+  font-size: .8rem;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.statement-content h2 {
+  margin: 15px 0 20px;
+
+  font-size: clamp(2rem, 4vw, 3.4rem);
+
+  line-height: 1.15;
+
+  color: var(--dark);
+}
+
+.statement-content h2 span {
+  color: var(--blue);
+}
+
+.statement-content p {
+  max-width: 750px;
+
+  margin: auto;
+
+  font-size: 1.08rem;
+}
+
+
+/* =========================================================
+   THEMEN
+========================================================= */
+
+section {
+  padding: 100px 8%;
+}
+
+.section-header {
+  max-width: 800px;
+
+  margin: 0 auto 55px;
+
+  text-align: center;
+}
+
+.section-header .eyebrow {
+  color: var(--blue);
+
+  font-size: .8rem;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.section-header h2 {
+  margin: 12px 0 15px;
+
+  font-size: clamp(2rem, 4vw, 3rem);
+
+  color: var(--dark);
+}
+
+.section-header p {
+  font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.cards {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(240px, 1fr));
+
+  gap: 24px;
+
+  max-width: 1250px;
+
+  margin: auto;
+}
+
+.card {
+  position: relative;
+
+  padding: 35px 30px;
+
+  background: white;
+
+  border-radius: 24px;
+
+  border: 1px solid rgba(8,120,185,.08);
+
+  box-shadow:
+    0 15px 45px rgba(0,50,80,.08);
+
+  overflow: hidden;
+
+  transition: .35s;
+}
+
+.card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--blue),
+      var(--cyan),
+      var(--green)
+    );
+}
+
+.card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 25px 55px rgba(0,70,110,.14);
+}
+
+.card-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 22px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e2f6ff,
+      #d9f4f0
+    );
+
+  color: var(--blue);
+
+  font-size: 1.7rem;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+
+  color: var(--dark);
+
+  font-size: 1.25rem;
+}
+
+.card p {
+  font-size: .95rem;
+}
+
+
+/* =========================================================
+   INNOVATION BEREICH
+========================================================= */
+
+.innovation {
+  position: relative;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      120deg,
+      #052e4d,
+      #075f83
+    );
+
+  overflow: hidden;
+}
+
+.innovation::before,
+.innovation::after {
+  content: "";
+
+  position: absolute;
+
+  border: 1px solid rgba(111,227,232,.18);
+
+  border-radius: 50%;
+}
+
+.innovation::before {
+  width: 600px;
+  height: 600px;
+
+  right: -250px;
+  top: -250px;
+}
+
+.innovation::after {
+  width: 400px;
+  height: 400px;
+
+  left: -200px;
+  bottom: -200px;
+}
+
+.innovation-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 70px;
+
+  align-items: center;
+}
+
+.innovation h2 {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+
+  line-height: 1.1;
+
+  margin-bottom: 20px;
+}
+
+.innovation h2 span {
+  color: var(--cyan);
+}
+
+.innovation p {
+  color: rgba(255,255,255,.82);
+
+  font-size: 1.05rem;
+}
+
+
+/* Technologie-Kacheln */
+
+.tech-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+}
+
+.tech {
+  padding: 24px;
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,.07);
+
+  backdrop-filter: blur(10px);
+
+  transition: .3s;
+}
+
+.tech:hover {
+  background: rgba(255,255,255,.12);
+
+  transform: translateY(-4px);
+}
+
+.tech strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--cyan);
+}
+
+.tech small {
+  color: rgba(255,255,255,.72);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  position: relative;
+
+  padding: 55px 8%;
+
+  text-align: center;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      110deg,
+      #052f4f,
+      #0878a0,
+      #15906e
+    );
+}
+
+footer h3 {
+  margin-bottom: 8px;
+}
+
+footer p {
+  opacity: .8;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  nav ul {
+    position: absolute;
+
+    top: 75px;
+    right: 6%;
+
+    width: 250px;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    padding: 22px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+      0 15px 40px rgba(0,0,0,.15);
+
+    display: none;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .innovation-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 650px) {
+
+  header {
+    padding: 10px 5%;
+  }
+
+  .header-left img {
+    height: 42px;
+  }
+
+  .header-title {
+    display: none;
+  }
+
+  .hero {
+    padding: 130px 7% 100px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  section {
+    padding: 75px 7%;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+  <div class="header-left">
+
+    <img src="images/eau.png" alt="EAU Logo">
+
+    <div class="header-title">
+      Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+    </div>
+
+  </div>
+
+
+  <div
+    class="menu-toggle"
+    onclick="document.querySelector('nav ul').classList.toggle('show')"
+  >
+    ☰
+  </div>
+
+
+  <nav>
+
+    <ul>
+
+      <li><a href="index.html">Start</a></li>
+
+      <li><a href="ueberuns.html">Über uns</a></li>
+
+      <li><a href="forschung.html">
+        Forschung & Transfer
+      </a></li>
+
+      <li><a href="leistungen.html">
+        Leistungen
+      </a></li>
+
+      <li><a href="#">Projekte</a></li>
+
+      <li><a href="#">Wissen</a></li>
+
+      <li><a href="kontakt.html">
+        Kontakt
+      </a></li>
+
+    </ul>
+
+  </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-label">
+      Wasser · Umwelt · Innovation
+    </div>
+
+
+    <h1>
+      Zukunft gestalten.<br>
+      <span>Mit Wasser.</span>
+    </h1>
+
+
+    <p>
+      EAU verbindet angewandte Forschung,
+      innovative Technologien und praktisches
+      Wissen für eine nachhaltige Wasser- und
+      Kreislaufwirtschaft.
+    </p>
+
+
+    <a
+      class="btn primary"
+      href="forschung.html"
+    >
+      Forschung & Innovation →
+    </a>
+
+
+    <a
+      class="btn secondary"
+      href="leistungen.html"
+    >
+      Was wir leisten
+    </a>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STATEMENT
+===================================================== -->
+
+<section class="water-statement">
+
+  <div class="statement-content">
+
+    <div class="eyebrow">
+      Unser Ansatz
+    </div>
+
+    <h2>
+      Wasser ist nicht nur Ressource.
+      <span>Wasser ist Zukunft.</span>
+    </h2>
+
+    <p>
+      Wir entwickeln Wissen, Technologien und
+      Lösungen an der Schnittstelle von Wasser,
+      Umwelt, Infrastruktur und Kreislaufwirtschaft –
+      und bringen sie in die praktische Anwendung.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     THEMEN
+===================================================== -->
+
+<section>
+
+  <div class="section-header">
+
+    <div class="eyebrow">
+      Kompetenzfelder
+    </div>
+
+    <h2>
+      Forschung für die Wasserwelt von morgen
+    </h2>
+
+    <p>
+      Von der intelligenten Wasserbewirtschaftung
+      bis zur ressourceneffizienten Infrastruktur.
+    </p>
+
+  </div>
+
+
+  <div class="cards">
+
+
+    <div class="card">
+
+      <div class="card-icon">
+        💧
+      </div>
+
+      <h3>
+        Wasserwirtschaft
+      </h3>
+
+      <p>
+        Siedlungswasserwirtschaft, Regenwasser,
+        Schwammstadt und zukunftsfähige
+        Wassersysteme.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="card-icon">
+        ♻
+      </div>
+
+      <h3>
+        Kreislaufwirtschaft
+      </h3>
+
+      <p>
+        Ressourcen zurückgewinnen,
+        Stoffströme intelligent nutzen und
+        Kreisläufe schließen.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="card-icon">
+        ⚙
+      </div>
+
+      <h3>
+        Verfahren & Technologie
+      </h3>
+
+      <p>
+        Innovative Verfahren und technische
+        Lösungen für Umwelt, Wasser und
+        Infrastruktur.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="card-icon">
+        ◌
+      </div>
+
+      <h3>
+        Klimaresilienz
+      </h3>
+
+      <p>
+        Anpassung an Klimaveränderungen
+        und Entwicklung resilienter
+        Städte und Systeme.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INNOVATION
+===================================================== -->
+
+<section class="innovation">
+
+  <div class="innovation-content">
+
+
+    <div>
+
+      <div class="hero-label">
+        Innovation & Transfer
+      </div>
+
+      <h2>
+        Aus <span>Ideen</span>
+        werden Lösungen.
+      </h2>
+
+      <p>
+        EAU verbindet wissenschaftliche Erkenntnis
+        mit technischer Entwicklung und praktischer
+        Umsetzung. Unser Ziel: Innovation nicht nur
+        erforschen, sondern wirksam machen.
+      </p>
+
+    </div>
+
+
+    <div class="tech-grid">
+
+
+      <div class="tech">
+
+        <strong>
+          Forschung
+        </strong>
+
+        <small>
+          Wissen schaffen und neue Ansätze entwickeln.
+        </small>
+
+      </div>
+
+
+      <div class="tech">
+
+        <strong>
+          Technologie
+        </strong>
+
+        <small>
+          Innovative Verfahren für reale Anwendungen.
+        </small>
+
+      </div>
+
+
+      <div class="tech">
+
+        <strong>
+          Transfer
+        </strong>
+
+        <small>
+          Erkenntnisse in die Praxis bringen.
+        </small>
+
+      </div>
+
+
+      <div class="tech">
+
+        <strong>
+          Wirkung
+        </strong>
+
+        <small>
+          Nachhaltige Lösungen messbar machen.
+        </small>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+  <h3>
+    EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+  </h3>
+
+  <p>
+    Wasser. Forschung. Innovation. Umsetzung.
+  </p>
+
+</footer>
+
+
+</body>
+</html>
