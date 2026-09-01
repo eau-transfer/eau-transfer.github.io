@@ -1,1136 +1,985 @@
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Leistungen | EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG
+      (haftungsbeschränkt)
+    </title>
 
-    <title>Leistungen | EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG</title>
-
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/favicon.png" />
 
     <style>
-
-        /* =====================================================
+      /* =====================================================
            GRUNDLAGEN
         ===================================================== */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        :root {
-            --blue-dark: #003B63;
-            --blue: #005B9A;
-            --blue-bright: #0077B6;
-            --blue-light: #35B9E8;
-            --cyan: #65D8E8;
+      :root {
+        --blue-dark: #003b63;
+        --blue: #005b9a;
+        --blue-bright: #0077b6;
+        --blue-light: #35b9e8;
+        --cyan: #65d8e8;
 
-            --green: #22A06B;
-            --green-light: #5BC99A;
+        --green: #22a06b;
+        --green-light: #5bc99a;
 
-            --dark: #173447;
-            --text: #334B5C;
+        --dark: #173447;
+        --text: #334b5c;
 
-            --background: #F2F9FD;
-            --white: #FFFFFF;
-        }
+        --background: #f2f9fd;
+        --white: #ffffff;
+      }
 
-        html {
-            scroll-behavior: smooth;
-        }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
+      body {
+        font-family: Arial, Helvetica, sans-serif;
 
-            background:
-                linear-gradient(
-                    180deg,
-                    #EDF8FF 0%,
-                    #F7FBFD 100%
-                );
+        background: linear-gradient(180deg, #edf8ff 0%, #f7fbfd 100%);
 
-            color: var(--text);
+        color: var(--text);
 
-            line-height: 1.6;
-        }
+        line-height: 1.6;
+      }
 
-
-        /* =====================================================
+      /* =====================================================
            HEADER
         ===================================================== */
 
-        header {
-            position: fixed;
-            top: 0;
+      header {
+        position: fixed;
+        top: 0;
 
-            width: 100%;
+        width: 100%;
 
-            z-index: 1000;
+        z-index: 1000;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-            padding: 13px 7%;
+        padding: 13px 7%;
 
-            background: rgba(239, 249, 255, 0.94);
+        background: rgba(239, 249, 255, 0.94);
 
-            backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
 
-            border-bottom:
-                1px solid rgba(0, 91, 154, .12);
+        border-bottom: 1px solid rgba(0, 91, 154, 0.12);
 
-            box-shadow:
-                0 3px 25px rgba(0, 45, 75, .10);
-        }
+        box-shadow: 0 3px 25px rgba(0, 45, 75, 0.1);
+      }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 13px;
-        }
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
 
-        .header-left img {
-            height: 50px;
-            width: auto;
-        }
+      .header-left img {
+        height: 50px;
+        width: auto;
+      }
 
-        .header-title {
-            font-weight: 700;
+      .header-title {
+        font-weight: 700;
 
-            font-size: 1.05rem;
+        font-size: 1.05rem;
 
-            color: var(--blue-dark);
+        color: var(--blue-dark);
 
-            line-height: 1.2;
+        line-height: 1.2;
 
-            max-width: 420px;
-        }
+        max-width: 420px;
+      }
 
-
-        /* =====================================================
+      /* =====================================================
            NAVIGATION
         ===================================================== */
 
-        nav ul {
-            display: flex;
+      nav ul {
+        display: flex;
 
-            gap: 24px;
+        gap: 24px;
 
-            list-style: none;
-        }
+        list-style: none;
+      }
 
-        nav a {
-            position: relative;
+      nav a {
+        position: relative;
 
-            text-decoration: none;
+        text-decoration: none;
 
-            color: var(--dark);
+        color: var(--dark);
 
-            font-weight: 700;
+        font-weight: 700;
 
-            transition: .25s;
-        }
+        transition: 0.25s;
+      }
 
-        nav a::after {
-            content: "";
+      nav a::after {
+        content: "";
 
-            position: absolute;
+        position: absolute;
 
-            left: 0;
-            bottom: -7px;
+        left: 0;
+        bottom: -7px;
 
-            width: 0;
-            height: 2px;
+        width: 0;
+        height: 2px;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--blue-bright),
-                    var(--cyan)
-                );
+        background: linear-gradient(90deg, var(--blue-bright), var(--cyan));
 
-            transition: .25s;
-        }
+        transition: 0.25s;
+      }
 
-        nav a:hover {
-            color: var(--blue-bright);
-        }
+      nav a:hover {
+        color: var(--blue-bright);
+      }
 
-        nav a:hover::after {
-            width: 100%;
-        }
+      nav a:hover::after {
+        width: 100%;
+      }
 
-        /* aktuelle Seite */
+      /* aktuelle Seite */
 
-        nav a.active {
-            color: var(--blue-bright);
-        }
+      nav a.active {
+        color: var(--blue-bright);
+      }
 
-        nav a.active::after {
-            width: 100%;
-        }
+      nav a.active::after {
+        width: 100%;
+      }
 
-
-        /* =====================================================
+      /* =====================================================
            HAMBURGER
         ===================================================== */
 
-        .menu-toggle {
-            display: none;
+      .menu-toggle {
+        display: none;
 
-            font-size: 2rem;
+        font-size: 2rem;
 
-            cursor: pointer;
+        cursor: pointer;
 
-            color: var(--blue-dark);
-        }
+        color: var(--blue-dark);
+      }
 
-
-        /* =====================================================
+      /* =====================================================
            HERO
         ===================================================== */
 
-        .hero {
-            position: relative;
+      .hero {
+        position: relative;
 
-            min-height: 560px;
+        min-height: 560px;
 
-            padding: 165px 8% 125px;
+        padding: 165px 8% 125px;
 
-            display: flex;
+        display: flex;
 
-            align-items: center;
-            justify-content: center;
+        align-items: center;
+        justify-content: center;
 
-            overflow: hidden;
+        overflow: hidden;
 
-            color: white;
+        color: white;
 
-            text-align: center;
+        text-align: center;
 
-            background:
-                linear-gradient(
-                    110deg,
-                    rgba(0, 47, 82, .91) 0%,
-                    rgba(0, 91, 154, .75) 48%,
-                    rgba(0, 119, 182, .42) 100%
-                ),
-                url('images/panoramaeau.png')
-                center/cover no-repeat;
-        }
+        background:
+          linear-gradient(
+            110deg,
+            rgba(0, 47, 82, 0.91) 0%,
+            rgba(0, 91, 154, 0.75) 48%,
+            rgba(0, 119, 182, 0.42) 100%
+          ),
+          url("images/panoramaeau.png") center/cover no-repeat;
+      }
 
+      /* Wasserlicht */
 
-        /* Wasserlicht */
+      .hero::before {
+        content: "";
 
-        .hero::before {
-            content: "";
+        position: absolute;
 
-            position: absolute;
+        width: 650px;
+        height: 650px;
 
-            width: 650px;
-            height: 650px;
+        right: -240px;
+        bottom: -360px;
 
-            right: -240px;
-            bottom: -360px;
+        border-radius: 50%;
 
-            border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(101, 216, 232, 0.36),
+          rgba(101, 216, 232, 0)
+        );
+      }
 
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(101, 216, 232, .36),
-                    rgba(101, 216, 232, 0)
-                );
-        }
+      /* Wasserfläche */
 
+      .hero::after {
+        content: "";
 
-        /* Wasserfläche */
+        position: absolute;
 
-        .hero::after {
-            content: "";
+        left: -5%;
+        bottom: -78px;
 
-            position: absolute;
+        width: 110%;
+        height: 145px;
 
-            left: -5%;
-            bottom: -78px;
+        background: var(--background);
 
-            width: 110%;
-            height: 145px;
+        border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      }
 
-            background: var(--background);
+      .hero-content {
+        position: relative;
 
-            border-radius:
-                50% 50% 0 0 /
-                100% 100% 0 0;
-        }
+        z-index: 2;
 
-        .hero-content {
-            position: relative;
+        max-width: 900px;
+      }
 
-            z-index: 2;
+      /* Label */
 
-            max-width: 900px;
-        }
+      .hero-label {
+        display: inline-flex;
 
+        align-items: center;
 
-        /* Label */
+        gap: 10px;
 
-        .hero-label {
-            display: inline-flex;
+        margin-bottom: 22px;
 
-            align-items: center;
+        font-size: 0.82rem;
 
-            gap: 10px;
+        font-weight: 800;
 
-            margin-bottom: 22px;
+        letter-spacing: 2px;
 
-            font-size: .82rem;
+        text-transform: uppercase;
 
-            font-weight: 800;
+        color: var(--cyan);
+      }
 
-            letter-spacing: 2px;
+      .hero-label::before {
+        content: "";
 
-            text-transform: uppercase;
+        width: 32px;
+        height: 3px;
 
-            color: var(--cyan);
-        }
+        border-radius: 5px;
 
-        .hero-label::before {
-            content: "";
+        background: var(--cyan);
+      }
 
-            width: 32px;
-            height: 3px;
+      .hero h1 {
+        font-size: clamp(2.7rem, 5.5vw, 4.8rem);
 
-            border-radius: 5px;
+        line-height: 1.05;
 
-            background: var(--cyan);
-        }
+        letter-spacing: -1.5px;
 
+        margin-bottom: 24px;
 
-        .hero h1 {
-            font-size:
-                clamp(2.7rem, 5.5vw, 4.8rem);
+        text-shadow: 0 3px 20px rgba(0, 0, 0, 0.18);
+      }
 
-            line-height: 1.05;
+      .hero p {
+        font-size: 1.18rem;
 
-            letter-spacing: -1.5px;
+        line-height: 1.7;
 
-            margin-bottom: 24px;
+        max-width: 850px;
 
-            text-shadow:
-                0 3px 20px rgba(0, 0, 0, .18);
-        }
+        margin: auto;
 
-        .hero p {
-            font-size: 1.18rem;
+        color: rgba(255, 255, 255, 0.94);
+      }
 
-            line-height: 1.7;
-
-            max-width: 850px;
-
-            margin: auto;
-
-            color:
-                rgba(255, 255, 255, .94);
-        }
-
-
-        /* =====================================================
+      /* =====================================================
            INTRO
         ===================================================== */
 
-        .intro {
-            padding: 85px 8% 45px;
+      .intro {
+        padding: 85px 8% 45px;
 
-            background: var(--background);
+        background: var(--background);
 
-            text-align: center;
-        }
+        text-align: center;
+      }
 
-        .intro-content {
-            max-width: 900px;
+      .intro-content {
+        max-width: 900px;
 
-            margin: auto;
-        }
+        margin: auto;
+      }
 
-        .eyebrow {
-            color: var(--blue-bright);
+      .eyebrow {
+        color: var(--blue-bright);
 
-            font-size: .8rem;
+        font-size: 0.8rem;
 
-            font-weight: 800;
+        font-weight: 800;
 
-            letter-spacing: 2px;
+        letter-spacing: 2px;
 
-            text-transform: uppercase;
+        text-transform: uppercase;
 
-            margin-bottom: 12px;
-        }
+        margin-bottom: 12px;
+      }
 
-        .intro h2 {
-            font-size:
-                clamp(2rem, 4vw, 3rem);
+      .intro h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
 
-            line-height: 1.15;
+        line-height: 1.15;
 
-            color: var(--blue-dark);
+        color: var(--blue-dark);
 
-            margin-bottom: 20px;
-        }
+        margin-bottom: 20px;
+      }
 
-        .intro p {
-            font-size: 1.08rem;
-        }
+      .intro p {
+        font-size: 1.08rem;
+      }
 
-
-        /* =====================================================
+      /* =====================================================
            LEISTUNGEN
         ===================================================== */
 
-        .section {
-            padding: 75px 8%;
-        }
+      .section {
+        padding: 75px 8%;
+      }
 
-        .section-header {
-            max-width: 850px;
+      .section-header {
+        max-width: 850px;
 
-            margin:
-                0 auto 50px;
+        margin: 0 auto 50px;
 
-            text-align: center;
-        }
+        text-align: center;
+      }
 
-        .section-header h2 {
-            font-size:
-                clamp(2rem, 4vw, 2.8rem);
+      .section-header h2 {
+        font-size: clamp(2rem, 4vw, 2.8rem);
 
-            color: var(--blue-dark);
+        color: var(--blue-dark);
 
-            margin-bottom: 12px;
-        }
+        margin-bottom: 12px;
+      }
 
-
-        /* =====================================================
+      /* =====================================================
            LEISTUNGS-KARTEN
         ===================================================== */
 
-        .cards {
-            max-width: 1200px;
+      .cards {
+        max-width: 1200px;
 
-            margin: auto;
+        margin: auto;
 
-            display: grid;
+        display: grid;
 
-            grid-template-columns:
-                repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
-            gap: 25px;
-        }
+        gap: 25px;
+      }
 
-        .card {
-            position: relative;
+      .card {
+        position: relative;
 
-            min-height: 250px;
+        min-height: 250px;
 
-            padding: 35px 30px;
+        padding: 35px 30px;
 
-            background: white;
+        background: white;
 
-            border-radius: 24px;
+        border-radius: 24px;
 
-            border:
-                1px solid rgba(0, 91, 154, .08);
+        border: 1px solid rgba(0, 91, 154, 0.08);
 
-            box-shadow:
-                0 12px 38px rgba(0, 50, 80, .08);
+        box-shadow: 0 12px 38px rgba(0, 50, 80, 0.08);
 
-            overflow: hidden;
+        overflow: hidden;
 
-            transition: .35s;
-        }
+        transition: 0.35s;
+      }
 
+      /* Farbige Oberkante */
 
-        /* Farbige Oberkante */
+      .card::before {
+        content: "";
 
-        .card::before {
-            content: "";
+        position: absolute;
 
-            position: absolute;
+        top: 0;
+        left: 0;
 
-            top: 0;
-            left: 0;
+        width: 100%;
+        height: 4px;
 
-            width: 100%;
-            height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--blue),
+          var(--blue-light),
+          var(--green)
+        );
+      }
 
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--blue),
-                    var(--blue-light),
-                    var(--green)
-                );
-        }
+      /* Wasser-Kreis im Hintergrund */
 
+      .card::after {
+        content: "";
 
-        /* Wasser-Kreis im Hintergrund */
+        position: absolute;
 
-        .card::after {
-            content: "";
+        width: 150px;
+        height: 150px;
 
-            position: absolute;
+        right: -75px;
+        bottom: -75px;
 
-            width: 150px;
-            height: 150px;
+        border-radius: 50%;
 
-            right: -75px;
-            bottom: -75px;
+        border: 1px solid rgba(0, 119, 182, 0.08);
 
-            border-radius: 50%;
+        box-shadow: 0 0 0 25px rgba(0, 119, 182, 0.025);
+      }
 
-            border:
-                1px solid rgba(0, 119, 182, .08);
+      .card:hover {
+        transform: translateY(-8px);
 
-            box-shadow:
-                0 0 0 25px rgba(0, 119, 182, .025);
-        }
+        box-shadow: 0 22px 48px rgba(0, 70, 110, 0.14);
+      }
 
-        .card:hover {
-            transform: translateY(-8px);
+      /* Icon */
 
-            box-shadow:
-                0 22px 48px rgba(0, 70, 110, .14);
-        }
+      .card-icon {
+        width: 58px;
+        height: 58px;
 
+        display: flex;
 
-        /* Icon */
+        align-items: center;
+        justify-content: center;
 
-        .card-icon {
-            width: 58px;
-            height: 58px;
+        margin-bottom: 22px;
 
-            display: flex;
+        border-radius: 17px;
 
-            align-items: center;
-            justify-content: center;
+        background: linear-gradient(135deg, #ddf3fc, #e1f8f2);
 
-            margin-bottom: 22px;
+        color: var(--blue-bright);
 
-            border-radius: 17px;
+        font-size: 1.6rem;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #DDF3FC,
-                    #E1F8F2
-                );
+        position: relative;
 
-            color: var(--blue-bright);
+        z-index: 2;
+      }
 
-            font-size: 1.6rem;
+      .card h3 {
+        position: relative;
 
-            position: relative;
+        z-index: 2;
 
-            z-index: 2;
-        }
+        color: var(--blue-dark);
 
-        .card h3 {
-            position: relative;
+        margin-bottom: 12px;
 
-            z-index: 2;
+        font-size: 1.25rem;
 
-            color: var(--blue-dark);
+        line-height: 1.25;
+      }
 
-            margin-bottom: 12px;
+      .card p {
+        position: relative;
 
-            font-size: 1.25rem;
+        z-index: 2;
 
-            line-height: 1.25;
-        }
+        font-size: 0.98rem;
 
-        .card p {
-            position: relative;
+        color: var(--text);
+      }
 
-            z-index: 2;
-
-            font-size: .98rem;
-
-            color: var(--text);
-        }
-
-
-        /* =====================================================
+      /* =====================================================
            ARBEITSWEISE / INNOVATION
         ===================================================== */
 
-        .working-section {
-            position: relative;
+      .working-section {
+        position: relative;
 
-            padding:
-                95px 8%;
+        padding: 95px 8%;
 
-            color: white;
+        color: white;
 
-            overflow: hidden;
+        overflow: hidden;
 
-            background:
-                linear-gradient(
-                    120deg,
-                    #003B63 0%,
-                    #005B9A 55%,
-                    #007EAE 100%
-                );
-        }
+        background: linear-gradient(
+          120deg,
+          #003b63 0%,
+          #005b9a 55%,
+          #007eae 100%
+        );
+      }
 
+      /* technische Wasserlinien */
 
-        /* technische Wasserlinien */
+      .working-section::before {
+        content: "";
 
-        .working-section::before {
-            content: "";
+        position: absolute;
 
-            position: absolute;
+        width: 650px;
+        height: 650px;
 
-            width: 650px;
-            height: 650px;
+        right: -280px;
+        top: -350px;
 
-            right: -280px;
-            top: -350px;
+        border-radius: 50%;
 
-            border-radius: 50%;
+        border: 1px solid rgba(101, 216, 232, 0.25);
 
-            border:
-                1px solid rgba(101, 216, 232, .25);
+        box-shadow:
+          0 0 0 80px rgba(101, 216, 232, 0.04),
+          0 0 0 160px rgba(101, 216, 232, 0.025);
+      }
 
-            box-shadow:
-                0 0 0 80px rgba(101, 216, 232, .04),
-                0 0 0 160px rgba(101, 216, 232, .025);
-        }
+      .working-section::after {
+        content: "";
 
-        .working-section::after {
-            content: "";
+        position: absolute;
 
-            position: absolute;
+        width: 350px;
+        height: 350px;
 
-            width: 350px;
-            height: 350px;
+        left: -220px;
+        bottom: -220px;
 
-            left: -220px;
-            bottom: -220px;
+        border-radius: 50%;
 
-            border-radius: 50%;
+        border: 1px solid rgba(101, 216, 232, 0.16);
+      }
 
-            border:
-                1px solid rgba(101, 216, 232, .16);
-        }
+      .working-content {
+        position: relative;
 
+        z-index: 2;
 
-        .working-content {
-            position: relative;
+        max-width: 1000px;
 
-            z-index: 2;
+        margin: auto;
+      }
 
-            max-width: 1000px;
+      .working-content .eyebrow {
+        color: var(--cyan);
+      }
 
-            margin: auto;
-        }
+      .box {
+        padding: 50px;
 
-        .working-content .eyebrow {
-            color: var(--cyan);
-        }
+        background: rgba(255, 255, 255, 0.08);
 
-        .box {
-            padding: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
 
-            background:
-                rgba(255, 255, 255, .08);
+        border-radius: 26px;
 
-            border:
-                1px solid rgba(255, 255, 255, .14);
+        backdrop-filter: blur(12px);
 
-            border-radius: 26px;
+        box-shadow: 0 20px 55px rgba(0, 30, 55, 0.18);
+      }
 
-            backdrop-filter: blur(12px);
+      .box h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
 
-            box-shadow:
-                0 20px 55px rgba(0, 30, 55, .18);
-        }
+        line-height: 1.15;
 
-        .box h2 {
-            font-size:
-                clamp(2rem, 4vw, 3rem);
+        color: white;
 
-            line-height: 1.15;
+        margin-bottom: 25px;
+      }
 
-            color: white;
+      .box p {
+        font-size: 1.08rem;
 
-            margin-bottom: 25px;
-        }
+        color: rgba(255, 255, 255, 0.87);
+      }
 
-        .box p {
-            font-size: 1.08rem;
-
-            color:
-                rgba(255, 255, 255, .87);
-        }
-
-
-        /* =====================================================
+      /* =====================================================
            FOOTER
         ===================================================== */
 
-        footer {
-            padding: 45px 8%;
+       footer {
+          width: 100%;
 
-            text-align: center;
+          padding: 40px 8% 35px;
 
-            color: white;
+          text-align: center;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    #003B63,
-                    #005B9A,
-                    #168A68
-                );
+          background: linear-gradient(90deg, #003b63, #005b9a, #168a68);
+        }
+
+          color: white;
+        }
+
+        .footer-claim {
+          margin-bottom: 8px;
+
+          font-size: 1.05rem;
+          font-weight: 600;
+
+          letter-spacing: 0.07em;
+
+          color: var(--cyan);
         }
 
         footer h3 {
-            margin-bottom: 7px;
+          margin-bottom: 14px;
+          color: white;
         }
 
-        footer p {
-            opacity: .85;
+        .footer-legal {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          gap: 8px;
         }
 
+        .footer-legal a {
+          position: static;
 
-        /* =====================================================
+          font-size: 0.78rem;
+          font-weight: 400;
+
+          text-decoration: none;
+
+          color: rgba(255, 255, 255, 0.62);
+
+          transition: color 0.2s ease;
+        }
+
+        .footer-legal a::after {
+          display: none;
+        }
+
+        .footer-legal a:hover {
+          color: white;
+        }
+
+        .footer-legal span {
+          font-size: 0.75rem;
+
+          color: rgba(255, 255, 255, 0.3);
+        }
+
+      /* =====================================================
            RESPONSIVE
         ===================================================== */
 
-        @media (max-width: 1000px) {
+      @media (max-width: 1000px) {
+        nav ul {
+          position: absolute;
 
-            nav ul {
-                position: absolute;
+          top: 72px;
+          right: 6%;
 
-                top: 72px;
-                right: 6%;
+          width: 250px;
 
-                width: 250px;
+          display: none;
 
-                display: none;
+          flex-direction: column;
 
-                flex-direction: column;
+          gap: 15px;
 
-                gap: 15px;
+          padding: 22px;
 
-                padding: 22px;
+          background: white;
 
-                background: white;
+          border-radius: 16px;
 
-                border-radius: 16px;
-
-                box-shadow:
-                    0 12px 35px rgba(0, 0, 0, .15);
-            }
-
-            nav ul.show {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .header-title {
-                font-size: .9rem;
-            }
+          box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
         }
 
-
-        @media (max-width: 650px) {
-
-            header {
-                padding: 10px 5%;
-            }
-
-            .header-left img {
-                height: 42px;
-            }
-
-            .header-title {
-                display: none;
-            }
-
-            .hero {
-                min-height: 500px;
-
-                padding:
-                    130px 7% 100px;
-            }
-
-            .hero h1 {
-                letter-spacing: -1px;
-            }
-
-            .section {
-                padding:
-                    65px 7%;
-            }
-
-            .card {
-                min-height: auto;
-            }
-
-            .box {
-                padding: 32px 25px;
-            }
+        nav ul.show {
+          display: flex;
         }
 
+        .menu-toggle {
+          display: block;
+        }
+
+        .header-title {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 650px) {
+        header {
+          padding: 10px 5%;
+        }
+
+        .header-left img {
+          height: 42px;
+        }
+
+        .header-title {
+          display: none;
+        }
+
+        .hero {
+          min-height: 500px;
+
+          padding: 130px 7% 100px;
+        }
+
+        .hero h1 {
+          letter-spacing: -1px;
+        }
+
+        .section {
+          padding: 65px 7%;
+        }
+
+        .card {
+          min-height: auto;
+        }
+
+        .box {
+          padding: 32px 25px;
+        }
+      }
     </style>
-</head>
+  </head>
 
-
-<body>
-
-
-<!-- =====================================================
+  <body>
+    <!-- =====================================================
      HEADER
 ===================================================== -->
 
-<header>
-
-    <div class="header-left">
-
-        <img
-            src="images/eau.png"
-            alt="EAU Logo"
-        >
+    <header>
+      <div class="header-left">
+        <img src="images/eau.png" alt="EAU Logo" />
 
         <div class="header-title">
-            Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+          Entwicklungsinstitut für angewandten Umweltschutz gUG
+          (haftungsbeschränkt)
         </div>
+      </div>
 
-    </div>
-
-
-    <div
+      <div
         class="menu-toggle"
         onclick="document.querySelector('nav ul').classList.toggle('show')"
-    >
+      >
         ☰
-    </div>
+      </div>
 
-
-    <nav>
-
+      <nav>
         <ul>
+          <li>
+            <a href="index.html"> Start </a>
+          </li>
 
-            <li>
-                <a href="index.html">
-                    Start
-                </a>
-            </li>
+          <li>
+            <a href="ueberuns.html"> Über uns </a>
+          </li>
 
-            <li>
-                <a href="ueberuns.html">
-                    Über uns
-                </a>
-            </li>
+          <li>
+            <a href="forschung.html"> Forschung & Transfer </a>
+          </li>
 
-            <li>
-                <a href="forschung.html">
-                    Forschung & Transfer
-                </a>
-            </li>
+          <li>
+            <a href="leistungen.html" class="active"> Leistungen </a>
+          </li>
 
-            <li>
-                <a
-                    href="leistungen.html"
-                    class="active"
-                >
-                    Leistungen
-                </a>
-            </li>
+          <li>
+            <a href="projekte.html"> Projekte </a>
+          </li>
 
-            <li>
-                <a href="projekte.html">
-                    Projekte
-                </a>
-            </li>
+          <li>
+            <a href="wissen.html"> Wissen </a>
+          </li>
 
-            <li>
-                <a href="wissen.html">
-                    Wissen
-                </a>
-            </li>
-
-            <li>
-                <a href="kontakt.html">
-                    Kontakt
-                </a>
-            </li>
-
+          <li>
+            <a href="kontakt.html"> Kontakt </a>
+          </li>
         </ul>
+      </nav>
+    </header>
 
-    </nav>
-
-</header>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      HERO
 ===================================================== -->
 
-<section class="hero">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-label">Wasser · Umwelt · Innovation</div>
 
-    <div class="hero-content">
-
-        <div class="hero-label">
-            Wasser · Umwelt · Innovation
-        </div>
-
-        <h1>
-            Unsere Leistungen
-        </h1>
+        <h1>Unsere Leistungen</h1>
 
         <p>
-            Wir unterstützen Forschung, Wirtschaft und öffentliche Einrichtungen
-            durch wissenschaftlich fundierte und praxisorientierte Leistungen.
+          Wir unterstützen Forschung, Wirtschaft und öffentliche Einrichtungen
+          durch wissenschaftlich fundierte und praxisorientierte Leistungen.
         </p>
+      </div>
+    </section>
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      INTRO
 ===================================================== -->
 
-<section class="intro">
+    <section class="intro">
+      <div class="intro-content">
+        <div class="eyebrow">Was wir leisten</div>
 
-    <div class="intro-content">
-
-        <div class="eyebrow">
-            Was wir leisten
-        </div>
-
-        <h2>
-            Von der Forschung zur praktischen Lösung
-        </h2>
+        <h2>Von der Forschung zur praktischen Lösung</h2>
 
         <p>
-            Wissenschaftliche Kompetenz, technologische Innovation
-            und praxisorientierte Umsetzung verbinden sich zu
-            konkreten Lösungen für unsere Partner.
+          Wissenschaftliche Kompetenz, technologische Innovation und
+          praxisorientierte Umsetzung verbinden sich zu konkreten Lösungen für
+          unsere Partner.
         </p>
+      </div>
+    </section>
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      LEISTUNGEN
 ===================================================== -->
 
-<section class="section">
+    <section class="section">
+      <div class="section-header">
+        <div class="eyebrow">Leistungsangebot</div>
 
-    <div class="section-header">
+        <h2>Unsere Leistungen</h2>
+      </div>
 
-        <div class="eyebrow">
-            Leistungsangebot
-        </div>
-
-        <h2>
-            Unsere Leistungen
-        </h2>
-
-    </div>
-
-
-    <div class="cards">
-
-
+      <div class="cards">
         <!-- 1 -->
 
         <div class="card">
+          <div class="card-icon">🧪</div>
 
-            <div class="card-icon">
-                🧪
-            </div>
+          <h3>Forschungs- & Entwicklungsprojekte</h3>
 
-            <h3>
-                Forschungs- & Entwicklungsprojekte
-            </h3>
-
-            <p>
-                Konzeption, Durchführung und wissenschaftliche Begleitung
-                innovativer Forschungsprojekte.
-            </p>
-
+          <p>
+            Konzeption, Durchführung und wissenschaftliche Begleitung
+            innovativer Forschungsprojekte.
+          </p>
         </div>
-
 
         <!-- 2 -->
 
         <div class="card">
+          <div class="card-icon">💧</div>
 
-            <div class="card-icon">
-                💧
-            </div>
+          <h3>Wissens- & Technologietransfer</h3>
 
-            <h3>
-                Wissens- & Technologietransfer
-            </h3>
-
-            <p>
-                Überführung neuer Erkenntnisse in die praktische Anwendung.
-            </p>
-
+          <p>Überführung neuer Erkenntnisse in die praktische Anwendung.</p>
         </div>
-
 
         <!-- 3 -->
 
         <div class="card">
+          <div class="card-icon">◌</div>
 
-            <div class="card-icon">
-                ◌
-            </div>
+          <h3>Beratung</h3>
 
-            <h3>
-                Beratung
-            </h3>
-
-            <p>
-                Fachliche Beratung für Kommunen, Unternehmen und Institutionen.
-            </p>
-
+          <p>Fachliche Beratung für Kommunen, Unternehmen und Institutionen.</p>
         </div>
-
 
         <!-- 4 -->
 
         <div class="card">
+          <div class="card-icon">↗</div>
 
-            <div class="card-icon">
-                ↗
-            </div>
+          <h3>Fördermittel & Projektentwicklung</h3>
 
-            <h3>
-                Fördermittel & Projektentwicklung
-            </h3>
-
-            <p>
-                Unterstützung bei Projektideen, Anträgen und Konsortien.
-            </p>
-
+          <p>Unterstützung bei Projektideen, Anträgen und Konsortien.</p>
         </div>
-
 
         <!-- 5 -->
 
         <div class="card">
+          <div class="card-icon">◇</div>
 
-            <div class="card-icon">
-                ◇
-            </div>
+          <h3>Workshops & Schulungen</h3>
 
-            <h3>
-                Workshops & Schulungen
-            </h3>
-
-            <p>
-                Praxisnahe Weiterbildungsangebote und Fachveranstaltungen.
-            </p>
-
+          <p>Praxisnahe Weiterbildungsangebote und Fachveranstaltungen.</p>
         </div>
-
 
         <!-- 6 -->
 
         <div class="card">
+          <div class="card-icon">≋</div>
 
-            <div class="card-icon">
-                ≋
-            </div>
+          <h3>Gutachten & Studien</h3>
 
-            <h3>
-                Gutachten & Studien
-            </h3>
-
-            <p>
-                Wissenschaftliche Analysen, Bewertungen und Machbarkeitsstudien.
-            </p>
-
+          <p>
+            Wissenschaftliche Analysen, Bewertungen und Machbarkeitsstudien.
+          </p>
         </div>
+      </div>
+    </section>
 
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      ARBEITSWEISE
 ===================================================== -->
 
-<section class="working-section">
-
-    <div class="working-content">
-
+    <section class="working-section">
+      <div class="working-content">
         <div class="box">
+          <div class="eyebrow">Unser Anspruch</div>
 
-            <div class="eyebrow">
-                Unser Anspruch
-            </div>
+          <h2>Unsere Arbeitsweise</h2>
 
-            <h2>
-                Unsere Arbeitsweise
-            </h2>
-
-            <p>
-                Wir arbeiten interdisziplinär, wissenschaftlich fundiert und
-                praxisorientiert. Gemeinsam mit unseren Partnern entwickeln wir
-                nachhaltige Lösungen für Wasserwirtschaft, Kreislaufwirtschaft
-                und Klimaanpassung.
-            </p>
-
+          <p>
+            Wir arbeiten interdisziplinär, wissenschaftlich fundiert und
+            praxisorientiert. Gemeinsam mit unseren Partnern entwickeln wir
+            nachhaltige Lösungen für Wasserwirtschaft, Kreislaufwirtschaft und
+            Klimaanpassung.
+          </p>
         </div>
+      </div>
+    </section>
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      FOOTER
 ===================================================== -->
 
-<footer>
+    <footer>
+      <!-- <div class="footer-claim">Forschung · Transfer · Anwendung</div> -->
 
-    <h3>
-        EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG
-    </h3>
+      <h3>
+        EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG
+        (haftungsbeschränkt)
+      </h3>
 
-    <p>
-        Forschung. Transfer. Anwendung.
-    </p>
+      <nav class="footer-legal" aria-label="Rechtliches und Kontakt">
+        <a href="impressum.html"> Impressum </a>
 
-</footer>
+        <span aria-hidden="true"> · </span>
 
+        <a href="datenschutz.html"> Datenschutz </a>
 
-</body>
+        <span aria-hidden="true"> · </span>
+
+        <a href="kontakt.html"> Kontakt </a>
+      </nav>
+    </footer>
+  </body>
 </html>
 ```

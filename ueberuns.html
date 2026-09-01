@@ -1,1193 +1,1079 @@
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Über uns | EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG</title>
+    <title>
+      Über uns | EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG
+      (haftungsbeschränkt)
+    </title>
 
-<link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
-<style>
+    <style>
+            /* =====================================================
+         GRUNDLAGEN
+      ===================================================== */
 
-/* =====================================================
-   GRUNDLAGEN
-===================================================== */
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+            :root {
+              --blue-dark: #003b63;
+              --blue: #005b9a;
+              --blue-bright: #0077b6;
+              --blue-light: #35b9e8;
+              --cyan: #65d8e8;
 
-:root {
-    --blue-dark: #003B63;
-    --blue: #005B9A;
-    --blue-bright: #0077B6;
-    --blue-light: #35B9E8;
-    --cyan: #65D8E8;
+              --green: #22a06b;
+              --green-light: #5bc99a;
 
-    --green: #22A06B;
-    --green-light: #5BC99A;
+              --dark: #173447;
+              --text: #334b5c;
 
-    --dark: #173447;
-    --text: #334B5C;
+              --background: #f2f9fd;
+              --white: #ffffff;
+            }
 
-    --background: #F2F9FD;
-    --white: #FFFFFF;
-}
+            html {
+              scroll-behavior: smooth;
+            }
 
-html {
-    scroll-behavior: smooth;
-}
+            body {
+              font-family: Arial, Helvetica, sans-serif;
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
+              background: linear-gradient(180deg, #edf8ff 0%, #f7fbfd 100%);
 
-    background:
-        linear-gradient(
-            180deg,
-            #EDF8FF 0%,
-            #F7FBFD 100%
-        );
+              color: var(--text);
 
-    color: var(--text);
+              line-height: 1.6;
+            }
 
-    line-height: 1.6;
-}
+            /* =====================================================
+         HEADER
+      ===================================================== */
 
+            header {
+              position: fixed;
+              top: 0;
 
-/* =====================================================
-   HEADER
-===================================================== */
+              width: 100%;
 
-header {
-    position: fixed;
-    top: 0;
+              z-index: 1000;
 
-    width: 100%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
 
-    z-index: 1000;
+              padding: 13px 7%;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+              background: rgba(239, 249, 255, 0.94);
 
-    padding: 13px 7%;
+              backdrop-filter: blur(14px);
 
-    background: rgba(239, 249, 255, 0.94);
+              border-bottom: 1px solid rgba(0, 91, 154, 0.12);
 
-    backdrop-filter: blur(14px);
+              box-shadow: 0 3px 25px rgba(0, 45, 75, 0.1);
+            }
 
-    border-bottom:
-        1px solid rgba(0,91,154,.12);
+            .header-left {
+              display: flex;
+              align-items: center;
+              gap: 13px;
+            }
 
-    box-shadow:
-        0 3px 25px rgba(0,45,75,.10);
-}
+            .header-left img {
+              height: 50px;
+              width: auto;
+            }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-}
+            .header-title {
+              font-weight: 700;
 
-.header-left img {
-    height: 50px;
-    width: auto;
-}
+              font-size: 1.05rem;
 
-.header-title {
-    font-weight: 700;
+              color: var(--blue-dark);
 
-    font-size: 1.05rem;
+              line-height: 1.2;
 
-    color: var(--blue-dark);
+              max-width: 420px;
+            }
 
-    line-height: 1.2;
+            /* =====================================================
+         NAVIGATION
+      ===================================================== */
 
-    max-width: 420px;
-}
+            nav ul {
+              display: flex;
 
+              gap: 24px;
 
-/* =====================================================
-   NAVIGATION
-===================================================== */
+              list-style: none;
+            }
 
-nav ul {
-    display: flex;
+            nav a {
+              position: relative;
 
-    gap: 24px;
+              text-decoration: none;
 
-    list-style: none;
-}
+              color: var(--dark);
 
-nav a {
-    position: relative;
+              font-weight: 700;
 
-    text-decoration: none;
+              transition: 0.25s;
+            }
 
-    color: var(--dark);
+            nav a::after {
+              content: "";
 
-    font-weight: 700;
+              position: absolute;
 
-    transition: .25s;
-}
+              left: 0;
+              bottom: -7px;
 
-nav a::after {
-    content: "";
+              width: 0;
+              height: 2px;
 
-    position: absolute;
+              background: linear-gradient(90deg, var(--blue-bright), var(--cyan));
 
-    left: 0;
-    bottom: -7px;
+              transition: 0.25s;
+            }
 
-    width: 0;
-    height: 2px;
+            nav a:hover {
+              color: var(--blue-bright);
+            }
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--blue-bright),
-            var(--cyan)
-        );
+            nav a:hover::after {
+              width: 100%;
+            }
 
-    transition: .25s;
-}
+            /* aktuelle Seite */
 
-nav a:hover {
-    color: var(--blue-bright);
-}
+            nav a.active {
+              color: var(--blue-bright);
+            }
 
-nav a:hover::after {
-    width: 100%;
-}
+            nav a.active::after {
+              width: 100%;
+            }
 
+            /* =====================================================
+         HAMBURGER
+      ===================================================== */
 
-/* aktuelle Seite */
+            .menu-toggle {
+              display: none;
 
-nav a.active {
-    color: var(--blue-bright);
-}
+              font-size: 2rem;
 
-nav a.active::after {
-    width: 100%;
-}
+              cursor: pointer;
 
+              color: var(--blue-dark);
+            }
 
-/* =====================================================
-   HAMBURGER
-===================================================== */
+            /* =====================================================
+         HERO
+      ===================================================== */
 
-.menu-toggle {
-    display: none;
+            .hero {
+              position: relative;
 
-    font-size: 2rem;
+              min-height: 560px;
 
-    cursor: pointer;
+              padding: 165px 8% 125px;
 
-    color: var(--blue-dark);
-}
+              display: flex;
 
+              align-items: center;
+              justify-content: center;
 
-/* =====================================================
-   HERO
-===================================================== */
+              overflow: hidden;
 
-.hero {
-    position: relative;
+              color: white;
 
-    min-height: 560px;
+              text-align: center;
 
-    padding: 165px 8% 125px;
+              background:
+                linear-gradient(
+                  110deg,
+                  rgba(0, 47, 82, 0.91) 0%,
+                  rgba(0, 91, 154, 0.75) 48%,
+                  rgba(0, 119, 182, 0.42) 100%
+                ),
+                url("images/panoramaeau.png") center/cover no-repeat;
+            }
 
-    display: flex;
+            /* Wasser-Licht */
 
-    align-items: center;
-    justify-content: center;
+            .hero::before {
+              content: "";
 
-    overflow: hidden;
+              position: absolute;
 
-    color: white;
+              width: 650px;
+              height: 650px;
 
-    text-align: center;
+              right: -240px;
+              bottom: -360px;
 
-    background:
-        linear-gradient(
-            110deg,
-            rgba(0,47,82,.91) 0%,
-            rgba(0,91,154,.75) 48%,
-            rgba(0,119,182,.42) 100%
-        ),
-        url('images/panoramaeau.png')
-        center/cover no-repeat;
-}
+              border-radius: 50%;
 
+              background: radial-gradient(
+                circle,
+                rgba(101, 216, 232, 0.36),
+                rgba(101, 216, 232, 0)
+              );
+            }
 
-/* Wasser-Licht */
+            /* Wasserfläche */
 
-.hero::before {
-    content: "";
+            .hero::after {
+              content: "";
 
-    position: absolute;
+              position: absolute;
 
-    width: 650px;
-    height: 650px;
+              left: -5%;
+              bottom: -78px;
 
-    right: -240px;
-    bottom: -360px;
+              width: 110%;
+              height: 145px;
 
-    border-radius: 50%;
+              background: var(--background);
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(101,216,232,.36),
-            rgba(101,216,232,0)
-        );
-}
+              border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            }
 
+            .hero-content {
+              position: relative;
 
-/* Wasserfläche */
+              z-index: 2;
 
-.hero::after {
-    content: "";
+              max-width: 850px;
+            }
 
-    position: absolute;
+            /* Label */
 
-    left: -5%;
-    bottom: -78px;
+            .hero-label {
+              display: inline-flex;
 
-    width: 110%;
-    height: 145px;
+              align-items: center;
 
-    background: var(--background);
+              gap: 10px;
 
-    border-radius:
-        50% 50% 0 0 /
-        100% 100% 0 0;
-}
+              margin-bottom: 22px;
 
-.hero-content {
-    position: relative;
+              font-size: 0.82rem;
 
-    z-index: 2;
+              font-weight: 800;
 
-    max-width: 850px;
-}
+              letter-spacing: 2px;
 
+              text-transform: uppercase;
 
-/* Label */
+              color: var(--cyan);
+            }
 
-.hero-label {
-    display: inline-flex;
+            .hero-label::before {
+              content: "";
 
-    align-items: center;
+              width: 32px;
+              height: 3px;
 
-    gap: 10px;
+              border-radius: 5px;
 
-    margin-bottom: 22px;
+              background: var(--cyan);
+            }
 
-    font-size: .82rem;
+            /* Titel */
 
-    font-weight: 800;
+            .hero h1 {
+              font-size: clamp(2.7rem, 5.5vw, 4.8rem);
 
-    letter-spacing: 2px;
+              line-height: 1.05;
 
-    text-transform: uppercase;
+              letter-spacing: -1.5px;
 
-    color: var(--cyan);
-}
+              margin-bottom: 24px;
 
-.hero-label::before {
-    content: "";
+              text-shadow: 0 3px 20px rgba(0, 0, 0, 0.18);
+            }
 
-    width: 32px;
-    height: 3px;
+            .hero p {
+              font-size: 1.18rem;
 
-    border-radius: 5px;
+              line-height: 1.7;
 
-    background: var(--cyan);
-}
+              max-width: 850px;
 
+              margin: auto;
 
-/* Titel */
+              color: rgba(255, 255, 255, 0.94);
+            }
 
-.hero h1 {
-    font-size:
-        clamp(2.7rem, 5.5vw, 4.8rem);
+            /* =====================================================
+         INTRO
+      ===================================================== */
 
-    line-height: 1.05;
+            .intro {
+              padding: 85px 8% 45px;
 
-    letter-spacing: -1.5px;
+              background: var(--background);
+            }
 
-    margin-bottom: 24px;
+            .intro-content {
+              max-width: 900px;
 
-    text-shadow:
-        0 3px 20px rgba(0,0,0,.18);
-}
+              margin: auto;
 
-.hero p {
-    font-size: 1.18rem;
+              text-align: center;
+            }
 
-    line-height: 1.7;
+            .eyebrow {
+              color: var(--blue-bright);
 
-    max-width: 850px;
+              font-size: 0.8rem;
 
-    margin: auto;
+              font-weight: 800;
 
-    color: rgba(255,255,255,.94);
-}
+              letter-spacing: 2px;
 
+              text-transform: uppercase;
 
-/* =====================================================
-   INTRO
-===================================================== */
+              margin-bottom: 12px;
+            }
 
-.intro {
-    padding: 85px 8% 45px;
+            .intro h2 {
+              font-size: clamp(2rem, 4vw, 3rem);
 
-    background: var(--background);
-}
+              line-height: 1.15;
 
-.intro-content {
-    max-width: 900px;
+              color: var(--blue-dark);
 
-    margin: auto;
+              margin-bottom: 20px;
+            }
 
-    text-align: center;
-}
+            .intro p {
+              font-size: 1.08rem;
+            }
 
-.eyebrow {
-    color: var(--blue-bright);
+            /* =====================================================
+         ALLGEMEINE SEKTION
+      ===================================================== */
 
-    font-size: .8rem;
+            .section {
+              padding: 75px 8%;
+            }
 
-    font-weight: 800;
+            .section-header {
+              max-width: 850px;
 
-    letter-spacing: 2px;
+              margin: 0 auto 45px;
 
-    text-transform: uppercase;
+              text-align: center;
+            }
 
-    margin-bottom: 12px;
-}
+            .section-header h2 {
+              font-size: clamp(2rem, 4vw, 2.8rem);
 
-.intro h2 {
-    font-size:
-        clamp(2rem, 4vw, 3rem);
+              color: var(--blue-dark);
 
-    line-height: 1.15;
+              margin-bottom: 12px;
+            }
 
-    color: var(--blue-dark);
+            /* =====================================================
+         GRUPPENFOTO
+      ===================================================== */
 
-    margin-bottom: 20px;
-}
+            .group-photo {
+              max-width: 1150px;
 
-.intro p {
-    font-size: 1.08rem;
-}
+              margin: 0 auto 90px;
 
+              padding: 35px;
 
-/* =====================================================
-   ALLGEMEINE SEKTION
-===================================================== */
+              background: white;
 
-.section {
-    padding: 75px 8%;
-}
+              border-radius: 26px;
 
-.section-header {
-    max-width: 850px;
+              border: 1px solid rgba(0, 91, 154, 0.08);
 
-    margin:
-        0 auto 45px;
+              box-shadow: 0 15px 45px rgba(0, 50, 80, 0.09);
 
-    text-align: center;
-}
+              position: relative;
 
-.section-header h2 {
-    font-size:
-        clamp(2rem, 4vw, 2.8rem);
+              overflow: hidden;
+            }
 
-    color: var(--blue-dark);
+            .group-photo::before {
+              content: "";
 
-    margin-bottom: 12px;
-}
+              position: absolute;
 
+              top: 0;
+              left: 0;
 
-/* =====================================================
-   GRUPPENFOTO
-===================================================== */
+              width: 100%;
+              height: 5px;
 
-.group-photo {
-    max-width: 1150px;
+              background: linear-gradient(
+                90deg,
+                var(--blue),
+                var(--blue-light),
+                var(--green)
+              );
+            }
 
-    margin: 0 auto 90px;
+            .group-photo h2 {
+              text-align: center;
 
-    padding: 35px;
+              color: var(--blue-dark);
 
-    background: white;
+              font-size: 2rem;
 
-    border-radius: 26px;
+              margin-bottom: 28px;
+            }
 
-    border:
-        1px solid rgba(0,91,154,.08);
+            .photo-placeholder {
+              width: 100%;
 
-    box-shadow:
-        0 15px 45px rgba(0,50,80,.09);
+              min-height: 450px;
 
-    position: relative;
+              border-radius: 20px;
 
-    overflow: hidden;
-}
+              overflow: hidden;
 
-.group-photo::before {
-    content: "";
+              background: #edf7fc;
 
-    position: absolute;
+              display: flex;
 
-    top: 0;
-    left: 0;
+              align-items: center;
+              justify-content: center;
+            }
 
-    width: 100%;
-    height: 5px;
+            .photo-placeholder img {
+              width: 100%;
+              height: 100%;
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--blue),
-            var(--blue-light),
-            var(--green)
-        );
-}
+              min-height: 450px;
 
-.group-photo h2 {
-    text-align: center;
+              object-fit: cover;
 
-    color: var(--blue-dark);
+              display: block;
+            }
 
-    font-size: 2rem;
+            /* =====================================================
+         GESELLSCHAFTER
+      ===================================================== */
 
-    margin-bottom: 28px;
-}
+            .founders {
+              max-width: 1150px;
 
-.photo-placeholder {
-    width: 100%;
+              margin: auto;
 
-    min-height: 450px;
+              display: grid;
 
-    border-radius: 20px;
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
-    overflow: hidden;
+              gap: 25px;
+            }
 
-    background: #EDF7FC;
+            .founder-card {
+              position: relative;
 
-    display: flex;
+              background: white;
 
-    align-items: center;
-    justify-content: center;
-}
+              border-radius: 24px;
 
-.photo-placeholder img {
-    width: 100%;
-    height: 100%;
+              padding: 35px 30px;
 
-    min-height: 450px;
+              text-align: center;
 
-    object-fit: cover;
+              border: 1px solid rgba(0, 91, 154, 0.08);
 
-    display: block;
-}
+              box-shadow: 0 12px 38px rgba(0, 50, 80, 0.08);
 
+              overflow: hidden;
 
-/* =====================================================
-   GESELLSCHAFTER
-===================================================== */
+              transition: 0.35s;
+            }
 
-.founders {
-    max-width: 1150px;
+            .founder-card::before {
+              content: "";
 
-    margin: auto;
+              position: absolute;
 
-    display: grid;
+              top: 0;
+              left: 0;
 
-    grid-template-columns:
-        repeat(auto-fit, minmax(280px, 1fr));
+              width: 100%;
+              height: 4px;
 
-    gap: 25px;
-}
+              background: linear-gradient(
+                90deg,
+                var(--blue),
+                var(--blue-light),
+                var(--green)
+              );
+            }
 
-.founder-card {
-    position: relative;
+            .founder-card:hover {
+              transform: translateY(-8px);
 
-    background: white;
+              box-shadow: 0 22px 48px rgba(0, 70, 110, 0.14);
+            }
 
-    border-radius: 24px;
+            /* Profilbild */
 
-    padding: 35px 30px;
+            .profile-placeholder {
+              width: 165px;
+              height: 165px;
 
-    text-align: center;
+              margin: 0 auto 25px;
 
-    border:
-        1px solid rgba(0,91,154,.08);
+              border-radius: 50%;
 
-    box-shadow:
-        0 12px 38px rgba(0,50,80,.08);
+              overflow: hidden;
 
-    overflow: hidden;
+              border: 4px solid #d8f0fa;
 
-    transition: .35s;
-}
+              background: #f2f9fd;
 
-.founder-card::before {
-    content: "";
+              display: flex;
 
-    position: absolute;
+              align-items: center;
+              justify-content: center;
 
-    top: 0;
-    left: 0;
+              box-shadow: 0 8px 25px rgba(0, 70, 110, 0.12);
+            }
 
-    width: 100%;
-    height: 4px;
+            .profile-placeholder img {
+              width: 100%;
+              height: 100%;
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--blue),
-            var(--blue-light),
-            var(--green)
-        );
-}
+              object-fit: cover;
 
-.founder-card:hover {
-    transform: translateY(-8px);
+              display: block;
+            }
 
-    box-shadow:
-        0 22px 48px rgba(0,70,110,.14);
-}
+            .founder-card h3 {
+              color: var(--blue-dark);
 
+              margin-bottom: 9px;
 
-/* Profilbild */
+              font-size: 1.15rem;
+            }
 
-.profile-placeholder {
-    width: 165px;
-    height: 165px;
+            .role {
+              color: var(--green);
 
-    margin:
-        0 auto 25px;
+              font-weight: 800;
 
-    border-radius: 50%;
+              margin-bottom: 18px;
+            }
 
-    overflow: hidden;
+            .founder-card p {
+              color: var(--text);
 
-    border:
-        4px solid #D8F0FA;
+              font-size: 0.96rem;
+            }
 
-    background: #F2F9FD;
+            /* =====================================================
+         MISSION / GRÜNDUNG
+      ===================================================== */
 
-    display: flex;
+            .mission-section {
+              position: relative;
 
-    align-items: center;
-    justify-content: center;
+              padding: 95px 8%;
 
-    box-shadow:
-        0 8px 25px rgba(0,70,110,.12);
-}
+              color: white;
 
-.profile-placeholder img {
-    width: 100%;
-    height: 100%;
+              overflow: hidden;
 
-    object-fit: cover;
+              background: linear-gradient(
+                120deg,
+                #003b63 0%,
+                #005b9a 55%,
+                #007eae 100%
+              );
+            }
 
-    display: block;
-}
+            .mission-section::before {
+              content: "";
 
-.founder-card h3 {
-    color: var(--blue-dark);
+              position: absolute;
 
-    margin-bottom: 9px;
+              width: 650px;
+              height: 650px;
 
-    font-size: 1.15rem;
-}
+              right: -280px;
+              top: -350px;
 
-.role {
-    color: var(--green);
+              border-radius: 50%;
 
-    font-weight: 800;
+              border: 1px solid rgba(101, 216, 232, 0.25);
 
-    margin-bottom: 18px;
-}
+              box-shadow:
+                0 0 0 80px rgba(101, 216, 232, 0.04),
+                0 0 0 160px rgba(101, 216, 232, 0.025);
+            }
 
-.founder-card p {
-    color: var(--text);
+            .mission {
+              position: relative;
 
-    font-size: .96rem;
-}
+              z-index: 2;
 
+              max-width: 1000px;
 
-/* =====================================================
-   MISSION / GRÜNDUNG
-===================================================== */
+              margin: auto;
 
-.mission-section {
-    position: relative;
+              padding: 50px;
 
-    padding:
-        95px 8%;
+              background: rgba(255, 255, 255, 0.08);
 
-    color: white;
+              border: 1px solid rgba(255, 255, 255, 0.14);
 
-    overflow: hidden;
+              border-radius: 26px;
 
-    background:
-        linear-gradient(
-            120deg,
-            #003B63 0%,
-            #005B9A 55%,
-            #007EAE 100%
-        );
-}
+              backdrop-filter: blur(12px);
 
-.mission-section::before {
-    content: "";
+              box-shadow: 0 20px 55px rgba(0, 30, 55, 0.18);
+            }
 
-    position: absolute;
+            .mission h2 {
+              font-size: clamp(2rem, 4vw, 3rem);
 
-    width: 650px;
-    height: 650px;
+              line-height: 1.15;
 
-    right: -280px;
-    top: -350px;
+              margin-bottom: 30px;
 
-    border-radius: 50%;
+              color: white;
+            }
 
-    border:
-        1px solid rgba(101,216,232,.25);
+            .mission p {
+              margin-bottom: 20px;
 
-    box-shadow:
-        0 0 0 80px rgba(101,216,232,.04),
-        0 0 0 160px rgba(101,216,232,.025);
-}
+              font-size: 1.05rem;
 
-.mission {
-    position: relative;
+              color: rgba(255, 255, 255, 0.87);
+            }
 
-    z-index: 2;
+            .mission p:last-child {
+              margin-bottom: 0;
+            }
 
-    max-width: 1000px;
+            /* =====================================================
+         FOOTER
+      ===================================================== */
+       footer {
+                width: 100%;
 
-    margin: auto;
+                padding: 40px 8% 35px;
 
-    padding: 50px;
+                text-align: center;
 
-    background:
-        rgba(255,255,255,.08);
+                background: linear-gradient(90deg, #003b63, #005b9a, #168a68);
+              }
 
-    border:
-        1px solid rgba(255,255,255,.14);
+                color: white;
+              }
 
-    border-radius: 26px;
+              .footer-claim {
+                margin-bottom: 8px;
 
-    backdrop-filter: blur(12px);
+                font-size: 1.05rem;
+                font-weight: 600;
 
-    box-shadow:
-        0 20px 55px rgba(0,30,55,.18);
-}
+                letter-spacing: 0.07em;
 
-.mission h2 {
-    font-size:
-        clamp(2rem, 4vw, 3rem);
+                color: var(--cyan);
+              }
 
-    line-height: 1.15;
+              footer h3 {
+                margin-bottom: 14px;
+                color: white;
+              }
 
-    margin-bottom: 30px;
+              .footer-legal {
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
-    color: white;
-}
+                gap: 8px;
+              }
 
-.mission p {
-    margin-bottom: 20px;
+              .footer-legal a {
+                position: static;
 
-    font-size: 1.05rem;
+                font-size: 0.78rem;
+                font-weight: 400;
 
-    color:
-        rgba(255,255,255,.87);
-}
+                text-decoration: none;
 
-.mission p:last-child {
-    margin-bottom: 0;
-}
+                color: rgba(255, 255, 255, 0.62);
 
+                transition: color 0.2s ease;
+              }
 
-/* =====================================================
-   FOOTER
-===================================================== */
+              .footer-legal a::after {
+                display: none;
+              }
 
-footer {
-    padding: 45px 8%;
+              .footer-legal a:hover {
+                color: white;
+              }
 
-    text-align: center;
+              .footer-legal span {
+                font-size: 0.75rem;
 
-    color: white;
+                color: rgba(255, 255, 255, 0.3);
+              }
 
-    background:
-        linear-gradient(
-            90deg,
-            #003B63,
-            #005B9A,
-            #168A68
-        );
-}
+            /* =====================================================
+         RESPONSIVE
+      ===================================================== */
 
-footer h3 {
-    margin-bottom: 7px;
-}
+            @media (max-width: 1000px) {
+              nav ul {
+                position: absolute;
 
-footer p {
-    opacity: .85;
-}
+                top: 72px;
+                right: 6%;
 
+                width: 250px;
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+                display: none;
 
-@media (max-width: 1000px) {
+                flex-direction: column;
 
-    nav ul {
-        position: absolute;
+                gap: 15px;
 
-        top: 72px;
-        right: 6%;
+                padding: 22px;
 
-        width: 250px;
+                background: white;
 
-        display: none;
+                border-radius: 16px;
 
-        flex-direction: column;
+                box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+              }
 
-        gap: 15px;
+              nav ul.show {
+                display: flex;
+              }
 
-        padding: 22px;
+              .menu-toggle {
+                display: block;
+              }
 
-        background: white;
+              .header-title {
+                font-size: 0.9rem;
+              }
+            }
 
-        border-radius: 16px;
+            @media (max-width: 650px) {
+              header {
+                padding: 10px 5%;
+              }
 
-        box-shadow:
-            0 12px 35px rgba(0,0,0,.15);
-    }
+              .header-left img {
+                height: 42px;
+              }
 
-    nav ul.show {
-        display: flex;
-    }
+              .header-title {
+                display: none;
+              }
 
-    .menu-toggle {
-        display: block;
-    }
+              .hero {
+                min-height: 500px;
 
-    .header-title {
-        font-size: .9rem;
-    }
-}
+                padding: 130px 7% 100px;
+              }
 
+              .hero h1 {
+                letter-spacing: -1px;
+              }
 
-@media (max-width: 650px) {
+              .section {
+                padding: 65px 7%;
+              }
 
-    header {
-        padding: 10px 5%;
-    }
+              .group-photo {
+                padding: 20px;
+              }
 
-    .header-left img {
-        height: 42px;
-    }
+              .photo-placeholder,
+              .photo-placeholder img {
+                min-height: 250px;
+              }
 
-    .header-title {
-        display: none;
-    }
+              .mission {
+                padding: 32px 25px;
+              }
+            }
+    </style>
+  </head>
 
-    .hero {
-        min-height: 500px;
-
-        padding:
-            130px 7% 100px;
-    }
-
-    .hero h1 {
-        letter-spacing: -1px;
-    }
-
-    .section {
-        padding:
-            65px 7%;
-    }
-
-    .group-photo {
-        padding: 20px;
-    }
-
-    .photo-placeholder,
-    .photo-placeholder img {
-        min-height: 250px;
-    }
-
-    .mission {
-        padding: 32px 25px;
-    }
-
-}
-
-</style>
-</head>
-
-
-<body>
-
-
-<!-- =====================================================
+  <body>
+    <!-- =====================================================
      HEADER
 ===================================================== -->
 
-<header>
-
-    <div class="header-left">
-
-        <img
-            src="images/eau.png"
-            alt="EAU Logo"
-        >
+    <header>
+      <div class="header-left">
+        <img src="images/eau.png" alt="EAU Logo" />
 
         <div class="header-title">
-            Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+          Entwicklungsinstitut für angewandten Umweltschutz gUG
+          (haftungsbeschränkt)
         </div>
+      </div>
 
-    </div>
-
-
-    <div
+      <div
         class="menu-toggle"
         onclick="document.querySelector('nav ul').classList.toggle('show')"
-    >
+      >
         ☰
-    </div>
+      </div>
 
-
-    <nav>
-
+      <nav>
         <ul>
+          <li>
+            <a href="index.html"> Start </a>
+          </li>
 
-            <li>
-                <a href="index.html">
-                    Start
-                </a>
-            </li>
+          <li>
+            <a href="ueberuns.html" class="active"> Über uns </a>
+          </li>
 
-            <li>
-                <a
-                    href="ueberuns.html"
-                    class="active"
-                >
-                    Über uns
-                </a>
-            </li>
+          <li>
+            <a href="forschung.html"> Forschung & Transfer </a>
+          </li>
 
-            <li>
-                <a href="forschung.html">
-                    Forschung & Transfer
-                </a>
-            </li>
+          <li>
+            <a href="leistungen.html"> Leistungen </a>
+          </li>
 
-            <li>
-                <a href="leistungen.html">
-                    Leistungen
-                </a>
-            </li>
+          <li>
+            <a href="projekte.html"> Projekte </a>
+          </li>
 
-            <li>
-                <a href="projekte.html">
-                    Projekte
-                </a>
-            </li>
+          <li>
+            <a href="wissen.html"> Wissen </a>
+          </li>
 
-            <li>
-                <a href="wissen.html">
-                    Wissen
-                </a>
-            </li>
-
-            <li>
-                <a href="kontakt.html">
-                    Kontakt
-                </a>
-            </li>
-
+          <li>
+            <a href="kontakt.html"> Kontakt </a>
+          </li>
         </ul>
+      </nav>
+    </header>
 
-    </nav>
-
-</header>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      HERO
 ===================================================== -->
 
-<section class="hero">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-label">Wasser · Umwelt · Innovation</div>
 
-    <div class="hero-content">
-
-        <div class="hero-label">
-            Wasser · Umwelt · Innovation
-        </div>
-
-        <h1>
-            Über uns
-        </h1>
+        <h1>Über uns</h1>
 
         <p>
-            Wissenschaftliche Exzellenz, praktische Umsetzung und nachhaltige
-            Innovationen für Wasserwirtschaft, Kreislaufwirtschaft und Klimaschutz.
+          Wissenschaftliche Exzellenz, praktische Umsetzung und nachhaltige
+          Innovationen für Wasserwirtschaft, Kreislaufwirtschaft und
+          Klimaschutz.
         </p>
+      </div>
+    </section>
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      INTRO
 ===================================================== -->
 
-<section class="intro">
+    <section class="intro">
+      <div class="intro-content">
+        <div class="eyebrow">Das Gründerteam</div>
 
-    <div class="intro-content">
-
-        <div class="eyebrow">
-            Das Gründerteam
-        </div>
-
-        <h2>
-            Wissenschaft, Erfahrung und
-            gemeinsamer Gestaltungswille
-        </h2>
+        <h2>Wissenschaft, Erfahrung und gemeinsamer Gestaltungswille</h2>
 
         <p>
-            EAU verbindet wissenschaftliche Kompetenz
-            mit dem Anspruch, innovative Lösungen in
-            die praktische Anwendung zu bringen.
+          EAU verbindet wissenschaftliche Kompetenz mit dem Anspruch, innovative
+          Lösungen in die praktische Anwendung zu bringen.
         </p>
+      </div>
+    </section>
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      GRUPPENFOTO
 ===================================================== -->
 
-<section class="section">
-
-    <div class="group-photo">
-
-        <h2>
-            Das Gründerteam
-        </h2>
+    <section class="section">
+      <div class="group-photo">
+        <h2>Das Gründerteam</h2>
 
         <div class="photo-placeholder">
-
-            <img
-                src="images/team.jpg"
-                alt="Gründerteam der EAU"
-            >
-
+          <img src="images/team.jpg" alt="Gründerteam der EAU" />
         </div>
+      </div>
 
-    </div>
-
-
-    <!-- =================================================
+      <!-- =================================================
          GESELLSCHAFTER
     ================================================== -->
 
-    <div class="section-header">
+      <div class="section-header">
+        <div class="eyebrow">Kompetenz & Verantwortung</div>
 
-        <div class="eyebrow">
-            Kompetenz & Verantwortung
-        </div>
+        <h2>Die Gesellschafter</h2>
+      </div>
 
-        <h2>
-            Die Gesellschafter
-        </h2>
-
-    </div>
-
-
-    <div class="founders">
-
-
+      <div class="founders">
         <!-- BREITENKAMP -->
 
         <div class="founder-card">
+          <div class="profile-placeholder">
+            <img src="images/breitenkamp.jpg" alt="Dr. Breitenkamp" />
+          </div>
 
-            <div class="profile-placeholder">
+          <h3>Dr.-Ing. Sabrina Breitenkamp</h3>
 
-                <img
-                    src="images/breitenkamp.jpg"
-                    alt="Dr. Breitenkamp"
-                >
+          <div class="role">Geschäftsführung</div>
 
-            </div>
-
-            <h3>
-                Dr.-Ing. Sabrina Breitenkamp
-            </h3>
-
-            <div class="role">
-                Geschäftsführung
-            </div>
-
-            <p>
-                Kurzbeschreibung der fachlichen Schwerpunkte,
-                Erfahrungen und Kompetenzen.
-            </p>
-
+          <p>
+            Dr.-Ing. Sabrina Breitenkamp verbindet Kreislaufwirtschaft,
+            Stoffstrommanagement und Ressourceneffizienz mit modellgestützter
+            Planung und Bewertung. Ihre Schwerpunkte liegen auf Stoff-, Energie-
+            und Treibhausgasbilanzen sowie auf der Analyse und Optimierung
+            technischer Systeme und Verfahrensketten. Dabei betrachtet sie
+            Fragestellungen ganzheitlich – von einzelnen Verfahren über
+            Stoffströme bis hin zu komplexen Infrastruktur- und
+            Versorgungssystemen. Ein besonderer Fokus liegt auf der Übertragung
+            wissenschaftlicher Methoden in praxistaugliche Lösungen –
+            insbesondere auch in digitale Werkzeuge für Planung, Bewertung und
+            Entscheidungsunterstützung.
+          </p>
         </div>
-
 
         <!-- KÖSTER -->
 
         <div class="founder-card">
+          <div class="profile-placeholder">
+            <img src="images/koester.jpg" alt="Prof. Köster" />
+          </div>
 
-            <div class="profile-placeholder">
+          <h3>Prof. Dr.-Ing. Stephan Köster</h3>
 
-                <img
-                    src="images/koester.jpg"
-                    alt="Prof. Köster"
-                >
+          <div class="role">Gesellschafter</div>
 
-            </div>
-
-            <h3>
-                Prof. Dr.-Ing. Stephan Köster
-            </h3>
-
-            <div class="role">
-                Gesellschafter
-            </div>
-
-            <p>
-                Kurzbeschreibung der fachlichen Schwerpunkte,
-                Erfahrungen und Kompetenzen.
-            </p>
-
+          <p>
+            Prof. Dr.-Ing. Stephan Köster steht für die strategische
+            Weiterentwicklung nachhaltiger Wasser- und Abwassersysteme. Seine
+            Schwerpunkte liegen auf innovativen Versorgungskonzepten,
+            resilienten Infrastrukturen und der Entwicklung neuer Lösungsansätze
+            für die Siedlungswasserwirtschaft. Er bringt langjährige Erfahrung
+            in der Konzeption und Steuerung komplexer Forschungs- und
+            Verbundprojekte sowie in der Zusammenarbeit mit Kommunen,
+            Unternehmen und Forschungspartnern ein. Ein besonderer Fokus liegt
+            auf der Verbindung wissenschaftlicher Innovationen mit langfristigen
+            Entwicklungsstrategien und ihrer Überführung in tragfähige Lösungen
+            für die wasserwirtschaftliche Praxis.
+          </p>
         </div>
-
 
         <!-- BEIER -->
 
         <div class="founder-card">
+          <div class="profile-placeholder">
+            <img src="images/beier.jpg" alt="Dr. Beier" />
+          </div>
 
-            <div class="profile-placeholder">
+          <h3>Dr.-Ing. Maike Beier</h3>
 
-                <img
-                    src="images/beier.jpg"
-                    alt="Dr. Beier"
-                >
+          <div class="role">Gesellschafterin</div>
 
-            </div>
-
-            <h3>
-                Dr.-Ing. Maike Beier
-            </h3>
-
-            <div class="role">
-                Gesellschafterin
-            </div>
-
-            <p>
-                Kurzbeschreibung der fachlichen Schwerpunkte,
-                Erfahrungen und Kompetenzen.
-            </p>
-
+          <p>
+            Dr.-Ing. Maike Beier verfügt über umfassende Erfahrung in der
+            kommunalen und industriellen Wasser-und Abwasserwirtschaft. Ihre
+            Schwerpunkte reichen von biologischer Abwasserbehandlung,
+            Stickstoff- und Phosphorelimination und -rückgewinnung über
+            Ressourcen- und Energieeffizienz bis zur Reduzierung von
+            Treibhausgasemissionen. Weitere Kompetenzen liegen u.a. in der
+            modellgestützten Optimierung, der strategischen Investitionsplanung
+            sowie in der technischen, ökologischen und wirtschaftlichen
+            Bewertung neuer Lösungen. Ein besonderer Fokus liegt auf der
+            Überführung wissenschaftlicher Erkenntnisse in praxistaugliche
+            Konzepte und belastbare Entscheidungsgrundlagen für die kommunale
+            und industrielle Wasserwirtschaft.
+          </p>
         </div>
+      </div>
+    </section>
 
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      MISSION
 ===================================================== -->
 
-<section class="mission-section">
+    <section class="mission-section">
+      <div class="mission">
+        <div class="eyebrow">Unsere Motivation</div>
 
-    <div class="mission">
-
-        <div class="eyebrow">
-            Unsere Motivation
-        </div>
-
-        <h2>
-            Warum wir die EAU gUG gegründet haben
-        </h2>
+        <h2>Warum wir die EAU gegründet haben</h2>
 
         <p>
-            Die Herausforderungen des Klima- und Ressourcenschutzes erfordern
-            neue Wege des Wissens- und Technologietransfers zwischen Forschung,
-            Wirtschaft, Kommunen und Gesellschaft.
+          Die Herausforderungen des Klima- und Ressourcenschutzes erfordern neue
+          Wege des Wissens- und Technologietransfers zwischen Forschung,
+          Wirtschaft, Kommunen und Gesellschaft.
         </p>
 
         <p>
-            Mit der Gründung der EAU möchten wir wissenschaftliche Erkenntnisse
-            schneller in die praktische Anwendung überführen und gleichzeitig
-            innovative Lösungen für die Wasser- und Kreislaufwirtschaft fördern.
+          Mit der Gründung der EAU möchten wir wissenschaftliche Erkenntnisse
+          schneller in die praktische Anwendung überführen und gleichzeitig
+          innovative Lösungen für die Wasser- und Kreislaufwirtschaft fördern.
         </p>
 
         <p>
-            Als gemeinnützige Organisation verfolgen wir das Ziel,
-            Forschung, Bildung und Umsetzung miteinander zu verbinden und
-            dadurch einen messbaren Beitrag zu nachhaltigen und resilienten
-            Infrastrukturen zu leisten.
+          Als gemeinnützige Organisation verfolgen wir das Ziel, Forschung,
+          Bildung und Umsetzung miteinander zu verbinden und dadurch einen
+          messbaren Beitrag zu nachhaltigen und resilienten Infrastrukturen zu
+          leisten.
         </p>
 
         <p>
-            Unsere Arbeit basiert auf wissenschaftlicher Qualität,
-            interdisziplinärer Zusammenarbeit und dem Anspruch,
-            nachhaltige Lösungen für kommende Generationen zu entwickeln.
+          Unsere Arbeit basiert auf wissenschaftlicher Qualität,
+          interdisziplinärer Zusammenarbeit und dem Anspruch, nachhaltige
+          Lösungen für kommende Generationen zu entwickeln.
         </p>
+      </div>
+    </section>
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      FOOTER
 ===================================================== -->
 
-<footer>
+    <footer>
+      <!-- <div class="footer-claim">Forschung · Transfer · Anwendung</div> -->
 
-    <h3>
-        EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG
-    </h3>
+      <h3>
+        EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG
+        (haftungsbeschränkt)
+      </h3>
 
-    <p>
-        Forschung. Transfer. Anwendung.
-    </p>
+      <nav class="footer-legal" aria-label="Rechtliches und Kontakt">
+        <a href="impressum.html"> Impressum </a>
 
-</footer>
+        <span aria-hidden="true"> · </span>
 
+        <a href="datenschutz.html"> Datenschutz </a>
 
-</body>
+        <span aria-hidden="true"> · </span>
+
+        <a href="kontakt.html"> Kontakt </a>
+      </nav>
+    </footer>
+  </body>
 </html>
 ```

@@ -1,1236 +1,1079 @@
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
+    <title>
+      Forschung & Transfer | EAU – Entwicklungsinstitut für angewandten
+      Umweltschutz gUG (haftungsbeschränkt)
+    </title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Forschung & Transfer | EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG</title>
-
-    <link rel="icon" type="image/png" href="/favicon.png">
-
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
     <style>
+           /* =====================================================
+                GRUNDLAGEN
+             ===================================================== */
 
-        /* =====================================================
-           GRUNDLAGEN
-        ===================================================== */
+           * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+           }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+           :root {
+             --blue-dark: #003b63;
+             --blue: #005b9a;
+             --blue-bright: #0077b6;
+             --blue-light: #35b9e8;
+             --cyan: #65d8e8;
 
-        :root {
-            --blue-dark: #003B63;
-            --blue: #005B9A;
-            --blue-bright: #0077B6;
-            --blue-light: #35B9E8;
-            --cyan: #65D8E8;
+             --green: #22a06b;
+             --green-light: #5bc99a;
 
-            --green: #22A06B;
-            --green-light: #5BC99A;
+             --dark: #173447;
+             --text: #334b5c;
 
-            --dark: #173447;
-            --text: #334B5C;
+             --background: #f2f9fd;
+             --white: #ffffff;
+           }
 
-            --background: #F2F9FD;
-            --white: #FFFFFF;
-        }
+           html {
+             scroll-behavior: smooth;
+           }
 
-        html {
-            scroll-behavior: smooth;
-        }
+           body {
+             font-family: Arial, Helvetica, sans-serif;
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
+             background: linear-gradient(180deg, #edf8ff 0%, #f7fbfd 100%);
 
-            background:
-                linear-gradient(
-                    180deg,
-                    #EDF8FF 0%,
-                    #F7FBFD 100%
-                );
+             color: var(--text);
 
-            color: var(--text);
+             line-height: 1.6;
+           }
 
-            line-height: 1.6;
-        }
+           /* =====================================================
+                HEADER
+             ===================================================== */
 
+           header {
+             position: fixed;
+             top: 0;
 
-        /* =====================================================
-           HEADER
-        ===================================================== */
+             width: 100%;
 
-        header {
-            position: fixed;
-            top: 0;
+             z-index: 1000;
 
-            width: 100%;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
 
-            z-index: 1000;
+             padding: 13px 7%;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+             background: rgba(239, 249, 255, 0.94);
 
-            padding: 13px 7%;
+             backdrop-filter: blur(14px);
 
-            background: rgba(239, 249, 255, .94);
+             border-bottom: 1px solid rgba(0, 91, 154, 0.12);
 
-            backdrop-filter: blur(14px);
+             box-shadow: 0 3px 25px rgba(0, 45, 75, 0.1);
+           }
 
-            border-bottom:
-                1px solid rgba(0, 91, 154, .12);
+           .header-left {
+             display: flex;
+             align-items: center;
+             gap: 13px;
+           }
 
-            box-shadow:
-                0 3px 25px rgba(0, 45, 75, .10);
-        }
+           .header-left img {
+             height: 50px;
+             width: auto;
+           }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 13px;
-        }
+           .header-title {
+             font-weight: 700;
+             font-size: 1.05rem;
 
-        .header-left img {
-            height: 50px;
-            width: auto;
-        }
+             color: var(--blue-dark);
 
-        .header-title {
-            font-weight: 700;
-            font-size: 1.05rem;
+             line-height: 1.2;
 
-            color: var(--blue-dark);
+             max-width: 420px;
+           }
 
-            line-height: 1.2;
+           /* =====================================================
+                NAVIGATION
+             ===================================================== */
 
-            max-width: 420px;
-        }
+           nav ul {
+             display: flex;
 
+             gap: 24px;
 
-        /* =====================================================
-           NAVIGATION
-        ===================================================== */
+             list-style: none;
+           }
 
-        nav ul {
-            display: flex;
+           nav a {
+             position: relative;
 
-            gap: 24px;
+             text-decoration: none;
 
-            list-style: none;
-        }
+             color: var(--dark);
 
-        nav a {
-            position: relative;
+             font-weight: 700;
 
-            text-decoration: none;
+             transition: 0.25s;
+           }
 
-            color: var(--dark);
+           nav a::after {
+             content: "";
 
-            font-weight: 700;
+             position: absolute;
 
-            transition: .25s;
-        }
+             left: 0;
+             bottom: -7px;
 
-        nav a::after {
-            content: "";
+             width: 0;
+             height: 2px;
 
-            position: absolute;
+             background: linear-gradient(90deg, var(--blue-bright), var(--cyan));
 
-            left: 0;
-            bottom: -7px;
+             transition: 0.25s;
+           }
 
-            width: 0;
-            height: 2px;
+           nav a:hover {
+             color: var(--blue-bright);
+           }
 
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--blue-bright),
-                    var(--cyan)
-                );
+           nav a:hover::after {
+             width: 100%;
+           }
 
-            transition: .25s;
-        }
+           nav a.active {
+             color: var(--blue-bright);
+           }
 
-        nav a:hover {
-            color: var(--blue-bright);
-        }
+           nav a.active::after {
+             width: 100%;
+           }
 
-        nav a:hover::after {
-            width: 100%;
-        }
+           /* =====================================================
+                HAMBURGER
+             ===================================================== */
 
-        nav a.active {
-            color: var(--blue-bright);
-        }
+           .menu-toggle {
+             display: none;
 
-        nav a.active::after {
-            width: 100%;
-        }
+             font-size: 2rem;
 
+             cursor: pointer;
 
-        /* =====================================================
-           HAMBURGER
-        ===================================================== */
+             color: var(--blue-dark);
+           }
 
-        .menu-toggle {
-            display: none;
+           /* =====================================================
+                HERO
+             ===================================================== */
 
-            font-size: 2rem;
+           .hero {
+             position: relative;
 
-            cursor: pointer;
+             min-height: 560px;
 
-            color: var(--blue-dark);
-        }
+             padding: 165px 8% 125px;
 
+             display: flex;
 
-        /* =====================================================
-           HERO
-        ===================================================== */
+             align-items: center;
+             justify-content: center;
 
-        .hero {
-            position: relative;
+             overflow: hidden;
 
-            min-height: 560px;
+             color: white;
 
-            padding:
-                165px 8% 125px;
+             text-align: center;
 
-            display: flex;
+             background:
+               linear-gradient(
+                 110deg,
+                 rgba(0, 47, 82, 0.93) 0%,
+                 rgba(0, 91, 154, 0.76) 48%,
+                 rgba(0, 119, 182, 0.42) 100%
+               ),
+               url("images/panoramaeau.png") center/cover no-repeat;
+           }
 
-            align-items: center;
-            justify-content: center;
+           /* Leuchtende Wasserstruktur */
 
-            overflow: hidden;
+           .hero::before {
+             content: "";
 
-            color: white;
+             position: absolute;
 
-            text-align: center;
+             width: 700px;
+             height: 700px;
 
-            background:
-                linear-gradient(
-                    110deg,
-                    rgba(0, 47, 82, .93) 0%,
-                    rgba(0, 91, 154, .76) 48%,
-                    rgba(0, 119, 182, .42) 100%
-                ),
-                url('images/panoramaeau.png')
-                center/cover no-repeat;
-        }
+             right: -280px;
+             bottom: -400px;
 
+             border-radius: 50%;
 
-        /* Leuchtende Wasserstruktur */
+             background: radial-gradient(
+               circle,
+               rgba(101, 216, 232, 0.35),
+               rgba(101, 216, 232, 0)
+             );
+           }
 
-        .hero::before {
-            content: "";
+           /* Wasserlinie */
 
-            position: absolute;
+           .hero::after {
+             content: "";
 
-            width: 700px;
-            height: 700px;
+             position: absolute;
 
-            right: -280px;
-            bottom: -400px;
+             left: -5%;
+             bottom: -78px;
 
-            border-radius: 50%;
+             width: 110%;
+             height: 145px;
 
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(101, 216, 232, .35),
-                    rgba(101, 216, 232, 0)
-                );
-        }
+             background: var(--background);
 
+             border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+           }
 
-        /* Wasserlinie */
+           .hero-content {
+             position: relative;
 
-        .hero::after {
-            content: "";
+             z-index: 2;
 
-            position: absolute;
+             max-width: 950px;
+           }
 
-            left: -5%;
-            bottom: -78px;
+           .hero-label {
+             display: inline-flex;
 
-            width: 110%;
-            height: 145px;
+             align-items: center;
 
-            background: var(--background);
+             gap: 10px;
 
-            border-radius:
-                50% 50% 0 0 /
-                100% 100% 0 0;
-        }
+             margin-bottom: 22px;
 
-        .hero-content {
-            position: relative;
+             font-size: 0.82rem;
 
-            z-index: 2;
+             font-weight: 800;
 
-            max-width: 950px;
-        }
+             letter-spacing: 2px;
 
+             text-transform: uppercase;
 
-        .hero-label {
-            display: inline-flex;
+             color: var(--cyan);
+           }
 
-            align-items: center;
+           .hero-label::before {
+             content: "";
 
-            gap: 10px;
+             width: 32px;
+             height: 3px;
 
-            margin-bottom: 22px;
+             border-radius: 5px;
 
-            font-size: .82rem;
+             background: var(--cyan);
+           }
 
-            font-weight: 800;
+           .hero h1 {
+             font-size: clamp(2.7rem, 5.5vw, 4.8rem);
 
-            letter-spacing: 2px;
+             line-height: 1.05;
 
-            text-transform: uppercase;
+             letter-spacing: -1.5px;
 
-            color: var(--cyan);
-        }
+             margin-bottom: 24px;
 
-        .hero-label::before {
-            content: "";
+             text-shadow: 0 3px 20px rgba(0, 0, 0, 0.18);
+           }
 
-            width: 32px;
-            height: 3px;
+           .hero p {
+             font-size: 1.18rem;
 
-            border-radius: 5px;
+             line-height: 1.7;
 
-            background: var(--cyan);
-        }
+             max-width: 880px;
 
-        .hero h1 {
-            font-size:
-                clamp(2.7rem, 5.5vw, 4.8rem);
+             margin: auto;
 
-            line-height: 1.05;
+             color: rgba(255, 255, 255, 0.94);
+           }
 
-            letter-spacing: -1.5px;
+           /* =====================================================
+                INTRO
+             ===================================================== */
 
-            margin-bottom: 24px;
+           .intro {
+             padding: 85px 8% 45px;
 
-            text-shadow:
-                0 3px 20px rgba(0,0,0,.18);
-        }
+             background: var(--background);
 
-        .hero p {
-            font-size: 1.18rem;
+             text-align: center;
+           }
 
-            line-height: 1.7;
+           .intro-content {
+             max-width: 900px;
 
-            max-width: 880px;
+             margin: auto;
+           }
 
-            margin: auto;
+           .eyebrow {
+             color: var(--blue-bright);
 
-            color:
-                rgba(255,255,255,.94);
-        }
+             font-size: 0.8rem;
 
+             font-weight: 800;
 
-        /* =====================================================
-           INTRO
-        ===================================================== */
+             letter-spacing: 2px;
 
-        .intro {
-            padding:
-                85px 8% 45px;
+             text-transform: uppercase;
 
-            background: var(--background);
+             margin-bottom: 12px;
+           }
 
-            text-align: center;
-        }
+           .intro h2 {
+             font-size: clamp(2rem, 4vw, 3rem);
 
-        .intro-content {
-            max-width: 900px;
+             line-height: 1.15;
 
-            margin: auto;
-        }
+             color: var(--blue-dark);
 
-        .eyebrow {
-            color: var(--blue-bright);
+             margin-bottom: 20px;
+           }
 
-            font-size: .8rem;
+           .intro p {
+             font-size: 1.08rem;
+           }
 
-            font-weight: 800;
+           /* =====================================================
+                SEKTIONEN
+             ===================================================== */
 
-            letter-spacing: 2px;
+           .section {
+             padding: 75px 8%;
+           }
 
-            text-transform: uppercase;
+           .section-header {
+             max-width: 900px;
 
-            margin-bottom: 12px;
-        }
+             margin: 0 auto 50px;
 
-        .intro h2 {
-            font-size:
-                clamp(2rem, 4vw, 3rem);
+             text-align: center;
+           }
 
-            line-height: 1.15;
+           .section-header h2 {
+             font-size: clamp(2rem, 4vw, 2.8rem);
 
-            color: var(--blue-dark);
+             color: var(--blue-dark);
 
-            margin-bottom: 20px;
-        }
+             margin-bottom: 12px;
+           }
 
-        .intro p {
-            font-size: 1.08rem;
-        }
+           /* =====================================================
+                FORSCHUNGSSCHWERPUNKTE
+             ===================================================== */
 
+           .cards {
+             max-width: 1200px;
 
-        /* =====================================================
-           SEKTIONEN
-        ===================================================== */
+             margin: auto;
 
-        .section {
-            padding:
-                75px 8%;
-        }
+             display: grid;
 
-        .section-header {
-            max-width: 900px;
+             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
-            margin:
-                0 auto 50px;
+             gap: 25px;
+           }
 
-            text-align: center;
-        }
+           .card {
+             position: relative;
 
-        .section-header h2 {
-            font-size:
-                clamp(2rem, 4vw, 2.8rem);
+             min-height: 260px;
 
-            color: var(--blue-dark);
+             padding: 35px 30px;
 
-            margin-bottom: 12px;
-        }
+             background: white;
 
+             border-radius: 24px;
 
-        /* =====================================================
-           FORSCHUNGSSCHWERPUNKTE
-        ===================================================== */
+             border: 1px solid rgba(0, 91, 154, 0.08);
 
-        .cards {
-            max-width: 1200px;
+             box-shadow: 0 12px 38px rgba(0, 50, 80, 0.08);
 
-            margin: auto;
+             overflow: hidden;
 
-            display: grid;
+             transition: 0.35s;
+           }
 
-            grid-template-columns:
-                repeat(auto-fit, minmax(280px, 1fr));
+           /* Wasser-/Technologie-Akzent */
 
-            gap: 25px;
-        }
+           .card::before {
+             content: "";
 
-        .card {
-            position: relative;
+             position: absolute;
 
-            min-height: 260px;
+             top: 0;
+             left: 0;
 
-            padding: 35px 30px;
+             width: 100%;
+             height: 4px;
 
-            background: white;
+             background: linear-gradient(
+               90deg,
+               var(--blue),
+               var(--blue-light),
+               var(--green)
+             );
+           }
 
-            border-radius: 24px;
+           /* Kreis als dezenter Wasser-Hintergrund */
 
-            border:
-                1px solid rgba(0,91,154,.08);
+           .card::after {
+             content: "";
 
-            box-shadow:
-                0 12px 38px rgba(0,50,80,.08);
+             position: absolute;
 
-            overflow: hidden;
+             width: 170px;
+             height: 170px;
 
-            transition: .35s;
-        }
+             right: -85px;
+             bottom: -85px;
 
+             border-radius: 50%;
 
-        /* Wasser-/Technologie-Akzent */
+             border: 1px solid rgba(0, 119, 182, 0.1);
 
-        .card::before {
-            content: "";
+             box-shadow:
+               0 0 0 28px rgba(0, 119, 182, 0.025),
+               0 0 0 56px rgba(0, 119, 182, 0.018);
+           }
 
-            position: absolute;
+           .card:hover {
+             transform: translateY(-8px);
 
-            top: 0;
-            left: 0;
+             box-shadow: 0 22px 48px rgba(0, 70, 110, 0.14);
+           }
 
-            width: 100%;
-            height: 4px;
+           /* Icons */
 
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--blue),
-                    var(--blue-light),
-                    var(--green)
-                );
-        }
+           .card-icon {
+             width: 58px;
+             height: 58px;
 
+             display: flex;
 
-        /* Kreis als dezenter Wasser-Hintergrund */
+             align-items: center;
+             justify-content: center;
 
-        .card::after {
-            content: "";
+             margin-bottom: 22px;
 
-            position: absolute;
+             border-radius: 17px;
 
-            width: 170px;
-            height: 170px;
+             background: linear-gradient(135deg, #ddf3fc, #e1f8f2);
 
-            right: -85px;
-            bottom: -85px;
+             color: var(--blue-bright);
 
-            border-radius: 50%;
+             font-size: 1.6rem;
 
-            border:
-                1px solid rgba(0,119,182,.10);
+             position: relative;
 
-            box-shadow:
-                0 0 0 28px rgba(0,119,182,.025),
-                0 0 0 56px rgba(0,119,182,.018);
-        }
+             z-index: 2;
+           }
 
-        .card:hover {
-            transform: translateY(-8px);
+           .card h3 {
+             position: relative;
 
-            box-shadow:
-                0 22px 48px rgba(0,70,110,.14);
-        }
+             z-index: 2;
 
+             color: var(--blue-dark);
 
-        /* Icons */
+             font-size: 1.25rem;
 
-        .card-icon {
-            width: 58px;
-            height: 58px;
+             margin-bottom: 12px;
 
-            display: flex;
+             line-height: 1.25;
+           }
 
-            align-items: center;
-            justify-content: center;
+           .card p {
+             position: relative;
 
-            margin-bottom: 22px;
+             z-index: 2;
 
-            border-radius: 17px;
+             font-size: 0.98rem;
+           }
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #DDF3FC,
-                    #E1F8F2
-                );
+           /* =====================================================
+                TRANSFER-BEREICH
+             ===================================================== */
 
-            color: var(--blue-bright);
+           .transfer-section {
+             position: relative;
 
-            font-size: 1.6rem;
+             padding: 95px 8%;
 
-            position: relative;
+             color: white;
 
-            z-index: 2;
-        }
+             overflow: hidden;
 
-        .card h3 {
-            position: relative;
+             background: linear-gradient(
+               120deg,
+               #003b63 0%,
+               #005b9a 55%,
+               #007eae 100%
+             );
+           }
 
-            z-index: 2;
+           .transfer-section::before {
+             content: "";
 
-            color: var(--blue-dark);
+             position: absolute;
 
-            font-size: 1.25rem;
+             width: 650px;
+             height: 650px;
 
-            margin-bottom: 12px;
+             right: -280px;
+             top: -350px;
 
-            line-height: 1.25;
-        }
+             border-radius: 50%;
 
-        .card p {
-            position: relative;
+             border: 1px solid rgba(101, 216, 232, 0.25);
 
-            z-index: 2;
+             box-shadow:
+               0 0 0 80px rgba(101, 216, 232, 0.04),
+               0 0 0 160px rgba(101, 216, 232, 0.025);
+           }
 
-            font-size: .98rem;
-        }
+           .transfer-section::after {
+             content: "";
 
+             position: absolute;
 
-        /* =====================================================
-           TRANSFER-BEREICH
-        ===================================================== */
+             width: 350px;
+             height: 350px;
 
-        .transfer-section {
-            position: relative;
+             left: -220px;
+             bottom: -220px;
 
-            padding:
-                95px 8%;
+             border-radius: 50%;
 
-            color: white;
+             border: 1px solid rgba(101, 216, 232, 0.16);
+           }
 
-            overflow: hidden;
+           .transfer-content {
+             position: relative;
 
-            background:
-                linear-gradient(
-                    120deg,
-                    #003B63 0%,
-                    #005B9A 55%,
-                    #007EAE 100%
-                );
-        }
+             z-index: 2;
 
+             max-width: 1050px;
 
-        .transfer-section::before {
-            content: "";
+             margin: auto;
+           }
 
-            position: absolute;
+           .transfer-content .eyebrow {
+             color: var(--cyan);
+           }
 
-            width: 650px;
-            height: 650px;
+           .transfer-box {
+             padding: 50px;
 
-            right: -280px;
-            top: -350px;
+             background: rgba(255, 255, 255, 0.08);
 
-            border-radius: 50%;
+             border: 1px solid rgba(255, 255, 255, 0.14);
 
-            border:
-                1px solid rgba(101,216,232,.25);
+             border-radius: 26px;
 
-            box-shadow:
-                0 0 0 80px rgba(101,216,232,.04),
-                0 0 0 160px rgba(101,216,232,.025);
-        }
+             backdrop-filter: blur(12px);
 
-        .transfer-section::after {
-            content: "";
+             box-shadow: 0 20px 55px rgba(0, 30, 55, 0.18);
+           }
 
-            position: absolute;
+           .transfer-box h2 {
+             font-size: clamp(2rem, 4vw, 3rem);
 
-            width: 350px;
-            height: 350px;
+             line-height: 1.15;
 
-            left: -220px;
-            bottom: -220px;
+             color: white;
 
-            border-radius: 50%;
+             margin-bottom: 28px;
+           }
 
-            border:
-                1px solid rgba(101,216,232,.16);
-        }
+           .transfer-box p {
+             font-size: 1.05rem;
 
-        .transfer-content {
-            position: relative;
+             color: rgba(255, 255, 255, 0.88);
 
-            z-index: 2;
+             margin-bottom: 20px;
+           }
 
-            max-width: 1050px;
+           .transfer-box p:last-child {
+             margin-bottom: 0;
+           }
 
-            margin: auto;
-        }
+           /* =====================================================
+                KOOPERATIONSPARTNER
+             ===================================================== */
 
-        .transfer-content .eyebrow {
-            color: var(--cyan);
-        }
+           .partner-box {
+             max-width: 1150px;
 
-        .transfer-box {
-            padding: 50px;
+             margin: auto;
 
-            background:
-                rgba(255,255,255,.08);
+             background: white;
 
-            border:
-                1px solid rgba(255,255,255,.14);
+             border-radius: 26px;
 
-            border-radius: 26px;
+             padding: 40px;
 
-            backdrop-filter: blur(12px);
+             border: 1px solid rgba(0, 91, 154, 0.08);
 
-            box-shadow:
-                0 20px 55px rgba(0,30,55,.18);
-        }
+             box-shadow: 0 15px 45px rgba(0, 50, 80, 0.09);
 
-        .transfer-box h2 {
-            font-size:
-                clamp(2rem, 4vw, 3rem);
+             overflow: hidden;
 
-            line-height: 1.15;
+             position: relative;
+           }
 
-            color: white;
+           .partner-box::before {
+             content: "";
 
-            margin-bottom: 28px;
-        }
+             position: absolute;
 
-        .transfer-box p {
-            font-size: 1.05rem;
+             top: 0;
+             left: 0;
 
-            color:
-                rgba(255,255,255,.88);
+             width: 100%;
+             height: 5px;
 
-            margin-bottom: 20px;
-        }
+             background: linear-gradient(
+               90deg,
+               var(--blue),
+               var(--blue-light),
+               var(--green)
+             );
+           }
 
-        .transfer-box p:last-child {
-            margin-bottom: 0;
-        }
+           .partner-box h2 {
+             text-align: center;
 
+             color: var(--blue-dark);
 
-        /* =====================================================
-           KOOPERATIONSPARTNER
-        ===================================================== */
+             font-size: 2rem;
 
-        .partner-box {
-            max-width: 1150px;
+             margin-bottom: 28px;
+           }
 
-            margin: auto;
+           .placeholder {
+             min-height: 260px;
 
-            background: white;
+             border: 2px dashed #9ccfe5;
 
-            border-radius: 26px;
+             border-radius: 20px;
 
-            padding: 40px;
+             display: flex;
 
-            border:
-                1px solid rgba(0,91,154,.08);
+             align-items: center;
+             justify-content: center;
 
-            box-shadow:
-                0 15px 45px rgba(0,50,80,.09);
+             padding: 30px;
 
-            overflow: hidden;
+             background: linear-gradient(135deg, #f2fafe, #f6fcfa);
 
-            position: relative;
-        }
+             color: var(--blue);
 
-        .partner-box::before {
-            content: "";
+             text-align: center;
 
-            position: absolute;
+             font-weight: 600;
+           }
 
-            top: 0;
-            left: 0;
+           /* =====================================================
+                FOOTER
+             ===================================================== */
 
-            width: 100%;
-            height: 5px;
+      footer {
+               width: 100%;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--blue),
-                    var(--blue-light),
-                    var(--green)
-                );
-        }
+               padding: 40px 8% 35px;
 
-        .partner-box h2 {
-            text-align: center;
+               text-align: center;
 
-            color: var(--blue-dark);
+               background: linear-gradient(90deg, #003b63, #005b9a, #168a68);
+             }
 
-            font-size: 2rem;
+               color: white;
+             }
 
-            margin-bottom: 28px;
-        }
+             .footer-claim {
+               margin-bottom: 8px;
 
-        .placeholder {
-            min-height: 260px;
+               font-size: 1.05rem;
+               font-weight: 600;
 
-            border:
-                2px dashed #9CCFE5;
+               letter-spacing: 0.07em;
 
-            border-radius: 20px;
+               color: var(--cyan);
+             }
 
-            display: flex;
+             footer h3 {
+               margin-bottom: 14px;
+               color: white;
+             }
 
-            align-items: center;
-            justify-content: center;
+             .footer-legal {
+               display: flex;
+               justify-content: center;
+               align-items: center;
 
-            padding: 30px;
+               gap: 8px;
+             }
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #F2FAFE,
-                    #F6FCFA
-                );
+             .footer-legal a {
+               position: static;
 
-            color: var(--blue);
+               font-size: 0.78rem;
+               font-weight: 400;
 
-            text-align: center;
+               text-decoration: none;
 
-            font-weight: 600;
-        }
+               color: rgba(255, 255, 255, 0.62);
 
+               transition: color 0.2s ease;
+             }
 
-        /* =====================================================
-           FOOTER
-        ===================================================== */
+             .footer-legal a::after {
+               display: none;
+             }
 
-        footer {
-            padding: 45px 8%;
+             .footer-legal a:hover {
+               color: white;
+             }
 
-            text-align: center;
+             .footer-legal span {
+               font-size: 0.75rem;
 
-            color: white;
+               color: rgba(255, 255, 255, 0.3);
+             }
 
-            background:
-                linear-gradient(
-                    90deg,
-                    #003B63,
-                    #005B9A,
-                    #168A68
-                );
-        }
+           /* =====================================================
+                RESPONSIVE
+             ===================================================== */
 
-        footer h3 {
-            margin-bottom: 7px;
-        }
+           @media (max-width: 1000px) {
+             nav ul {
+               position: absolute;
 
-        footer p {
-            opacity: .85;
-        }
+               top: 72px;
+               right: 6%;
 
+               width: 250px;
 
-        /* =====================================================
-           RESPONSIVE
-        ===================================================== */
+               display: none;
 
-        @media (max-width: 1000px) {
+               flex-direction: column;
 
-            nav ul {
-                position: absolute;
+               gap: 15px;
 
-                top: 72px;
-                right: 6%;
+               padding: 22px;
 
-                width: 250px;
+               background: white;
 
-                display: none;
+               border-radius: 16px;
 
-                flex-direction: column;
+               box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+             }
 
-                gap: 15px;
+             nav ul.show {
+               display: flex;
+             }
 
-                padding: 22px;
+             .menu-toggle {
+               display: block;
+             }
 
-                background: white;
+             .header-title {
+               font-size: 0.9rem;
+             }
+           }
 
-                border-radius: 16px;
+           @media (max-width: 650px) {
+             header {
+               padding: 10px 5%;
+             }
 
-                box-shadow:
-                    0 12px 35px rgba(0,0,0,.15);
-            }
+             .header-left img {
+               height: 42px;
+             }
 
-            nav ul.show {
-                display: flex;
-            }
+             .header-title {
+               display: none;
+             }
 
-            .menu-toggle {
-                display: block;
-            }
+             .hero {
+               min-height: 500px;
 
-            .header-title {
-                font-size: .9rem;
-            }
-        }
+               padding: 130px 7% 100px;
+             }
 
+             .hero h1 {
+               letter-spacing: -1px;
+             }
 
-        @media (max-width: 650px) {
+             .section {
+               padding: 65px 7%;
+             }
 
-            header {
-                padding: 10px 5%;
-            }
+             .card {
+               min-height: auto;
+             }
 
-            .header-left img {
-                height: 42px;
-            }
+             .transfer-box,
+             .partner-box {
+               padding: 30px 24px;
+             }
 
-            .header-title {
-                display: none;
-            }
-
-            .hero {
-                min-height: 500px;
-
-                padding:
-                    130px 7% 100px;
-            }
-
-            .hero h1 {
-                letter-spacing: -1px;
-            }
-
-            .section {
-                padding:
-                    65px 7%;
-            }
-
-            .card {
-                min-height: auto;
-            }
-
-            .transfer-box,
-            .partner-box {
-                padding: 30px 24px;
-            }
-
-            .placeholder {
-                min-height: 220px;
-            }
-        }
-
+             .placeholder {
+               min-height: 220px;
+             }
+           }
     </style>
+  </head>
 
-</head>
-
-
-<body>
-
-
-<!-- =====================================================
+  <body>
+    <!-- =====================================================
      HEADER
 ===================================================== -->
 
-<header>
-
-    <div class="header-left">
-
-        <img
-            src="images/eau.png"
-            alt="EAU Logo"
-        >
+    <header>
+      <div class="header-left">
+        <img src="images/eau.png" alt="EAU Logo" />
 
         <div class="header-title">
-            Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+          Entwicklungsinstitut für angewandten Umweltschutz gUG
+          (haftungsbeschränkt)
         </div>
+      </div>
 
-    </div>
-
-
-    <div
+      <div
         class="menu-toggle"
         onclick="document.querySelector('nav ul').classList.toggle('show')"
-    >
+      >
         ☰
-    </div>
+      </div>
 
-
-    <nav>
-
+      <nav>
         <ul>
+          <li>
+            <a href="index.html"> Start </a>
+          </li>
 
-            <li>
-                <a href="index.html">
-                    Start
-                </a>
-            </li>
+          <li>
+            <a href="ueberuns.html"> Über uns </a>
+          </li>
 
-            <li>
-                <a href="ueberuns.html">
-                    Über uns
-                </a>
-            </li>
+          <li>
+            <a href="forschung.html" class="active"> Forschung & Transfer </a>
+          </li>
 
-            <li>
-                <a
-                    href="forschung.html"
-                    class="active"
-                >
-                    Forschung & Transfer
-                </a>
-            </li>
+          <li>
+            <a href="leistungen.html"> Leistungen </a>
+          </li>
 
-            <li>
-                <a href="leistungen.html">
-                    Leistungen
-                </a>
-            </li>
+          <li>
+            <a href="projekte.html"> Projekte </a>
+          </li>
 
-            <li>
-                <a href="projekte.html">
-                    Projekte
-                </a>
-            </li>
+          <li>
+            <a href="wissen.html"> Wissen </a>
+          </li>
 
-            <li>
-                <a href="wissen.html">
-                    Wissen
-                </a>
-            </li>
-
-            <li>
-                <a href="kontakt.html">
-                    Kontakt
-                </a>
-            </li>
-
+          <li>
+            <a href="kontakt.html"> Kontakt </a>
+          </li>
         </ul>
+      </nav>
+    </header>
 
-    </nav>
-
-</header>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      HERO
 ===================================================== -->
 
-<section class="hero">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-label">Forschung · Technologie · Transfer</div>
 
-    <div class="hero-content">
-
-        <div class="hero-label">
-            Forschung · Technologie · Transfer
-        </div>
-
-        <h1>
-            Forschung & Transfer
-        </h1>
+        <h1>Forschung & Transfer</h1>
 
         <p>
-            Wir verbinden wissenschaftliche Forschung mit praxisnahen Lösungen
-            und fördern den Transfer innovativer Umwelttechnologien in Wirtschaft,
-            Kommunen und Gesellschaft.
+          Wir verbinden wissenschaftliche Forschung mit praxisnahen Lösungen und
+          fördern den Transfer innovativer Umwelttechnologien in Wirtschaft,
+          Kommunen und Gesellschaft.
         </p>
+      </div>
+    </section>
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      INTRO
 ===================================================== -->
 
-<section class="intro">
-
-    <div class="intro-content">
-
-        <div class="eyebrow">
-            Forschung mit Wirkung
-        </div>
+    <section class="intro">
+      <div class="intro-content">
+        <div class="eyebrow">Forschung mit Wirkung</div>
 
         <h2>
-            Von der wissenschaftlichen Erkenntnis
-            zur praktischen Innovation
+          Von der wissenschaftlichen Erkenntnis zur praktischen Innovation
         </h2>
 
         <p>
-            Forschung ist für uns kein Selbstzweck.
-            Wir wollen Wissen nutzbar machen und innovative
-            Technologien in die Anwendung bringen.
+          Forschung ist für uns kein Selbstzweck. Wir wollen Wissen nutzbar
+          machen und innovative Technologien in die Anwendung bringen.
         </p>
+      </div>
+    </section>
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      FORSCHUNGSSCHWERPUNKTE
 ===================================================== -->
 
-<section class="section">
+    <section class="section">
+      <div class="section-header">
+        <div class="eyebrow">Wissenschaftliche Kompetenz</div>
 
-    <div class="section-header">
+        <h2>Unsere Forschungsschwerpunkte</h2>
+      </div>
 
-        <div class="eyebrow">
-            Wissenschaftliche Kompetenz
-        </div>
-
-        <h2>
-            Unsere Forschungsschwerpunkte
-        </h2>
-
-    </div>
-
-
-    <div class="cards">
-
-
+      <div class="cards">
         <!-- Wasser -->
 
         <div class="card">
+          <div class="card-icon">💧</div>
 
-            <div class="card-icon">
-                💧
-            </div>
+          <h3>Wasserwirtschaft</h3>
 
-            <h3>
-                Wasserwirtschaft
-            </h3>
-
-            <p>
-                Nachhaltige Konzepte für Siedlungswasserwirtschaft,
-                Regenwassermanagement und Schwammstadt.
-            </p>
-
+          <p>
+            Nachhaltige Konzepte für Siedlungswasserwirtschaft,
+            Regenwassermanagement und Schwammstadt.
+          </p>
         </div>
-
-
 
         <!-- Kreislauf -->
 
         <div class="card">
+          <div class="card-icon">♻</div>
 
-            <div class="card-icon">
-                ♻
-            </div>
+          <h3>Kreislaufwirtschaft</h3>
 
-            <h3>
-                Kreislaufwirtschaft
-            </h3>
-
-            <p>
-                Ressourceneffizienz, Stoffstrommanagement und nachhaltige
-                Verwertungskonzepte.
-            </p>
-
+          <p>
+            Ressourceneffizienz, Stoffstrommanagement und nachhaltige
+            Verwertungskonzepte.
+          </p>
         </div>
-
-
 
         <!-- Klima -->
 
         <div class="card">
+          <div class="card-icon">🌍</div>
 
-            <div class="card-icon">
-                🌍
-            </div>
+          <h3>Klimaanpassung</h3>
 
-            <h3>
-                Klimaanpassung
-            </h3>
-
-            <p>
-                Resiliente Infrastrukturen und naturbasierte Lösungen
-                für Städte und Regionen.
-            </p>
-
+          <p>
+            Resiliente Infrastrukturen und naturbasierte Lösungen für Städte und
+            Regionen.
+          </p>
         </div>
-
-
 
         <!-- Verfahren -->
 
         <div class="card">
+          <div class="card-icon">🧪</div>
 
-            <div class="card-icon">
-                🧪
-            </div>
+          <h3>Verfahrenstechnik</h3>
 
-            <h3>
-                Verfahrenstechnik
-            </h3>
-
-            <p>
-                Innovative Technologien zur Wasseraufbereitung und
-                Ressourcengewinnung.
-            </p>
-
+          <p>
+            Innovative Technologien zur Wasseraufbereitung und
+            Ressourcengewinnung.
+          </p>
         </div>
+      </div>
+    </section>
 
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      TRANSFER
 ===================================================== -->
 
-<section class="transfer-section">
-
-    <div class="transfer-content">
-
+    <section class="transfer-section">
+      <div class="transfer-content">
         <div class="transfer-box">
+          <div class="eyebrow">Von der Idee zur Anwendung</div>
 
-            <div class="eyebrow">
-                Von der Idee zur Anwendung
-            </div>
+          <h2>Wissens- und Technologietransfer</h2>
 
-            <h2>
-                Wissens- und Technologietransfer
-            </h2>
+          <p>
+            Die EAU unterstützt den Transfer wissenschaftlicher Erkenntnisse in
+            die Praxis. Gemeinsam mit Hochschulen, Unternehmen, Kommunen und
+            öffentlichen Einrichtungen entwickeln wir innovative Lösungen und
+            begleiten deren Umsetzung.
+          </p>
 
-            <p>
-                Die EAU unterstützt den Transfer wissenschaftlicher Erkenntnisse
-                in die Praxis. Gemeinsam mit Hochschulen, Unternehmen, Kommunen
-                und öffentlichen Einrichtungen entwickeln wir innovative Lösungen
-                und begleiten deren Umsetzung.
-            </p>
-
-            <p>
-                Unsere Aktivitäten umfassen Forschungsprojekte, Pilotanlagen,
-                Demonstrationsvorhaben, Beratung sowie Fort- und
-                Weiterbildungsangebote.
-            </p>
-
+          <p>
+            Unsere Aktivitäten umfassen Forschungsprojekte, Pilotanlagen,
+            Demonstrationsvorhaben, Beratung sowie Fort- und
+            Weiterbildungsangebote.
+          </p>
         </div>
+      </div>
+    </section>
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      KOOPERATIONSPARTNER
 ===================================================== -->
 
-<section class="section">
-
-    <div class="partner-box">
-
-        <div class="eyebrow"
-             style="text-align:center;">
-            Netzwerk & Kooperation
+    <section class="section">
+      <div class="partner-box">
+        <div class="eyebrow" style="text-align: center">
+          Netzwerk & Kooperation
         </div>
 
-        <h2>
-            Kooperationspartner
-        </h2>
+        <h2>Kooperationspartner</h2>
 
         <div class="placeholder">
-
-            Logos oder Bild der Projektpartner einfügen
-            (z.&nbsp;B. images/partner.jpg)
-
+          Logos oder Bild der Projektpartner einfügen (z.&nbsp;B.
+          images/partner.jpg)
         </div>
+      </div>
+    </section>
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+    <!-- =====================================================
      FOOTER
 ===================================================== -->
 
-<footer>
+    <footer>
+      <!-- <div class="footer-claim">Forschung · Transfer · Anwendung</div> -->
 
-    <h3>
-        EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG
-    </h3>
+      <h3>
+        EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG
+        (haftungsbeschränkt)
+      </h3>
 
-    <p>
-        Forschung. Transfer. Anwendung.
-    </p>
+      <nav class="footer-legal" aria-label="Rechtliches und Kontakt">
+        <a href="impressum.html"> Impressum </a>
 
-</footer>
+        <span aria-hidden="true"> · </span>
 
+        <a href="datenschutz.html"> Datenschutz </a>
 
-</body>
+        <span aria-hidden="true"> · </span>
 
+        <a href="kontakt.html"> Kontakt </a>
+      </nav>
+    </footer>
+  </body>
 </html>
 ```
