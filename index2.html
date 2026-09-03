@@ -1,1 +1,1177 @@
+```html
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG. Forschung, Wissenstransfer und innovative Lösungen für Wasserwirtschaft, Kreislaufwirtschaft und Klimaschutz.">
+
+    <meta name="keywords"
+          content="EAU, Umweltschutz, Wasserwirtschaft, Kreislaufwirtschaft, Forschung, Technologietransfer, Klimaschutz, Innovation">
+
+    <meta name="author"
+          content="EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG">
+
+    <meta name="robots"
+          content="index, follow">
+
+    <meta name="theme-color"
+          content="#005B9A">
+
+
+    <title>
+        EAU – Entwicklungsinstitut für angewandten Umweltschutz
+    </title>
+
+
+    <link rel="icon"
+          type="image/png"
+          href="/favicon.png">
+
+
+    <style>
+
+        /* ==================================================
+           GRUNDLAGEN
+        ================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --blue-dark: #003B63;
+
+            --blue: #005B9A;
+
+            --blue-bright: #0077B6;
+
+            --cyan: #35B9E8;
+
+            --cyan-light: #65D8E8;
+
+            --green: #20A06A;
+
+            --text: #263F50;
+
+            --light: #F2F9FD;
+
+            --white: #FFFFFF;
+
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            color: var(--text);
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #EDF8FF 0%,
+                    #F8FCFE 100%
+                );
+
+            line-height: 1.6;
+
+        }
+
+
+        /* ==================================================
+           HEADER
+        ================================================== */
+
+        header {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            z-index: 10;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 18px 7%;
+
+            background:
+                rgba(255,255,255,.10);
+
+            backdrop-filter:
+                blur(10px);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.18);
+
+        }
+
+
+        .header-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+        }
+
+
+        .header-left img {
+
+            height: 54px;
+
+            width: auto;
+
+        }
+
+
+        .header-title {
+
+            color: white;
+
+            font-size: 1rem;
+
+            font-weight: 700;
+
+            line-height: 1.25;
+
+            max-width: 420px;
+
+            text-shadow:
+                0 1px 5px rgba(0,0,0,.25);
+
+        }
+
+
+        /* ==================================================
+           HERO
+        ================================================== */
+
+        .hero {
+
+            position: relative;
+
+            min-height: 720px;
+
+            padding:
+                170px 8%
+                160px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            color: white;
+
+            overflow: hidden;
+
+
+            background:
+
+                linear-gradient(
+                    115deg,
+                    rgba(0,48,83,.94),
+                    rgba(0,91,154,.76),
+                    rgba(0,119,182,.45)
+                ),
+
+                url('images/panoramaeau.png')
+                center / cover no-repeat;
+
+        }
+
+
+        /* dezente Wasser-Lichtreflexion */
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 700px;
+
+            height: 700px;
+
+            right: -260px;
+
+            bottom: -420px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(101,216,232,.32),
+                    rgba(101,216,232,0)
+                );
+
+        }
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 950px;
+
+        }
+
+
+        /* ==================================================
+           LABEL
+        ================================================== */
+
+        .eyebrow {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 22px;
+
+            color: var(--cyan-light);
+
+            font-size: .82rem;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .eyebrow::before {
+
+            content: "";
+
+            width: 35px;
+
+            height: 3px;
+
+            border-radius: 5px;
+
+            background:
+                var(--cyan-light);
+
+        }
+
+
+        /* ==================================================
+           HEADLINE
+        ================================================== */
+
+        .hero h1 {
+
+            font-size:
+                clamp(
+                    2.7rem,
+                    6vw,
+                    5.2rem
+                );
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .hero h1 span {
+
+            color: var(--cyan-light);
+
+        }
+
+
+        .hero-text {
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            font-size:
+                clamp(
+                    1.05rem,
+                    2vw,
+                    1.3rem
+                );
+
+            line-height: 1.7;
+
+            color:
+                rgba(255,255,255,.94);
+
+        }
+
+
+        /* ==================================================
+           STATUS
+        ================================================== */
+
+        .status {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-top: 32px;
+
+            padding: 12px 20px;
+
+            border-radius: 40px;
+
+            background:
+                rgba(255,255,255,.12);
+
+            border:
+                1px solid
+                rgba(255,255,255,.25);
+
+            backdrop-filter:
+                blur(8px);
+
+            font-weight: 700;
+
+        }
+
+
+        .status-dot {
+
+            width: 10px;
+
+            height: 10px;
+
+            border-radius: 50%;
+
+            background:
+                #65D8E8;
+
+            box-shadow:
+                0 0 12px
+                rgba(101,216,232,.9);
+
+        }
+
+
+        /* ==================================================
+           BOGEN
+        ================================================== */
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            z-index: 3;
+
+            left: -5%;
+
+            bottom: -82px;
+
+            width: 110%;
+
+            height: 155px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #EDF8FF,
+                    #F7FBFD
+                );
+
+            border-radius:
+                50% 50% 0 0 /
+                100% 100% 0 0;
+
+        }
+
+
+        /* ==================================================
+           INTRO
+        ================================================== */
+
+        .intro {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding:
+                75px 8%
+                65px;
+
+            text-align: center;
+
+        }
+
+
+        .intro h2 {
+
+            color: var(--blue-dark);
+
+            font-size:
+                clamp(
+                    1.9rem,
+                    4vw,
+                    2.6rem
+                );
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .intro h2 span {
+
+            color: var(--blue-bright);
+
+        }
+
+
+        .intro p {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            font-size: 1.1rem;
+
+        }
+
+
+        /* ==================================================
+           THEMEN
+        ================================================== */
+
+        .topics {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding:
+                20px 8%
+                80px;
+
+        }
+
+
+        .topics-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    minmax(0,1fr)
+                );
+
+            gap: 22px;
+
+        }
+
+
+        .topic {
+
+            background: white;
+
+            padding: 28px 24px;
+
+            border-radius: 22px;
+
+            text-align: center;
+
+            border:
+                1px solid
+                rgba(0,91,154,.08);
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,50,80,.07);
+
+            transition:
+                transform .3s,
+                box-shadow .3s;
+
+        }
+
+
+        .topic:hover {
+
+            transform:
+                translateY(-7px);
+
+            box-shadow:
+                0 18px 40px
+                rgba(0,70,110,.13);
+
+        }
+
+
+        .topic-icon {
+
+            font-size: 2rem;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .topic h3 {
+
+            color: var(--blue-dark);
+
+            font-size: 1.1rem;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .topic p {
+
+            font-size: .95rem;
+
+        }
+
+
+        /* ==================================================
+           KOMMUNIKATIONSBOX
+        ================================================== */
+
+        .contact-section {
+
+            max-width: 1050px;
+
+            margin: auto;
+
+            padding:
+                20px 8%
+                90px;
+
+        }
+
+
+        .contact-box {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #005B9A,
+                    #0077B6
+                );
+
+            color: white;
+
+            padding:
+                48px;
+
+            border-radius: 28px;
+
+            text-align: center;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,65,100,.18);
+
+        }
+
+
+        .contact-box::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 350px;
+
+            right: -150px;
+
+            bottom: -230px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(101,216,232,.18);
+
+        }
+
+
+        .contact-box h2 {
+
+            position: relative;
+
+            font-size: 2rem;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .contact-box p {
+
+            position: relative;
+
+            max-width: 760px;
+
+            margin:
+                0 auto 25px;
+
+        }
+
+
+        .contact-link {
+
+            position: relative;
+
+            display: inline-block;
+
+            padding:
+                13px 24px;
+
+            border-radius: 40px;
+
+            background: white;
+
+            color: var(--blue-dark);
+
+            text-decoration: none;
+
+            font-weight: 800;
+
+            transition: .25s;
+
+        }
+
+
+        .contact-link:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(0,0,0,.15);
+
+        }
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        footer {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #003B63,
+                    #005B9A,
+                    #168A68
+                );
+
+            color: white;
+
+            padding:
+                40px 8%;
+
+            text-align: center;
+
+        }
+
+
+        footer h3 {
+
+            margin-bottom: 7px;
+
+        }
+
+
+        footer p {
+
+            opacity: .88;
+
+        }
+
+
+        .footer-links {
+
+            margin-top: 15px;
+
+        }
+
+
+        .footer-links a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin:
+                0 10px;
+
+            opacity: .9;
+
+        }
+
+
+        .footer-links a:hover {
+
+            opacity: 1;
+
+            text-decoration: underline;
+
+        }
+
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
+        @media(max-width:950px) {
+
+            .topics-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+        }
+
+
+        @media(max-width:700px) {
+
+            header {
+
+                padding:
+                    14px 5%;
+
+            }
+
+
+            .header-left img {
+
+                height: 45px;
+
+            }
+
+
+            .header-title {
+
+                font-size: .85rem;
+
+            }
+
+
+            .hero {
+
+                min-height: 650px;
+
+                padding:
+                    145px 7%
+                    125px;
+
+            }
+
+
+            .hero h1 {
+
+                letter-spacing: -1px;
+
+            }
+
+
+            .topics-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .contact-box {
+
+                padding:
+                    38px 25px;
+
+            }
+
+        }
+
+
+        @media(max-width:480px) {
+
+            .header-title {
+
+                display: none;
+
+            }
+
+
+            .hero {
+
+                min-height: 620px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    2.7rem;
+
+            }
+
+
+            .hero-text {
+
+                font-size:
+                    1.05rem;
+
+            }
+
+
+            .intro,
+            .topics,
+            .contact-section {
+
+                padding-left: 6%;
+
+                padding-right: 6%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header>
+
+    <div class="header-left">
+
+        <img
+            src="images/eau.png"
+            alt="EAU Logo"
+        >
+
+        <div class="header-title">
+
+            Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+
+            EAU · Entwicklungsinstitut
+
+        </div>
+
+
+        <h1>
+
+            Die EAU ist gegründet.<br>
+
+            <span>Die Zukunft beginnt jetzt.</span>
+
+        </h1>
+
+
+        <p class="hero-text">
+
+            Das Entwicklungsinstitut für angewandten Umweltschutz
+            gUG iG verbindet wissenschaftliche Forschung,
+            innovative Technologien und praktische Umsetzung
+            für eine nachhaltige Zukunft.
+
+        </p>
+
+
+        <div class="status">
+
+            <span class="status-dot"></span>
+
+            Unsere neue Website entsteht gerade
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     INTRO
+================================================== -->
+
+<section class="intro">
+
+    <h2>
+
+        Forschung.
+        <span>Innovation.</span>
+        Umsetzung.
+
+    </h2>
+
+
+    <p>
+
+        Mit der Gründung der EAU entsteht eine gemeinnützige
+        Organisation an der Schnittstelle von Wissenschaft,
+        Wirtschaft und Praxis. Unser Schwerpunkt liegt auf
+        nachhaltigen Lösungen für Wasser, Ressourcen und Umwelt.
+
+    </p>
+
+</section>
+
+
+
+<!-- ==================================================
+     THEMEN
+================================================== -->
+
+<section class="topics">
+
+    <div class="topics-grid">
+
+
+        <div class="topic">
+
+            <div class="topic-icon">
+                💧
+            </div>
+
+            <h3>
+                Wasserwirtschaft
+            </h3>
+
+            <p>
+
+                Zukunftsfähige Lösungen für Wasser,
+                Infrastruktur und Wasserkreisläufe.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="topic">
+
+            <div class="topic-icon">
+                ♻
+            </div>
+
+            <h3>
+                Kreislaufwirtschaft
+            </h3>
+
+            <p>
+
+                Ressourcen effizient nutzen und
+                Stoffkreisläufe schließen.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="topic">
+
+            <div class="topic-icon">
+                🧪
+            </div>
+
+            <h3>
+                Innovation
+            </h3>
+
+            <p>
+
+                Neue Technologien aus der Forschung
+                in die praktische Anwendung bringen.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="topic">
+
+            <div class="topic-icon">
+                🌍
+            </div>
+
+            <h3>
+                Klimaschutz
+            </h3>
+
+            <p>
+
+                Resiliente Lösungen für Städte,
+                Regionen und Umwelt.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     KONTAKT
+================================================== -->
+
+<section class="contact-section">
+
+    <div class="contact-box">
+
+        <h2>
+            Sie möchten mit uns in Kontakt treten?
+        </h2>
+
+
+        <p>
+
+            Wir freuen uns über Anfragen zu Forschungsprojekten,
+            Kooperationen, innovativen Technologien und
+            nachhaltigen Lösungen in der Wasser- und
+            Kreislaufwirtschaft.
+
+        </p>
+
+
+        <a
+            class="contact-link"
+            href="mailto:breitenkamp@isah.uni-hannover.de"
+        >
+
+            Kontakt aufnehmen
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+    <h3>
+
+        EAU – Entwicklungsinstitut für angewandten Umweltschutz gUG iG
+
+    </h3>
+
+
+    <p>
+
+        Forschung. Transfer. Anwendung.
+
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="kontakt.html">
+            Kontakt & Impressum
+        </a>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
+```
 
